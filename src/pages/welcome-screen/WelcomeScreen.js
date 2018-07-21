@@ -7,7 +7,7 @@ import WelcomeButton from './WelcomeButton';
 export default class WelcomeScreen extends Component {
   constructor(props) {
     super(props); 
-    this.state={
+    this.state = {
       screenStatus: 'Welcome' // Can be login, welcome, learnBook, learnLesson, etc.
     }
     this.screenStatusChange = this.screenStatusChange.bind(this);
@@ -20,7 +20,7 @@ export default class WelcomeScreen extends Component {
   render() {
     return (
       <div className="App">
-        <TitleBar title = {this.state.screenStatus} color = "green"/>
+        <TitleBar title = {this.state.screenStatus} color = "gray"/>
         <br/>
         <WelcomeButton handleClick = {this.screenStatusChange} color = 'purple' text = 'Learn' newLink = '/Learn'/>
         <WelcomeButton handleClick = {this.screenStatusChange} color = 'turquoise' text = 'Practice' newLink = '/Practice'/>
