@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import WelcomeScreen from "./pages/welcome-screen/WelcomeScreen"
 import LearnBookScreen from "./pages/learn/LearnBookScreen"
 import LearnLessonScreen from "./pages/learn/LearnLessonScreen"
+import LearningScreen from "./pages/learn/LearningScreens/LearningScreen"
+import NotFound from "./pages/NotFound"
 
 import {
     BrowserRouter as Router,
@@ -25,8 +27,8 @@ export default class Switcher extends Component {
             the first phase. */}
             <Route exact path = "/" component = {WelcomeScreen}/>
             <Route exact path = "/Learn" component = {LearnBookScreen}/>
-            <Route path = "/Learn/:book" component = {LearnLessonScreen}/>
-            {/* <Route path = "/Learn/:book/:lesson>" component = {}/> */}
+            <Route path = "/Learn/:Book" component = {LearnLessonScreen}/>
+            <Route path = "/Learn/:book/:lesson>" component = {LearningScreen}/>
             {/* <Route path = "/Learn/Book2" component = {LearnLessonScreen}/>
              Maybe change to /Learn/:book later or something to have placeholders */}
             
