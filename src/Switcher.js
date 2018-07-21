@@ -13,7 +13,6 @@ import {
 } from 'react-router-dom'
 
 export default class Switcher extends Component {
-
     // componentWillMount () {
     //     document.location.href = 'https://localhost:3000/'
     // } 
@@ -27,8 +26,8 @@ export default class Switcher extends Component {
             the first phase. */}
             <Route exact path = "/" component = {WelcomeScreen}/>
             <Route exact path = "/Learn" component = {LearnBookScreen}/>
-            <Route path = "/Learn/:Book" component = {LearnLessonScreen}/>
-            <Route path = "/Learn/:book/:lesson>" component = {LearningScreen}/>
+            <Route exact path = "/Learn/:Book" component = {LearnLessonScreen}/>
+            <Route exact path = "/Learn/:Book/:Lesson" component = {LearningScreen}/>
             {/* <Route path = "/Learn/Book2" component = {LearnLessonScreen}/>
              Maybe change to /Learn/:book later or something to have placeholders */}
             
