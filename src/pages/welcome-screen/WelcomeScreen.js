@@ -23,8 +23,11 @@ export default class WelcomeScreen extends Component {
         <TitleBar title = {this.state.screenStatus} color = "green"/>
         <br/>
         <WelcomeButton handleClick = {this.screenStatusChange} color = 'purple' text = 'Learn' newLink = '/Learn'/>
+        <br/>
         <WelcomeButton handleClick = {this.screenStatusChange} color = 'turquoise' text = 'Practice' newLink = '/Practice'/>
+        <br/>
         <WelcomeButton handleClick = {this.screenStatusChange} color = 'orange' text = 'Compete' newLink = '/Compete'/>
+        <br/>
       </div>
     );
   }
