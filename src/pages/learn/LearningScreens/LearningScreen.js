@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import TitleBar from './TitleBarTemp'
 
 import {
   BrowserRouter as Router,
@@ -36,7 +35,13 @@ const EssayWriting = () => {
 class SideNav extends Component {
   render () {
     return (
-  <NavLink to = "/Learn/Book/Lesson/Vocabulary">Vocabulary</NavLink>
+      <div>
+        {/* <NavLink to = "/Learn/Book/Lesson/">Video</NavLink>
+        <NavLink to = "/Learn/Book/Lesson/Vocabulary">Vocabulary</NavLink>
+        <NavLink to = "/Learn/Book/Lesson/Blanks">Fill in the Blanks</NavLink>
+        <NavLink to = "/Learn/Book/Lesson/SentenceCreation">Sentence Creation</NavLink>
+        <NavLink to = "/Learn/Book/Lesson/EssayWriting">Essay Writing</NavLink> */}
+      </div>
   )
 }
 }
@@ -48,8 +53,7 @@ export default class LearningScreen extends Component {
      
     
        <div>
-         <TitleBar title = "Learning Lessson" color= "purple"/>
-         {/* <SideNav/> */}
+         <SideNav/>
          <Router>
            <Switch>
              <Route path = "/:learn/:book/:lesson/" component={Video}/>
