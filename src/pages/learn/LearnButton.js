@@ -12,7 +12,6 @@ export default class LearnButton extends Component {
   constructor(props) {
     super(props);
   }
-  
 
   render() {
     return (

@@ -1,5 +1,5 @@
 // Problem on Button.js this.props.handleClick
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import TitleBar from '../TitleBar';
 import WelcomeButton from './WelcomeButton';
 //import './App.css';
