@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import WelcomeScreen from "./pages/welcome-screen/WelcomeScreen"
 import LearnBookScreen from "./pages/learn/LearnBookScreen"
 import LearnLessonScreen from "./pages/learn/LearnLessonScreen"
-import LearningScreen from "./pages/learn/LearningScreens/LearningScreen"
+import LearningScreen from "./pages/learn/LearningScreen"
 import NotFound from "./pages/NotFound"
 
 import {
