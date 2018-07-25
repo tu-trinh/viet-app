@@ -20,7 +20,7 @@ export default class WelcomeScreen extends Component {
   render() {
     return (
       <div className="App">
-        <TitleBar title = {this.state.screenStatus} color = "gray"/>
+        <TitleBar title = {this.state.screenStatus} color = "green"/>
         <br/>
         <WelcomeButton handleClick = {this.screenStatusChange} color = 'purple' text = 'Learn' newLink = '/Learn'/>
         <br/>
