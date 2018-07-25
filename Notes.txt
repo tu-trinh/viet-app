@@ -8,7 +8,15 @@ Minh:
 Ask - How to make Responsive (bootstrap or nah)
 
 Chi Tu:
-Finish Exercises - put in static tags, ie <input/>, <text area/>
+Finish Exercises - put in static tags, ie <input/>, <text area/> ✿
+*Did some CSS as well ✿
+*Changed links to make consistent ✿
+
+De Bugg:
+All lesson links currently link to Lesson 1
+
+Next To Do:
+Back buttons (to previous heading and to previous previous heading)
 
 How to Program a Self-Driving Car
 if (aboutToHitStuff) {

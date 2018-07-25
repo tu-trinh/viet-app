@@ -15,13 +15,15 @@ export default class LearnLessonScreen extends Component {
     return (
       <div className="App">
         <TitleBar title = {this.state.screenStatus} color = "purple"/>
-        <LearnButton newLink = "/Learn/Book/Lesson1/Video" text = "Lesson 1"/>
+        <h2>Your Lessons</h2>
         <br/>
-        <LearnButton newLink = "/Learn/Book/Lesson2/Video" text = "Lesson 2"/>
+        <LearnButton newLink = "/Learn/Book1/Lesson1/Video" text = "Lesson 1"/>
         <br/>
-        <LearnButton newLink = "/Learn/Book/Lesson3/Video" text = "Lesson 3"/>
+        <LearnButton newLink = "/Learn/Book1/Lesson2/Video" text = "Lesson 2"/>
         <br/>
-        <LearnButton newLink = "/Learn/Book/Lesson4/Video" text = "Lesson 4"/>
+        <LearnButton newLink = "/Learn/Book1/Lesson3/Video" text = "Lesson 3"/>
+        <br/>
+        <LearnButton newLink = "/Learn/Book1/Lesson4/Video" text = "Lesson 4"/>
         <br/>
       </div>
     );

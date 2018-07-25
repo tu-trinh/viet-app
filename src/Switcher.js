@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import WelcomeScreen from "./pages/welcome-screen/WelcomeScreen"
+import WelcomeScreen from "./pages/welcome/WelcomeScreen"
 import LearnBookScreen from "./pages/learn/LearnBookScreen"
 import LearnLessonScreen from "./pages/learn/LearnLessonScreen"
 import ExerciseScreen from "./pages/learn/ExerciseScreen"

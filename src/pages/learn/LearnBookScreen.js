@@ -15,6 +15,7 @@ export default class LearnBookScreen extends Component {
     return (
       <div className="App">
         <TitleBar title = {this.state.screenStatus} color = "purple"/>
+        <h2>Your Books</h2>
         <br/>
         <LearnButton newLink = "Learn/Book1" text = "Book 1"/>
         <br/>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 export default class TitleBar extends Component {
   constructor(props) {
@@ -8,7 +8,7 @@ export default class TitleBar extends Component {
   render() {
     return (
       // Style will be changed later to be dynamic
-      <div className="TitleBar" style  = {{backgroundColor: this.props.color, textAlign: 'center'}}>
+      <div className="TitleBar" style  = {{backgroundColor: this.props.color, textAlign: 'center', color: 'white'}}>
         <h1>{this.props.title}</h1>
       </div>
     );
