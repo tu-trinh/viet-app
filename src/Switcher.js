@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import WelcomeScreen from "./pages/welcome-screen/WelcomeScreen"
 import LearnBookScreen from "./pages/learn/LearnBookScreen"
 import LearnLessonScreen from "./pages/learn/LearnLessonScreen"
-import LearningScreen from "./pages/learn/LearningScreen"
+import ExerciseScreen from "./pages/learn/ExerciseScreen"
 import NotFound from "./pages/NotFound"
 
 import {
     BrowserRouter as Router,
     Route,
     Switch
-
 } from 'react-router-dom'
 
 export default class Switcher extends Component {
@@ -27,11 +26,9 @@ export default class Switcher extends Component {
             <Route exact path = "/" component = {WelcomeScreen}/>
             <Route exact path = "/Learn" component = {LearnBookScreen}/>
             <Route exact path = "/Learn/:Book" component = {LearnLessonScreen}/>
-            <Route exact path = "/Learn/:Book/:Lesson" component = {LearningScreen}/>
+            <Route exact path = "/Learn/:Book/:Lesson/:Exercise" component = {ExerciseScreen}/>
             {/* <Route path = "/Learn/Book2" component = {LearnLessonScreen}/>
              Maybe change to /Learn/:book later or something to have placeholders */}
-            
-
           </Switch>
         </Router>
         )

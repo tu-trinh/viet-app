@@ -1,0 +1,16 @@
+Questions:
+How to add to a link instead of replacing it
+How to convert this into a React Native app
+How to make this compatible with mobile browser and desktop browser
+
+To Do 7/25/18:
+Minh:
+Ask - How to make Responsive (bootstrap or nah)
+
+Chi Tu:
+Finish Exercises - put in static tags, ie <input/>, <text area/>
+
+How to Program a Self-Driving Car
+if (aboutToHitStuff) {
+    dont();
+};
