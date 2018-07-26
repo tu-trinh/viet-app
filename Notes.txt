@@ -12,8 +12,14 @@ Finish Exercises - put in static tags, ie <input/>, <text area/> ✿
 *Did some CSS as well ✿
 *Changed links to make consistent ✿
 
-De Bugg:
+Improve:
 All lesson links currently link to Lesson 1
+
+
+ToDo for 7/26:
+Minh: Back Buttons
+
+Chi Tu: Submit Forms, form required
 
 Next To Do:
 Back buttons (to previous heading and to previous previous heading)
