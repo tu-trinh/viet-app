@@ -39,39 +39,63 @@ const Vocab = () => {
       <ul>
         <li> Sound 1
           <ul> Vocab word 1 </ul>
-          <ul> Vocab word 1 </ul>
-          <ul> Vocab word 1 </ul>
+          <ul> Vocab word 2 </ul>
+          <ul> Vocab word 3 </ul>
         </li>
         <li> Sound 2
           <ul> Vocab word 1 </ul>
-          <ul> Vocab word 1 </ul>
-          <ul> Vocab word 1 </ul>
+          <ul> Vocab word 2 </ul>
+          <ul> Vocab word 3 </ul>
         </li>
         <li> Sound 3
           <ul> Vocab word 1 </ul>
-          <ul> Vocab word 1 </ul>
-          <ul> Vocab word 1 </ul>
+          <ul> Vocab word 2 </ul>
+          <ul> Vocab word 3 </ul>
         </li>
       </ul>
     </div>
     )
 }
 
-const Blanks = () => {
-  return (
-    <div>
-      <TitleBar title='Lesson 1' color='purple'/>
-      <SideNav currentTab = 'blanks'/>
-      <h2>Fill in the Blank</h2>
-      <h3>Word Bank</h3>
-      <p><strong>Word1          Word2          Word3</strong></p>
-      <ol>
-        <li> Blank 1 <input type = 'text'/>.</li>
-        <li> Blank 2 <input type = 'text'/>.</li>
-        <li> Blank 3 <input type = 'text'/>.</li>
-      </ol>
-    </div>
+class Blanks extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {blank1: '', blank2: '', blank3: '', noSubmit: true};
+    this.handleChange1 = this.handleChange1.bind(this);
+    this.handleChange2 = this.handleChange2.bind(this);
+    this.handleChange3 = this.handleChange3.bind(this);
+  }
+  handleChange1(e) {
+    this.setState({blank1: e.target.value});
+  }
+  handleChange2(e) {
+    this.setState({blank2: e.target.value});
+  }
+  handleChange3(e) {
+    this.setState({blank3: e.target.value});
+  }
+  componentWillUpdate(nextState) {
+    nextState.noSubmit = !(nextState.blank1 && nextState.blank2 && nextState.blank3);
+  }
+  render() {
+    return (
+      <div>
+        <TitleBar title='Lesson 1' color='purple'/>
+        <SideNav currentTab = 'blanks'/>
+        <h2>Fill in the Blank</h2>
+        <h3>Word Bank</h3>
+        <p><strong>Word1          Word2          Word3</strong></p>
+        <form>
+          <ol>
+            <li> Blank 1 <input type = 'text' value = {this.state.blank1} onChange = {this.handleChange1} required/>.</li>
+            <li> Blank 2 <input type = 'text' value = {this.state.blank2} onChange = {this.handleChange2} required/>.</li>
+            <li> Blank 3 <input type = 'text' value = {this.state.blank3} onChange = {this.handleChange3} required/>.</li>
+            <button type = 'submit' disabled = {this.state.noSubmit}>Submit</button>
+          </ol>
+        </form>
+      </div>
     )
+  }
 }
 
 const SentenceCreation = () => {
@@ -81,9 +105,9 @@ const SentenceCreation = () => {
       <SideNav currentTab = 'sentence'/>
       <h2>Create Your Own Sentences</h2>
       <ol>
-        <li><strong>(Word 1) </strong><input type = 'text' size = '50'/></li>
-        <li><strong>(Word 2) </strong><input type = 'text' size = '50'/></li>
-        <li><strong>(Word 3) </strong><input type = 'text' size = '50'/></li>
+        <li><strong>(Word 1) </strong><input type = 'text' size = '50' required/></li>
+        <li><strong>(Word 2) </strong><input type = 'text' size = '50' required/></li>
+        <li><strong>(Word 3) </strong><input type = 'text' size = '50' required/></li>
       </ol>
     </div>
   )
@@ -96,7 +120,7 @@ const EssayWriting = () => {
       <SideNav currentTab = 'essay'/>
       <h2>Write a Short Essay</h2>
       <h3>Prompt: If you are waiting for your food at a restaurant, does that not make you the waiter?</h3>
-      <textarea rows='20' cols='60' placeholder = 'Write your essay here'/>
+      <textarea rows='20' cols='60' placeholder = 'Write your essay here' required/>
     </div>
   )
 }
