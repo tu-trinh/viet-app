@@ -12,11 +12,11 @@ Help with floating keyboard
 
 Chi Tu:
 Floating keyboard
-Error message when you can't submit
-Lo hace Viet
+Link to specific times in video
 
 De Bugg:
 All lesson links currently link to Lesson 1
+Floating keyboard VietKey would have to render a component for every special character :O
 
 General:
 Style text boxes
@@ -28,7 +28,6 @@ Database - school, class student, book, question IDs
 Load lessons as HTML fragments
 
 Video:
-Links to video times for each exercise
 
 Vocab:
 Pronunciation clip for vocab
