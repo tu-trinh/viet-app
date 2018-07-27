@@ -27,7 +27,7 @@ Style text boxes
 Student cannot change after submitting
 Make teacher version for grading
 Pronunciation clip for vocab
-Make "forms" required
+Make "forms" required ✿
 Link to video times
 Automatic grading
 
