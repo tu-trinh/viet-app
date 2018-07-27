@@ -78,6 +78,7 @@ class Blanks extends Component {
     nextState.submitDisabled = !(nextState.blank1 && nextState.blank2 && nextState.blank3);
   }
   render() {
+    const {blank1, blank2, blank3} = this.state;
     return (
       <div>
         <TitleBar title='Lesson 1' color='purple'/>
@@ -87,10 +88,10 @@ class Blanks extends Component {
         <p><strong>Word1          Word2          Word3</strong></p>
         <form>
           <ol>
-            <li> Blank 1 <input type = 'text' value = {this.state.blank1} onChange = {this.handleChange1} />.</li>
-            <li> Blank 2 <input type = 'text' value = {this.state.blank2} onChange = {this.handleChange2} />.</li>
-            <li> Blank 3 <input type = 'text' value = {this.state.blank3} onChange = {this.handleChange3} />.</li>
-            <button type = 'submit' disabled = {this.state.submitDisabled} backgroundColor = 'green'>Submit</button>
+            <li> Blank 1 <input type = 'text' value = {blank1} onChange = {this.handleChange1} />.</li>
+            <li> Blank 2 <input type = 'text' value = {blank2} onChange = {this.handleChange2} />.</li>
+            <li> Blank 3 <input type = 'text' value = {blank3} onChange = {this.handleChange3} />.</li>
+            <button type = 'submit' disabled = {this.state.submitDisabled} style = {{backgroundColor: 'green'}}>Submit</button>
           </ol>
         </form>
       </div>
@@ -119,6 +120,7 @@ class SentenceCreation extends Component {
     nextState.submitDisabled = !(nextState.sentence1 && nextState.sentence2 && nextState.sentence3);
   }
   render() {
+    const {sentence1, sentence2, sentence3} = this.state;
     return (
       <div>
         <TitleBar title = 'Lesson 1' color = 'purple'/>
@@ -126,10 +128,10 @@ class SentenceCreation extends Component {
         <h2>Create Your Own Sentences</h2>
         <form>
           <ol>
-            <li><strong>(Word 1) </strong><input type = 'text' size = '50' value = {this.state.sentence1} onChange = {this.handleChange1} /></li>
-            <li><strong>(Word 2) </strong><input type = 'text' size = '50' value = {this.state.sentence2} onChange = {this.handleChange2} /></li>
-            <li><strong>(Word 3) </strong><input type = 'text' size = '50' value = {this.state.sentence3} onChange = {this.handleChange3} /></li>
-            <button type = 'submit' disabled = {this.state.submitDisabled} backgroundColor = 'green'>Submit</button>
+            <li><strong>(Word 1) </strong><input type = 'text' size = '50' value = {sentence1} onChange = {this.handleChange1} /></li>
+            <li><strong>(Word 2) </strong><input type = 'text' size = '50' value = {sentence2} onChange = {this.handleChange2} /></li>
+            <li><strong>(Word 3) </strong><input type = 'text' size = '50' value = {sentence3} onChange = {this.handleChange3} /></li>
+            <button type = 'submit' disabled = {this.state.submitDisabled} style = {{backgroundColor: 'green'}}>Submit</button>
           </ol>
         </form>
       </div>
@@ -140,7 +142,7 @@ class SentenceCreation extends Component {
 class EssayWriting extends Component {
   constructor(props) {
     super(props);
-    this.setState = {essay: '', submitDisabled: true};
+    this.state = {essay: '', submitDisabled: true};
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(e) {
@@ -150,6 +152,7 @@ class EssayWriting extends Component {
     nextState.submitDisabled = !(nextState.essay);
   }
   render() {
+    const {essay} = this.state;
     return (
       <div>
         <TitleBar title = 'Lesson 1' color = 'purple'/>
@@ -157,8 +160,8 @@ class EssayWriting extends Component {
         <h2>Write a Short Essay</h2>
         <h3>Prompt: If you are waiting for your food at a restaurant, does that not make you the waiter?</h3>
         <form>
-          <textarea rows='20' cols='60' placeholder = 'Write your essay here' value = {this.state.essay} onChange = {this.handleChange} />
-          <button type = 'submit' disabled = {this.state.submitDisabled} backgroundColor = 'green'>Submit</button>
+          <textarea rows='20' cols='60' placeholder = 'Write your essay here' value = {essay} onChange = {this.handleChange} />
+          <button type = 'submit' disabled = {this.state.submitDisabled} style = {{backgroundColor: 'green'}}>Submit</button>
         </form>
       </div>
     )
