@@ -60,7 +60,7 @@ const Vocab = () => {
 class Blanks extends Component {
   constructor(props) {
     super(props);
-    this.state = {blank1: '', blank2: '', blank3: '', noSubmit: true};
+    this.state = {blank1: '', blank2: '', blank3: '', submitDisabled: true};
     this.handleChange1 = this.handleChange1.bind(this);
     this.handleChange2 = this.handleChange2.bind(this);
     this.handleChange3 = this.handleChange3.bind(this);
@@ -74,8 +74,8 @@ class Blanks extends Component {
   handleChange3(e) {
     this.setState({blank3: e.target.value});
   }
-  componentWillUpdate(nextState) {
-    nextState.noSubmit = !(nextState.blank1 && nextState.blank2 && nextState.blank3);
+  componentWillUpdate(nextProps, nextState) {
+    nextState.submitDisabled = !(nextState.blank1 && nextState.blank2 && nextState.blank3);
   }
   render() {
     return (
@@ -87,10 +87,10 @@ class Blanks extends Component {
         <p><strong>Word1          Word2          Word3</strong></p>
         <form>
           <ol>
-            <li> Blank 1 <input type = 'text' value = {this.state.blank1} onChange = {this.handleChange1} required/>.</li>
-            <li> Blank 2 <input type = 'text' value = {this.state.blank2} onChange = {this.handleChange2} required/>.</li>
-            <li> Blank 3 <input type = 'text' value = {this.state.blank3} onChange = {this.handleChange3} required/>.</li>
-            <button type = 'submit' disabled = {this.state.noSubmit}>Submit</button>
+            <li> Blank 1 <input type = 'text' value = {this.state.blank1} onChange = {this.handleChange1} />.</li>
+            <li> Blank 2 <input type = 'text' value = {this.state.blank2} onChange = {this.handleChange2} />.</li>
+            <li> Blank 3 <input type = 'text' value = {this.state.blank3} onChange = {this.handleChange3} />.</li>
+            <button type = 'submit' disabled = {this.state.submitDisabled} backgroundColor = 'green'>Submit</button>
           </ol>
         </form>
       </div>
@@ -98,31 +98,71 @@ class Blanks extends Component {
   }
 }
 
-const SentenceCreation = () => {
-  return (
-    <div>
-      <TitleBar title = 'Lesson 1' color = 'purple'/>
-      <SideNav currentTab = 'sentence'/>
-      <h2>Create Your Own Sentences</h2>
-      <ol>
-        <li><strong>(Word 1) </strong><input type = 'text' size = '50' required/></li>
-        <li><strong>(Word 2) </strong><input type = 'text' size = '50' required/></li>
-        <li><strong>(Word 3) </strong><input type = 'text' size = '50' required/></li>
-      </ol>
-    </div>
-  )
+class SentenceCreation extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {sentence1: '', sentence2: '', sentence3: '', submitDisabled: true};
+    this.handleChange1 = this.handleChange1.bind(this);
+    this.handleChange2 = this.handleChange2.bind(this);
+    this.handleChange3 = this.handleChange3.bind(this);
+  }
+  handleChange1(e) {
+    this.setState({sentence1: e.target.value});
+  }
+  handleChange2(e) {
+    this.setState({sentence2: e.target.value});
+  }
+  handleChange3(e) {
+    this.setState({sentence3: e.target.value});
+  }
+  componentWillUpdate(nextProps, nextState) {
+    nextState.submitDisabled = !(nextState.sentence1 && nextState.sentence2 && nextState.sentence3);
+  }
+  render() {
+    return (
+      <div>
+        <TitleBar title = 'Lesson 1' color = 'purple'/>
+        <SideNav currentTab = 'sentence'/>
+        <h2>Create Your Own Sentences</h2>
+        <form>
+          <ol>
+            <li><strong>(Word 1) </strong><input type = 'text' size = '50' value = {this.state.sentence1} onChange = {this.handleChange1} /></li>
+            <li><strong>(Word 2) </strong><input type = 'text' size = '50' value = {this.state.sentence2} onChange = {this.handleChange2} /></li>
+            <li><strong>(Word 3) </strong><input type = 'text' size = '50' value = {this.state.sentence3} onChange = {this.handleChange3} /></li>
+            <button type = 'submit' disabled = {this.state.submitDisabled} backgroundColor = 'green'>Submit</button>
+          </ol>
+        </form>
+      </div>
+    )
+  }
 }
 
-const EssayWriting = () => {
-  return (
-    <div>
-      <TitleBar title = 'Lesson 1' color = 'purple'/>
-      <SideNav currentTab = 'essay'/>
-      <h2>Write a Short Essay</h2>
-      <h3>Prompt: If you are waiting for your food at a restaurant, does that not make you the waiter?</h3>
-      <textarea rows='20' cols='60' placeholder = 'Write your essay here' required/>
-    </div>
-  )
+class EssayWriting extends Component {
+  constructor(props) {
+    super(props);
+    this.setState = {essay: '', submitDisabled: true};
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(e) {
+    this.setState({essay: e.target.value});
+  }
+  componentWillUpdate(nextProps, nextState) {
+    nextState.submitDisabled = !(nextState.essay);
+  }
+  render() {
+    return (
+      <div>
+        <TitleBar title = 'Lesson 1' color = 'purple'/>
+        <SideNav currentTab = 'essay'/>
+        <h2>Write a Short Essay</h2>
+        <h3>Prompt: If you are waiting for your food at a restaurant, does that not make you the waiter?</h3>
+        <form>
+          <textarea rows='20' cols='60' placeholder = 'Write your essay here' value = {this.state.essay} onChange = {this.handleChange} />
+          <button type = 'submit' disabled = {this.state.submitDisabled} backgroundColor = 'green'>Submit</button>
+        </form>
+      </div>
+    )
+  }
 }
 
 
