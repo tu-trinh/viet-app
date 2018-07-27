@@ -2,25 +2,27 @@ Questions:
 How to add to a link instead of replacing it
 How to convert this into a React Native app
 How to make this compatible with mobile browser and desktop browser
+How to make Responsive (bootstrap or nah)
+When we gon learn how to submit to a database
 
 Current To Do:
 Minh:
-Ask - How to make Responsive (bootstrap or nah)
+Mako backo butts ( ͡° ͜ʖ ͡°)
+Help with floating keyboard
 
 Chi Tu:
+Floating keyboard
+Error message when you can't submit
+Lo hace Viet
 
 De Bugg:
 All lesson links currently link to Lesson 1
 
 General:
-Back buttons (to previous heading and to previous previous heading)
 Style text boxes
 Student cannot change after submitting
 Make teacher version for grading
 Automatic grading
-Error message when you can't submit
-Lo hace Viet
-Floating Viet keyboard
 Admin interface
 Database - school, class student, book, question IDs
 Load lessons as HTML fragments
@@ -35,6 +37,7 @@ Blanks:
 Word bank suggestions: show/hide, character hints
 Drag to fill blanks
 Customizable blanks (teacher creation) - markers
+Write algorithms to render exercises - use word to test
 
 Sentences:
 
