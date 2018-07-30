@@ -1,4 +1,37 @@
+﻿MAIN QUESTIONS:
+NEW: How to sync from GitHub to Heroku? Heroku tutorial?
+In class u mentioned about syncing the remote repository. Do we have to use a third party service like CS?
+To sync code, should we use code shift?
+
+Database organization and design - should we dump down our data or split it up in multiple collections? Why do we need to split?
+For extra information, do we save it to the same collection?
+How to do Primary and Foreign Key
+depends on how many ppl
+extra info - if its nosql then dont separate
+
+
+What free hosting service to use to deploy react and react native for continuous development
+heroku
+react native needs liscence
+
+why do we need staging? Give an example. staging for review, if u test locally, it mght fail, can connect stage
+
+
+How to build an app for both react and react native?
+1. Web app Responsive this
+2. Web App and separate layout for mobile
+3. Web and native this - must do manual
+
+When do we use redux or MobX, as stated in Shoutem? Mobx is experimental so just redux
+
+Any official RN tutorials? Wess boss Coding train - ai tho Tyler mcginnis
+react router guy
+
+Should I use shoutem UI toolkits? no
+
+
 Questions:
+What hosting service or company to use to host the website and code? Host code where - Free plz? How to deploy changes?
 How to add to a link instead of replacing it
 How to convert this into a React Native app
 How to make this compatible with mobile browser and desktop browser
