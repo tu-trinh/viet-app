@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import TitleBar from '../TitleBar.js'
 import {
   BrowserRouter,

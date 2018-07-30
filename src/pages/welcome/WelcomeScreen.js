@@ -8,7 +8,7 @@ export default class WelcomeScreen extends Component {
   constructor(props) {
     super(props); 
     this.state = {
-      screenStatus: 'Welcome' // Can be login, welcome, learnBook, learnLesson, etc.
+      screenStatus: 'Xin chào!' // Can be login, welcome, learnBook, learnLesson, etc.
     }
     this.screenStatusChange = this.screenStatusChange.bind(this);
   }
@@ -22,11 +22,11 @@ export default class WelcomeScreen extends Component {
       <div className="App">
         <TitleBar title = {this.state.screenStatus} color = "green"/>
         <br/>
-        <WelcomeButton handleClick = {this.screenStatusChange} color = 'purple' text = 'Learn' newLink = '/Learn'/>
+        <WelcomeButton handleClick = {this.screenStatusChange} color = 'purple' text = 'Học' newLink = '/Learn'/>
         <br/>
-        <WelcomeButton handleClick = {this.screenStatusChange} color = 'turquoise' text = 'Practice' newLink = '/Practice'/>
+        <WelcomeButton handleClick = {this.screenStatusChange} color = 'turquoise' text = 'Tập' newLink = '/Practice'/>
         <br/>
-        <WelcomeButton handleClick = {this.screenStatusChange} color = 'orange' text = 'Compete' newLink = '/Compete'/>
+        <WelcomeButton handleClick = {this.screenStatusChange} color = 'orange' text = 'Thi' newLink = '/Compete'/>
         <br/>
       </div>
     );

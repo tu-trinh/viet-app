@@ -4,13 +4,14 @@ import {
   Route,
   Switch,
   NavLink
-} from 'react-router-dom'
-import TitleBar from '../TitleBar'
+} from 'react-router-dom';
+import TitleBar from '../TitleBar';
+import VietKey from '../VietKey';
 
 const Video = () => {
   return(
     <div>
-      <TitleBar title='Lesson 1' color='purple'/>
+      <TitleBar title='Bài 1' color='purple'/>
       <SideNav currentTab = 'video'/>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/XwdqfH-wRkY" ></iframe>
     </div>
@@ -20,37 +21,37 @@ const Video = () => {
 const Vocab = () => {
     return (
     <div>
-      <TitleBar title='Lesson 1' color='purple'/>
+      <TitleBar title='Bài 1' color='purple'/>
       <SideNav currentTab = 'vocab'/>
-      <h2>Vocabulary for This Lesson</h2>
-      <h3>Reading Vocab</h3>
+      <h2>Từ Ngữ Trong Bài Này</h2>
+      <h3>Chữ Trong Bài Đọc</h3>
       <ul>
-        <li> Vocab word 1 </li>
-        <li> Vocab word 2 </li>
-        <li> Vocab word 3 </li>
+        <li> Chữ 1 </li>
+        <li> Chữ 2 </li>
+        <li> Chữ 3 </li>
       </ul>
-      <h3>Practice Pronunciation</h3>
+      <h3>Học Tiếng</h3>
       <ul>
-        <li> Vocab word 1 </li>
-        <li> Vocab word 2 </li>
-        <li> Vocab word 3 </li>
+        <li> Chữ 1 </li>
+        <li> Chữ 2 </li>
+        <li> Chữ 3 </li>
       </ul>
-      <h3>Phonetics</h3>
+      <h3>Ôn Vần</h3>
       <ul>
-        <li> Sound 1
-          <ul> Vocab word 1 </ul>
-          <ul> Vocab word 2 </ul>
-          <ul> Vocab word 3 </ul>
+        <li> Vần 1
+          <ul> Chữ 1 </ul>
+          <ul> Chữ 2 </ul>
+          <ul> Chữ 3 </ul>
         </li>
-        <li> Sound 2
-          <ul> Vocab word 1 </ul>
-          <ul> Vocab word 2 </ul>
-          <ul> Vocab word 3 </ul>
+        <li> Vần 2
+          <ul> Chữ 1 </ul>
+          <ul> Chữ 2 </ul>
+          <ul> Chữ 3 </ul>
         </li>
-        <li> Sound 3
-          <ul> Vocab word 1 </ul>
-          <ul> Vocab word 2 </ul>
-          <ul> Vocab word 3 </ul>
+        <li> Vần 3
+          <ul> Chữ 1 </ul>
+          <ul> Chữ 2 </ul>
+          <ul> Chữ 3 </ul>
         </li>
       </ul>
     </div>
@@ -81,17 +82,18 @@ class Blanks extends Component {
     const {blank1, blank2, blank3} = this.state;
     return (
       <div>
-        <TitleBar title='Lesson 1' color='purple'/>
+        <TitleBar title='Bài 1' color='purple'/>
         <SideNav currentTab = 'blanks'/>
-        <h2>Fill in the Blank</h2>
-        <h3>Word Bank</h3>
-        <p><strong>Word1          Word2          Word3</strong></p>
+        <VietKey letter = 'â'/>
+        <h2>Điền Vào Chỗ Trống</h2>
+        <h3>Bảng Chữ</h3>
+        <p><strong>Chữ1          Chữ2          Chữ3</strong></p>
         <form>
           <ol>
-            <li> Blank 1 <input type = 'text' value = {blank1} onChange = {this.handleChange1} />.</li>
-            <li> Blank 2 <input type = 'text' value = {blank2} onChange = {this.handleChange2} />.</li>
-            <li> Blank 3 <input type = 'text' value = {blank3} onChange = {this.handleChange3} />.</li>
-            <button type = 'submit' disabled = {this.state.submitDisabled} style = {{backgroundColor: 'green'}}>Submit</button>
+            <li> Chỗ Trống 1 <input type = 'text' value = {blank1} onChange = {this.handleChange1} />.</li>
+            <li> Chỗ Trống 2 <input type = 'text' value = {blank2} onChange = {this.handleChange2} />.</li>
+            <li> Chỗ Trống 3 <input type = 'text' value = {blank3} onChange = {this.handleChange3} />.</li>
+            <button type = 'submit' disabled = {this.state.submitDisabled} style = {{backgroundColor: 'green'}}>Nộp</button>
           </ol>
         </form>
       </div>
@@ -123,15 +125,15 @@ class SentenceCreation extends Component {
     const {sentence1, sentence2, sentence3} = this.state;
     return (
       <div>
-        <TitleBar title = 'Lesson 1' color = 'purple'/>
+        <TitleBar title = 'Bài 1' color = 'purple'/>
         <SideNav currentTab = 'sentence'/>
-        <h2>Create Your Own Sentences</h2>
+        <h2>Đặt Câu</h2>
         <form>
           <ol>
-            <li><strong>(Word 1) </strong><input type = 'text' size = '50' value = {sentence1} onChange = {this.handleChange1} /></li>
-            <li><strong>(Word 2) </strong><input type = 'text' size = '50' value = {sentence2} onChange = {this.handleChange2} /></li>
-            <li><strong>(Word 3) </strong><input type = 'text' size = '50' value = {sentence3} onChange = {this.handleChange3} /></li>
-            <button type = 'submit' disabled = {this.state.submitDisabled} style = {{backgroundColor: 'green'}}>Submit</button>
+            <li><strong>(Chữ 1) </strong><input type = 'text' size = '50' value = {sentence1} onChange = {this.handleChange1} /></li>
+            <li><strong>(Chữ 2) </strong><input type = 'text' size = '50' value = {sentence2} onChange = {this.handleChange2} /></li>
+            <li><strong>(Chữ 3) </strong><input type = 'text' size = '50' value = {sentence3} onChange = {this.handleChange3} /></li>
+            <button type = 'submit' disabled = {this.state.submitDisabled} style = {{backgroundColor: 'green'}}>Nộp</button>
           </ol>
         </form>
       </div>
@@ -155,13 +157,13 @@ class EssayWriting extends Component {
     const {essay} = this.state;
     return (
       <div>
-        <TitleBar title = 'Lesson 1' color = 'purple'/>
+        <TitleBar title = 'Bài 1' color = 'purple'/>
         <SideNav currentTab = 'essay'/>
-        <h2>Write a Short Essay</h2>
-        <h3>Prompt: If you are waiting for your food at a restaurant, does that not make you the waiter?</h3>
+        <h2>Viết Văn</h2>
+        <h3>Đầu Bài: Tại sao con rùa thắng được con thỏ?</h3>
         <form>
-          <textarea rows='20' cols='60' placeholder = 'Write your essay here' value = {essay} onChange = {this.handleChange} />
-          <button type = 'submit' disabled = {this.state.submitDisabled} style = {{backgroundColor: 'green'}}>Submit</button>
+          <textarea rows='20' cols='60' placeholder = 'Viết bài vào đây' value = {essay} onChange = {this.handleChange} />
+          <button type = 'submit' disabled = {this.state.submitDisabled} style = {{backgroundColor: 'green'}}>Nộp</button>
         </form>
       </div>
     )
@@ -194,10 +196,10 @@ class SideNav extends Component {
     return (
       <div>
         <NavLink to = "/Learn/Book1/Lesson1/Video" style = {{backgroundColor: this.state.video}}> Video </NavLink><br/>
-        <NavLink to = "/Learn/Book1/Lesson1/Vocabulary" style = {{backgroundColor: this.state.vocab}}>Vocabulary</NavLink><br/>
-        <NavLink to = "/Learn/Book1/Lesson1/Blanks" style = {{backgroundColor: this.state.blanks}}>Fill in the Blanks</NavLink><br/>
-        <NavLink to = "/Learn/Book1/Lesson1/SentenceCreation" style = {{backgroundColor: this.state.sentence}}>Sentence Creation</NavLink><br/>
-        <NavLink to = "/Learn/Book1/Lesson1/EssayWriting" style = {{backgroundColor: this.state.essay}}>Essay Writing</NavLink><br/>
+        <NavLink to = "/Learn/Book1/Lesson1/Vocabulary" style = {{backgroundColor: this.state.vocab}}>Từ Ngữ</NavLink><br/>
+        <NavLink to = "/Learn/Book1/Lesson1/Blanks" style = {{backgroundColor: this.state.blanks}}>Điền Vào Chỗ Trống</NavLink><br/>
+        <NavLink to = "/Learn/Book1/Lesson1/SentenceCreation" style = {{backgroundColor: this.state.sentence}}>Đặt Câu</NavLink><br/>
+        <NavLink to = "/Learn/Book1/Lesson1/EssayWriting" style = {{backgroundColor: this.state.essay}}>Viết Văn</NavLink><br/>
       </div>
   )
 }
