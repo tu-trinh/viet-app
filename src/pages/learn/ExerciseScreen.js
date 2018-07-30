@@ -209,7 +209,6 @@ export default class ExerciseScreen extends Component {
   render() {
     return (    
        <div>
-         
          <Router>
            <Switch>
              <Route path = "/:learn/:book/:lesson/Video" component={Video}/>
