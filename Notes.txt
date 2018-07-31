@@ -1,4 +1,25 @@
-﻿MAIN QUESTIONS:
+﻿Minh's update:
+Here's what Minh learned and stuff
+- MangoMongoMomMongDB
+- Postman
+- Incorporating Express
+- Mongo is the database lmao
+- Postman is a program where you can make different types of requests to different urls. So if you have a proper path-matching system
+and database input system set up, you can use Postman to SIMULATE requests
+- Some Projects:
+    - Simple Login
+        - VS, Verdi complex, 
+        - Takes input from form field, chucks it into Mongo after compiling and encrypting the stuffz
+        - When u login, it checks if your thing is gucci and then creates a login token, throws that into the header (and Mong)
+        - Shoots that thingy with login token into cookies (yum)
+    - Password Generator API fetching
+        - HS, fetches from front to back back to front
+        - Back end can generate random passwords, throw to front
+- Project organization and flow is a big part
+    - Horizontal Scaling
+    - Vertical Scaling
+
+MAIN QUESTIONS:
 NEW: How to sync from GitHub to Heroku? Heroku tutorial?
 In class u mentioned about syncing the remote repository. Do we have to use a third party service like CS?
 To sync code, should we use code shift?
