@@ -13,6 +13,8 @@ export default class LearnButton extends Component {
     super(props);
   }
 
+  
+
   render() {
     return (
       <NavLink to = {this.props.newLink}> {this.props.text} </NavLink>

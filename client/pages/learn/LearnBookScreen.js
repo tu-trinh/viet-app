@@ -1,14 +1,26 @@
 import React, {Component} from 'react';
 import TitleBar from '../TitleBar';
 import LearnButton from './LearnButton';
+import * as api from '../utils/viet-app-api';
 
 export default class LearnBookScreen extends Component {
   constructor(props) {
     super(props); 
     this.state = {
-      screenStatus: 'Chọn sách giáo khoa'
+      screenStatus: 'Chọn sách giáo khoa',
+      books: []
     }
     // Later, we can change and store recent data so user doesnt have to go thru signin, book, lesson
+  }
+
+  fetchData () {
+    api.getBookData().then((books) => {
+      this.setState({books})
+    })
+  }
+  
+  componentDidMount() {
+    fetchData()
   }
 
   render() {
@@ -17,9 +29,9 @@ export default class LearnBookScreen extends Component {
         <TitleBar title = {this.state.screenStatus} color = "purple"/>
         <h2>Sách Của Bạn</h2>
         <br/>
-        <LearnButton newLink = "Learn/Book1" text = "Sách Cấp 1"/>
+        <LearnButton newLink = {"Learn/" + this.state.books[0]} text = {this.state.books[0]}/>
         <br/>
-        <LearnButton newLink = "Learn/Book2" text = "Sách Cấp 2"/>
+        <LearnButton newLink = {"Learn/" + this.state.books[1]} text = {this.state.books[1]}/>
         <br/>
       </div>
     );
