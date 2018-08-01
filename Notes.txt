@@ -8,7 +8,6 @@ Here's what Minh learned and stuff
 and database input system set up, you can use Postman to SIMULATE requests
 - Some Projects:
     - Simple Login
-        - VS, Verdi complex, 
         - Takes input from form field, chucks it into Mongo after compiling and encrypting the stuffz
         - When u login, it checks if your thing is gucci and then creates a login token, throws that into the header (and Mong)
         - Shoots that thingy with login token into cookies (yum)
