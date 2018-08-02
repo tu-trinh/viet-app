@@ -40,7 +40,10 @@ export default class WelcomeScreen extends Component {
               (isLoggedIn()) ? 
                 ( <button 
                   className="btn btn-danger log"
-                  onClick={() => logout()}>Log out </button> ) 
+                  onClick={() => {
+                    logout();
+                    this.props.history.push('/');
+                  }}>Log out </button> ) 
                   : ( <button className="btn btn-info log"
                   onClick={() => login()}>Log In</button> )
             }

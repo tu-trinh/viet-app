@@ -1,9 +1,9 @@
 import decode from 'jwt-decode';
 import {BrowserRouter} from 'react-router-dom';
 import auth0 from 'auth0-js';
+
 const ID_TOKEN_KEY = 'id_token';
 const ACCESS_TOKEN_KEY = 'access_token';
-
 const CLIENT_ID = 'zZPp1OHnb392igO9QoGxBnJJ2Ct57tGx';
 const CLIENT_DOMAIN = 'mt-at.auth0.com';
 const REDIRECT = 'http://localhost:3000/callback';
@@ -28,7 +28,6 @@ export function login() {
 export function logout() {
   clearIdToken();
   clearAccessToken();
-  BrowserRouter.push('/');
 }
 
 export function requireAuth(nextState, replace) {

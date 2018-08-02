@@ -7,7 +7,7 @@ import LearnBookScreen from "./pages/learn/LearnBookScreen"
 import LearnLessonScreen from "./pages/learn/LearnLessonScreen"
 import ExerciseScreen from "./pages/learn/ExerciseScreen"
 import NotFound from "./pages/NotFound"
-import { requireAuth } from './utils/AuthService';
+import {requireAuth} from './utils/AuthService';
 import {
   BrowserRouter as Router,
   Route,
