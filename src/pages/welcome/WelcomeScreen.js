@@ -3,6 +3,7 @@ import TitleBar from '../TitleBar';
 import WelcomeButton from './WelcomeButton';
 //import './App.css';
 import { login, logout, isLoggedIn } from '../../utils/AuthService';
+import {Link} from 'react-router-dom';
 
 export default class WelcomeScreen extends Component {
   constructor(props) {

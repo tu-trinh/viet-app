@@ -1,14 +1,14 @@
 import decode from 'jwt-decode';
-import {browserHistory} from 'react-router';
+import {BrowserRouter} from 'react-router-dom';
 import auth0 from 'auth0-js';
 const ID_TOKEN_KEY = 'id_token';
 const ACCESS_TOKEN_KEY = 'access_token';
 
 const CLIENT_ID = 'zZPp1OHnb392igO9QoGxBnJJ2Ct57tGx';
-const CLIENT_DOMAIN = 'AUTH0_DOMAIN';
+const CLIENT_DOMAIN = 'mt-at.auth0.com';
 const REDIRECT = 'http://localhost:3000/callback';
-const SCOPE = 'YOUR_SCOPE';
-const AUDIENCE = 'AUDIENCE_ATTRIBUTE';
+const SCOPE = 'Access:app';
+const AUDIENCE = 'https://hoctiengviet.com';
 
 var auth = new auth0.WebAuth({
   clientID: CLIENT_ID,
@@ -28,7 +28,7 @@ export function login() {
 export function logout() {
   clearIdToken();
   clearAccessToken();
-  browserHistory.push('/');
+  BrowserRouter.push('/');
 }
 
 export function requireAuth(nextState, replace) {
