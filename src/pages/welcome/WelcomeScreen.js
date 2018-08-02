@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import TitleBar from '../TitleBar';
 import WelcomeButton from './WelcomeButton';
 //import './App.css';
-import { login, logout, isLoggedIn } from '..../utils/AuthService';
+import { login, logout, isLoggedIn } from '../../utils/AuthService';
 
 export default class WelcomeScreen extends Component {
   constructor(props) {
@@ -24,11 +24,11 @@ export default class WelcomeScreen extends Component {
         <div>
           <ul>
             <li>
-              <Link to="/">Food Jokes</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
               { // replace "/special" with the path to whatever the secured path is
-              ( isLoggedIn() ) ? <Link to="/Learn">Celebrity Jokes</Link> :  ''
+              ( isLoggedIn() ) ? <Link to="/Learn">Learn</Link> :  ''
               }
 
             </li>
@@ -36,11 +36,12 @@ export default class WelcomeScreen extends Component {
           <ul>
             <li>
             {
-              (isLoggedIn()) ? ( <button 
-                                  className="btn btn-danger log"
-                                  onClick={() => logout()}>Log out </button> ) 
-                                  : ( <button className="btn btn-info log"
-                                  onClick={() => login()}>Log In</button> )
+              (isLoggedIn()) ? 
+                ( <button 
+                  className="btn btn-danger log"
+                  onClick={() => logout()}>Log out </button> ) 
+                  : ( <button className="btn btn-info log"
+                  onClick={() => login()}>Log In</button> )
             }
             </li>
           </ul>
