@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import TitleBar from '../TitleBar';
 import LearnButton from './LearnButton';
+import * as api from '../../utils/viet-app-api';
 
 export default class LearnLessonScreen extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ export default class LearnLessonScreen extends Component {
   }
   
   componentDidMount() {
-    fetchData()
+    this.fetchData()
   }
 
   render() {

@@ -25,7 +25,7 @@ export default class VietKey extends Component {
     }
     render() {
         return (
-            <div className = 'VietKey' style = {{position: -webkit-sticky, position: sticky, top: 10, left: 10}}>
+            <div className = 'VietKey' style = {{}}>
                 <button onClick = {this.handleClick}><center>{this.props.letter}</center></button>
             </div>
         )
