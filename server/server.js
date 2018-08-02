@@ -9,17 +9,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
+// JSON Web Token - Token with a special format
 const authCheck = jwt({
   secret: jwks.expressJwtSecret({
         cache: true,
         rateLimit: true,
         jwksRequestsPerMinute: 5,
         // YOUR-AUTH0-DOMAIN name e.g prosper.auth0.com
-        jwksUri: "https://hoctiengviet.com/.well-known/jwks.json"
-    }),
+        jwksUri: "https://hoctiengviet.auth0.com/.well-known/jwks.json"
+    }), // I added the .auth0. above
     // This is the identifier we set when we created the API
     audience: 'https://hoctiengviet.com',
-    issuer: '{YOUR-AUTH0-DOMAIN}',
+    issuer: 'hoctiengviet.auth0.com',
     algorithms: ['RS256']
 });
 
@@ -45,7 +46,7 @@ app.get('/api/:book/lessons', (req, res) => {
     res.json(Lessons);
   })
   
-  app.get('/api/books', (req,res) => {
+  app.get('/api/books', authCheck, (req,res) => {
     let Books = [
         {
             id: 'b01',
