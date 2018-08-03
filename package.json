@@ -6,6 +6,7 @@
     "auth0-js": "^9.7.3",
     "axios": "^0.18.0",
     "body-parser": "^1.15.2",
+    "concurrently": "^3.6.1",
     "cors": "^2.8.1",
     "express": "^4.14.0",
     "express-jwt": "^3.4.0",
@@ -22,7 +23,7 @@
     "redux": "^4.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"cd server && node server.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
