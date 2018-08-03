@@ -70,7 +70,7 @@ Link to specific times in video
 Improve:
 All lesson links currently link to Lesson 1
 Floating keyboard VietKey would have to render a component for every special character :O
-
+how to get user id from auth0
 
 ToDo for 7/26:
 Minh: Back Buttons
