@@ -4,6 +4,8 @@ import WelcomeButton from './WelcomeButton';
 //import './App.css';
 import { login, logout, isLoggedIn } from '../../utils/AuthService';
 import {Link} from 'react-router-dom';
+import Page from '../../Test.html';
+var htmlDoc = {__html: Page};
 
 export default class WelcomeScreen extends Component {
   constructor(props) {
@@ -57,6 +59,7 @@ export default class WelcomeScreen extends Component {
         <br/>
         <WelcomeButton handleClick = {this.screenStatusChange} color = 'orange' text = 'Thi' newLink = '/Compete'/> */}
         <br/>
+        <div dangerouslySetInnerHTML={htmlDoc} />
       </div>
     );
   }

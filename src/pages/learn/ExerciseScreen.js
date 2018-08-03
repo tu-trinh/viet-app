@@ -23,6 +23,7 @@ const Vocab = () => {
     <div>
       <TitleBar title='Bài 1' color='purple'/>
       <SideNav currentTab = 'vocab'/>
+
       <h2>Từ Ngữ Trong Bài Này</h2>
       <h3>Chữ Trong Bài Đọc</h3>
       <ul>
