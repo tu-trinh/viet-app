@@ -4,14 +4,14 @@ import WelcomeButton from './WelcomeButton';
 //import './App.css';
 import { login, logout, isLoggedIn } from '../../utils/AuthService';
 import {Link} from 'react-router-dom';
-import Page from '../../Test.html';
-var htmlDoc = {__html: Page};
+//import Page from '../../Test.html';
+//var htmlDoc = {__html: Page};
 
 export default class WelcomeScreen extends Component {
   constructor(props) {
     super(props); 
     this.state = {
-      screenStatus: 'Xin chào!' // Can be login, welcome, learnBook, learngLesson, etc.
+      screenStatus: 'Welcome!' // Can be login, welcome, learnBook, learngLesson, etc.
     }
     this.screenStatusChange = this.screenStatusChange.bind(this);
   }
@@ -59,7 +59,7 @@ export default class WelcomeScreen extends Component {
         <br/>
         <WelcomeButton handleClick = {this.screenStatusChange} color = 'orange' text = 'Thi' newLink = '/Compete'/> */}
         <br/>
-        <div dangerouslySetInnerHTML={htmlDoc} />
+        {/* <div dangerouslySetInnerHTML={htmlDoc} /> */}
       </div>
     );
   }
