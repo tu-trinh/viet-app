@@ -2,10 +2,12 @@ import React, {Component} from 'react';
 import TitleBar from '../TitleBar';
 import WelcomeButton from './WelcomeButton';
 //import './App.css';
-import { login, logout, isLoggedIn } from '../../utils/AuthService';
+import {login, logout, isLoggedIn} from '../../utils/AuthService';
 import {Link} from 'react-router-dom';
-//import Page from '../../Test.html';
-//var htmlDoc = {__html: Page};
+// import renderHTML from 'react-render-html';
+// import page from '../../Test.html';
+
+import HelloWorldText from '../../TestChild';
 
 export default class WelcomeScreen extends Component {
   constructor(props) {
@@ -23,6 +25,7 @@ export default class WelcomeScreen extends Component {
   render() {
     return (
       <div className="App">
+        <HelloWorldText />
         <TitleBar title = {this.state.screenStatus} color = "green"/>
         <div>
           <ul>
@@ -59,7 +62,10 @@ export default class WelcomeScreen extends Component {
         <br/>
         <WelcomeButton handleClick = {this.screenStatusChange} color = 'orange' text = 'Thi' newLink = '/Compete'/> */}
         <br/>
-        {/* <div dangerouslySetInnerHTML={htmlDoc} /> */}
+        {/* <div>
+          {renderHTML(page)}
+        </div> */}
+        {/* <div dangerouslySetInnerHTML={{__html: page}} /> */}
       </div>
     );
   }
