@@ -6,8 +6,9 @@ import {login, logout, isLoggedIn} from '../../utils/AuthService';
 import {Link} from 'react-router-dom';
 // import renderHTML from 'react-render-html';
 // import page from '../../Test.html';
+// import HelloWorldText from '../../TestChild';
+import CustomEditor from '../../CustomEditor'
 
-import HelloWorldText from '../../TestChild';
 
 export default class WelcomeScreen extends Component {
   constructor(props) {
@@ -25,7 +26,6 @@ export default class WelcomeScreen extends Component {
   render() {
     return (
       <div className="App">
-        <HelloWorldText />
         <TitleBar title = {this.state.screenStatus} color = "green"/>
         <div>
           <ul>
@@ -66,6 +66,7 @@ export default class WelcomeScreen extends Component {
           {renderHTML(page)}
         </div> */}
         {/* <div dangerouslySetInnerHTML={{__html: page}} /> */}
+        <CustomEditor/>
       </div>
     );
   }

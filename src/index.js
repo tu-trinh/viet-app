@@ -23,6 +23,7 @@ ReactDOM.render(
             {/* Note: All files here are currently static; all lessons and books, lead to the same screen.
             We do not have a database of any sort; we can't make fetches to get correct data. This is only
             the first phase. */}
+            <Route exact path = "/testing" component = {WelcomeScreen}/>
             <Route exact path = "/" component = {WelcomeScreen}/>
             <Route exact path = "/Learn/:Book" component = {LearnLessonScreen}/>
             <Route exact path = "/Learn/:Book/:Lesson/:Exercise" component = {ExerciseScreen}/>

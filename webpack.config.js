@@ -24,7 +24,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /plugin\.css$/, loader: "style-loader!css-loader" },
     ]
   },
   entry: {
@@ -44,6 +44,12 @@ module.exports = {
     },
   module: {
     loaders: [
+      {
+        test: /plugin\.css$/,
+        loaders: [
+          'style-loader', 'css',
+        ],
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,

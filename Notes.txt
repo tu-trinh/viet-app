@@ -79,6 +79,8 @@ Chi Tu: Submit Forms, form required
 
 Next To Do:
 Back buttons (to previous heading and to previous previous heading)
+Finish editor
+Save to db
 
 Style text boxes
 Student cannot change after submitting
@@ -91,7 +93,7 @@ Load lessons as HTML fragments
 Video:
 
 Vocab:
-Pronunciation clip for vocab
+Pronunciation clip for vocab (with three accents)
 
 Blanks:
 Word bank suggestions: show/hide, character hints
