@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-
-import Editor, { createEditorStateWithText, composeDecorators } from 'draft-js-plugins-editor';
+import React, { Component } from 'react';
+import {
+  convertFromRaw,
+  EditorState,
+} from 'draft-js';
+import Editor, { composeDecorators } from 'draft-js-plugins-editor';
 import createToolbarPlugin , { Separator }  from 'draft-js-static-toolbar-plugin';
-import { EditorState, convertFromRaw } from 'draft-js';
 import {
   ItalicButton,
   BoldButton,
@@ -22,8 +23,8 @@ import createResizeablePlugin from 'draft-js-resizeable-plugin';
 import createBlockDndPlugin from 'draft-js-drag-n-drop-plugin';
 import createDragNDropUploadPlugin from '@mikeljames/draft-js-drag-n-drop-upload-plugin';
 import editorStyles from './editorStyles.css';
-import 'draft-js-static-toolbar-plugin/lib/plugin.css';
 import mockUpload from './mockUpload';
+import 'draft-js-static-toolbar-plugin/lib/plugin.css';
 
 class HeadlinesPicker extends Component {
   componentDidMount() {
@@ -81,8 +82,8 @@ const toolbarPlugin = createToolbarPlugin({
     BlockquoteButton,
   ]
 });
-
 const { Toolbar } = toolbarPlugin;
+
 const focusPlugin = createFocusPlugin();
 const resizeablePlugin = createResizeablePlugin();
 const blockDndPlugin = createBlockDndPlugin();
@@ -91,78 +92,74 @@ const { AlignmentTool } = alignmentPlugin;
 
 const decorator = composeDecorators(
   resizeablePlugin.decorator,
-  alignmentPlugin.decorator,
-  focusPlugin.decorator,
+  // alignmentPlugin.decorator,
+  // focusPlugin.decorator,
   blockDndPlugin.decorator
 );
+const imagePlugin = createImagePlugin({ decorator });
 
-const imagePlugin = createImagePlugin({decorator});
 const dragNDropFileUploadPlugin = createDragNDropUploadPlugin({
   handleUpload: mockUpload,
   addImage: imagePlugin.addImage,
 });
 
 const plugins = [
-  toolbarPlugin,
   dragNDropFileUploadPlugin,
   blockDndPlugin,
   focusPlugin,
   alignmentPlugin,
   resizeablePlugin,
-  imagePlugin
+  imagePlugin,
+  toolbarPlugin,
 ];
 
-// TEXT initial state
-// const text = 'In this editor a toolbar shows up once you select part of the text …';
-
-// IMG Initial State
-const imgInitialState = {
-  "entityMap": {
-      "0": {
-          "type": "IMAGE",
-          "mutability": "IMMUTABLE",
-          "data": {
-              "src": "https://vignette.wikia.nocookie.net/gameofthrones/images/f/ff/Cersei_2x01b.jpg/revision/latest?cb=20120729114134"
-          }
-      }
-  },
-  "blocks": [{
-      "key": "9gm3s",
-      "text": "You can have images in your text field. This is a very rudimentary example, but you can enhance the image plugin with resizing, focus or alignment plugins.",
-      "type": "unstyled",
-      "depth": 0,
-      "inlineStyleRanges": [],
-      "entityRanges": [],
-      "data": {}
-  }, {
-      "key": "ov7r",
-      "text": " ",
-      "type": "atomic",
-      "depth": 0,
-      "inlineStyleRanges": [],
-      "entityRanges": [{
-          "offset": 0,
-          "length": 1,
-          "key": 0
-      }],
-      "data": {}
-  }, {
-      "key": "e23a8",
-      "text": "See advanced examples further down …",
-      "type": "unstyled",
-      "depth": 0,
-      "inlineStyleRanges": [],
-      "entityRanges": [],
-      "data": {}
-  }]
+/* eslint-disable */
+const initialState = {
+    "entityMap": {
+        "0": {
+            "type": "IMAGE",
+            "mutability": "IMMUTABLE",
+            "data": {
+                "src": "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Melisandre-Carice_van_Houten.jpg/220px-Melisandre-Carice_van_Houten.jpg"
+            }
+        }
+    },
+    "blocks": [{
+        "key": "9gm3s",
+        "text": "You can have images in your text field. This is a very rudimentary example, but you can enhance the image plugin with resizing, focus or alignment plugins.",
+        "type": "unstyled",
+        "depth": 0,
+        "inlineStyleRanges": [],
+        "entityRanges": [],
+        "data": {}
+    }, {
+        "key": "ov7r",
+        "text": " ",
+        "type": "atomic",
+        "depth": 0,
+        "inlineStyleRanges": [],
+        "entityRanges": [{
+            "offset": 0,
+            "length": 1,
+            "key": 0
+        }],
+        "data": {}
+    }, {
+        "key": "e23a8",
+        "text": "See advanced examples further down …",
+        "type": "unstyled",
+        "depth": 0,
+        "inlineStyleRanges": [],
+        "entityRanges": [],
+        "data": {}
+    }]
 };
 /* eslint-enable */
 
-export default class CustomEditor extends Component {
+export default class CustomImageEditor extends Component {
 
   state = {
-    editorState: EditorState.createWithContent(convertFromRaw(imgInitialState)),    
-    // editorState: createEditorStateWithText(text),
+    editorState: EditorState.createWithContent(convertFromRaw(initialState)),
   };
 
   onChange = (editorState) => {
