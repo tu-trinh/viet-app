@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
   convertFromRaw,
+  convertToRaw,
   EditorState,
 } from 'draft-js';
 import Editor, { composeDecorators } from 'draft-js-plugins-editor';
@@ -25,6 +26,7 @@ import createDragNDropUploadPlugin from '@mikeljames/draft-js-drag-n-drop-upload
 import editorStyles from './editorStyles.css';
 import mockUpload from './mockUpload';
 import 'draft-js-static-toolbar-plugin/lib/plugin.css';
+import {stateToHTML} from 'draft-js-export-html';
 
 class HeadlinesPicker extends Component {
   componentDidMount() {
@@ -126,7 +128,7 @@ const initialState = {
     },
     "blocks": [{
         "key": "9gm3s",
-        "text": "You can have images in your text field. This is a very rudimentary example, but you can enhance the image plugin with resizing, focus or alignment plugins.",
+        "text": "This is an example lesson. Happy waiting for GOT season 8! :)",
         "type": "unstyled",
         "depth": 0,
         "inlineStyleRanges": [],
@@ -144,29 +146,28 @@ const initialState = {
             "key": 0
         }],
         "data": {}
-    }, {
-        "key": "e23a8",
-        "text": "See advanced examples further down …",
-        "type": "unstyled",
-        "depth": 0,
-        "inlineStyleRanges": [],
-        "entityRanges": [],
-        "data": {}
     }]
 };
 /* eslint-enable */
 
-export default class CustomImageEditor extends Component {
-
+export default class CustomEditor extends Component {
   state = {
-    editorState: EditorState.createWithContent(convertFromRaw(initialState)),
-  };
+      editorState: EditorState.createWithContent(convertFromRaw(initialState)),
+    };
 
   onChange = (editorState) => {
     this.setState({
       editorState,
     });
+    // console.log(stateToHTML(this.state.editorState.getCurrentContent()));
   };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const actualState = this.state.editorState.getCurrentContent();
+    const rawState = convertToRaw(actualState);
+    console.log(rawState);
+  }
 
   focus = () => {
     this.editor.focus();
@@ -176,14 +177,17 @@ export default class CustomImageEditor extends Component {
     return (
       <div>
         <div className={editorStyles.editor} onClick={this.focus}>
-          <Toolbar />
-          <AlignmentTool />
-          <Editor
-            editorState={this.state.editorState}
-            onChange={this.onChange}
-            plugins={plugins}
-            ref={(element) => { this.editor = element; }}
-          />
+          <form onSubmit = {this.handleSubmit}>
+            <Toolbar />
+            <AlignmentTool />
+            <Editor
+              editorState={this.state.editorState}
+              onChange={this.onChange}
+              plugins={plugins}
+              ref={(element) => { this.editor = element; }}
+            />
+            <button type = 'submit'>Insert</button>
+          </form>
         </div>
       </div>
     );

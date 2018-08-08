@@ -7,6 +7,7 @@ import LearnBookScreen from "./pages/learn/LearnBookScreen"
 import LearnLessonScreen from "./pages/learn/LearnLessonScreen"
 import ExerciseScreen from "./pages/learn/ExerciseScreen"
 import NotFound from "./pages/NotFound"
+import AdminEditor from "./pages/admin/AdminEditor";
 import {requireAuth} from './utils/AuthService';
 import {
   BrowserRouter as Router,
@@ -25,6 +26,7 @@ ReactDOM.render(
             the first phase. */}
             <Route exact path = "/testing" component = {WelcomeScreen}/>
             <Route exact path = "/" component = {WelcomeScreen}/>
+            <Route exact path = "/AdminEditor" component = {AdminEditor}/>
             <Route exact path = "/Learn/:Book" component = {LearnLessonScreen}/>
             <Route exact path = "/Learn/:Book/:Lesson/:Exercise" component = {ExerciseScreen}/>
             <Route path="/Learn" component={LearnBookScreen} onEnter={requireAuth} />

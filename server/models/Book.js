@@ -14,7 +14,7 @@ var LessonSchema = new Schema({
 var BookSchema = new Schema({
   id: String,
   name: String,
-  lessons: [LessonSchema]
+  // lessons: [LessonSchema]
 });
 
 var Book = mongoose.model('Book', BookSchema);

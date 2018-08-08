@@ -88,7 +88,7 @@ class Blanks extends Component {
         <VietKey letter = 'â'/>
         <h2>Fill in the blanks</h2>
         <h3>Word Bank</h3>
-        <p><strong>Dab     |     on     |     haters</strong></p>
+        <p><strong>dab     |     on     |     haters</strong></p>
         <br/><br/>
         <form>
           <ol>

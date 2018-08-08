@@ -1,13 +1,23 @@
+const models = require('./models')
+const Book = models.Book;
+
 const express = require('express');
 const app = express();
 const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/viet-app";
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded()); 
+
+var mongoose = require("mongoose");
+mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/");
 
 /* We’re using express-jwt to create a middleware
 that looks for an incoming JSON Web Token and verifies
@@ -28,7 +38,7 @@ const authCheck = jwt({
     algorithms: ['RS256']
 });
 
-app.get('/api/books', authCheck, (req,res) => {
+app.get('/api/books', authCheck, (req, res) => {
   let Books = [
       {
           id: 'b01',
@@ -63,6 +73,16 @@ app.get('/api/:book/lessons', (req, res) => {
     ];
     res.json(Lessons);
   })
-  
-  app.listen(3007);
-  console.log('Listening on localhost: 3007');
+
+
+// Need to add to specific collection
+// Make post instead of get
+// Create controller
+app.get("/addcontent", (req, res) => {
+  Book.create({id: '123', name: 'Book 3'}, function(err, book) {
+    if (err) res.send(err)
+    else res.json(book)                      
+  })
+});
+
+app.listen(3007, () => {console.log('Listening on port 3007')});

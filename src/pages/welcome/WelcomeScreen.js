@@ -34,9 +34,9 @@ export default class WelcomeScreen extends Component {
             </li>
             <li>
               { // replace "/special" with the path to whatever the secured path is
-              ( isLoggedIn() ) ? <Link to="/Learn">Learn</Link> :  ''
+              ( isLoggedIn() ) ? <div><Link to="/Learn">Learn</Link><br/><Link to="/AdminEditor">Admin Editor</Link></div> :  ''
               }
-
+              
             </li>
           </ul>
           <ul>
@@ -66,7 +66,6 @@ export default class WelcomeScreen extends Component {
           {renderHTML(page)}
         </div> */}
         {/* <div dangerouslySetInnerHTML={{__html: page}} /> */}
-        <CustomEditor/>
       </div>
     );
   }

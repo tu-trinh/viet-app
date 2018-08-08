@@ -32,7 +32,7 @@ extra info - if its nosql then dont separate
 
 What free hosting service to use to deploy react and react native for continuous development
 heroku
-react native needs liscence
+react native needs license
 
 why do we need staging? Give an example. staging for review, if u test locally, it mght fail, can connect stage
 
