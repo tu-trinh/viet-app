@@ -8,11 +8,13 @@ var LessonSchema = new Schema({
               name: String,
               instructions: String,
               title: String,  
-              content: String}] // String is the location of the HTML file that contains the content
+              content: String}]
+            //    String is the location of the HTML file that contains the content
   });
 
-var bookNumber = 3; 
-var modelName =  'Book' + bookNumber + '-Lesson';
-var Lesson = mongoose.model(modelName, BookSchema, modelName);
+// var bookNumber = 3; 
+// var modelName =  'Book' + bookNumber + '-Lesson';
+var Lesson = mongoose.model('Lesson', LessonSchema, 'Book3-Lessons');
 
 module.exports = Lesson;
+

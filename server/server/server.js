@@ -11,6 +11,9 @@ const bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/viet-app";
 
+const addContentRouter = require("./addContent")
+app.use('/addContent', addContentRouter)
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
@@ -25,6 +28,9 @@ that looks for an incoming JSON Web Token and verifies
 it against a secret key that we provide.
 */
 // JSON Web Token - Token with a special format
+
+
+
 const authCheck = jwt({
   secret: jwks.expressJwtSecret({
         cache: true,
@@ -79,18 +85,8 @@ app.get('/api/:book/lessons', (req, res) => {
 // Need to add to specific collection
 // Make post instead of get
 // Create controller
-app.post("/addbook", (req, res) => {
-  Book.create(req.body, function(err, book) {
-    if (err) res.send(err)
-    else res.json(book)                      
-  })
-});
 
-// app.post("/addlesson", (req, res) => {
-//   Lesson.create(req.body, function(err, book) {
-//     if (err) res.send(err)
-//     else res.json(Lesson)                      
-//   })
-// });
+
+
 
 app.listen(3007, () => {console.log('Listening on port 3007')});
