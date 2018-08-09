@@ -1,5 +1,6 @@
 const models = require('./models')
 const Book = models.Book;
+const Lesson = models.Lesson;
 
 const express = require('express');
 const app = express();
@@ -84,5 +85,12 @@ app.post("/addbook", (req, res) => {
     else res.json(book)                      
   })
 });
+
+// app.post("/addlesson", (req, res) => {
+//   Lesson.create(req.body, function(err, book) {
+//     if (err) res.send(err)
+//     else res.json(Lesson)                      
+//   })
+// });
 
 app.listen(3007, () => {console.log('Listening on port 3007')});

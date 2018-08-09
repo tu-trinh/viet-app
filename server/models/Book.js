@@ -7,6 +7,6 @@ var BookSchema = new Schema({
   name: String,
 });
 
-var Book = mongoose.model('Bookaa', BookSchema, 'Books');
+var Book = mongoose.model('Book', BookSchema, 'Books');
 
 module.exports = Book;
