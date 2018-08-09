@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded()); 
 
 var mongoose = require("mongoose");
-mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/");
+mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/viet-app");
 
 /* We’re using express-jwt to create a middleware
 that looks for an incoming JSON Web Token and verifies
@@ -78,8 +78,8 @@ app.get('/api/:book/lessons', (req, res) => {
 // Need to add to specific collection
 // Make post instead of get
 // Create controller
-app.get("/addcontent", (req, res) => {
-  Book.create({id: '123', name: 'Book 3'}, function(err, book) {
+app.post("/addbook", (req, res) => {
+  Book.create(req.body, function(err, book) {
     if (err) res.send(err)
     else res.json(book)                      
   })
