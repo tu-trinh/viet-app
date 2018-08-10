@@ -1,4 +1,4 @@
-const models = require('./models')
+const models = require('../models')
 const Book = models.Book;
 const Lesson = models.Lesson;
 
@@ -86,6 +86,21 @@ app.get('/api/:book/lessons', (req, res) => {
 // Make post instead of get
 // Create controller
 
+
+app.put("/updateLesson", (req, res) => {
+  let idToChange = req.body._id;
+  Lesson.findByIdAndUpdate(idToChange, req.body, {new: true}, function(err, lesson) {
+    if (err) throw err;
+    else res.json(lesson)
+  })
+})
+
+app.post("/addbook", (req, res) => {
+  Book.create(req.body, function(err, book) {
+    if (err) res.send(err)
+    else res.json(book)                      
+  })
+});
 
 
 
