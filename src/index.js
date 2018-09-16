@@ -19,7 +19,7 @@ import {
 import {Callback} from './Callback';
 
 ReactDOM.render(
-    <Router history = {Router}>
+    <Router>
           <Switch>
             {/* Note: All files here are currently static; all lessons and books, lead to the same screen.
             We do not have a database of any sort; we can't make fetches to get correct data. This is only

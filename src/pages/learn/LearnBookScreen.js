@@ -26,7 +26,7 @@ export default class LearnBookScreen extends Component {
   render() {
     return (
       <div className="App">
-        <TitleBar title = {this.state.screenStatus} color = "purple"/>
+        <TitleBar title = {this.state.screenStatus} color = "purple" backbuttonPath = "/" appear = {false}/>
         <h2>Your Books</h2>
         <br/>
         <LearnButton newLink = {"/Learn/" + this.state.books[0]} text = {this.state.books[0]}/>

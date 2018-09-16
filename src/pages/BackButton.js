@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import TitleBar from '../TitleBar.js'
 import {
   BrowserRouter,
   Route,
@@ -7,6 +6,7 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
+import Arrow from '../media/backArrow.png';
 
 export default class BackButton extends Component {
   constructor(props) {
@@ -15,7 +15,9 @@ export default class BackButton extends Component {
 
   render() {
     return (
-      <NavLink to = {this.props.backLink}>BACK-ARROW-HERE</NavLink>
+      this.props.backbuttonLink !== "no" ?
+      <NavLink to = {this.props.backbuttonLink}><img src = {Arrow} style = {{width: 80, position: 'fixed', left: 0}} /></NavLink> :
+      <p></p>
     );
   }
 }

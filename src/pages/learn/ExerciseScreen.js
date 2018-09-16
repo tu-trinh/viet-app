@@ -21,7 +21,7 @@ const Video = () => {
 const Vocab = () => {
     return (
     <div>
-      <TitleBar title='Lesson 1' color='purple'/>
+      <TitleBar title='Lesson 1' color='purple' backbuttonPath = "/Learn/:Book"/>
       <SideNav currentTab = 'vocab'/>
 
       <h2>Vocabulary</h2>

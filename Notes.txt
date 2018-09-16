@@ -1,5 +1,50 @@
-﻿Minh's update:
-Here's what Minh learned and stuff
+﻿Current To Do:
+Minh:
+Mako backo butts ( ͡° ͜ʖ ͡°)
+Help with floating keyboard
+
+Chi Tu:
+Floating keyboard
+Link to specific times in video
+
+Improve:
+All lesson links currently link to Lesson 1
+Floating keyboard VietKey would have to render a component for every special character :O
+how to get user id from auth0
+
+ToDo for 7/26:
+Minh: Back Buttons
+
+Chi Tu: Submit Forms, form required
+
+Back buttons (to previous heading and to previous previous heading)
+Finish editor
+Save to db
+
+Style text boxes
+Student cannot change after submitting
+Make teacher version for grading
+Automatic grading
+Admin interface
+Database - school, class student, book, question IDs
+Load lessons as HTML fragments
+
+Vocab:
+Pronunciation clip for vocab (with three accents)
+
+Blanks:
+Word bank suggestions: show/hide, character hints
+Drag to fill blanks
+Customizable blanks (teacher creation) - markers
+Write algorithms to render exercises - use word to test
+
+___________________________________________________________________-
+
+Info: What Minh Learned
+
+Differences between input field and textarea
+- input field has a value property; textarea don't
+- textarea is like a <p></p> tag; input field ain't
 - MangoMongoMomMongDB
 - Postman
 - Incorporating Express
@@ -49,67 +94,9 @@ react router guy
 
 Should I use shoutem UI toolkits? no
 
-
-Questions:
 What hosting service or company to use to host the website and code? Host code where - Free plz? How to deploy changes?
 How to add to a link instead of replacing it
 How to convert this into a React Native app
 How to make this compatible with mobile browser and desktop browser
 How to make Responsive (bootstrap or nah)
 When we gon learn how to submit to a database
-
-Current To Do:
-Minh:
-Mako backo butts ( ͡° ͜ʖ ͡°)
-Help with floating keyboard
-
-Chi Tu:
-Floating keyboard
-Link to specific times in video
-
-Improve:
-All lesson links currently link to Lesson 1
-Floating keyboard VietKey would have to render a component for every special character :O
-how to get user id from auth0
-
-ToDo for 7/26:
-Minh: Back Buttons
-
-Chi Tu: Submit Forms, form required
-
-Next To Do:
-Back buttons (to previous heading and to previous previous heading)
-Finish editor
-Save to db
-
-Style text boxes
-Student cannot change after submitting
-Make teacher version for grading
-Automatic grading
-Admin interface
-Database - school, class student, book, question IDs
-Load lessons as HTML fragments
-
-Video:
-
-Vocab:
-Pronunciation clip for vocab (with three accents)
-
-Blanks:
-Word bank suggestions: show/hide, character hints
-Drag to fill blanks
-Customizable blanks (teacher creation) - markers
-Write algorithms to render exercises - use word to test
-
-Sentences:
-
-Essay:
-
-Differences between input field and textarea
-- input field has a value property; textarea don't
-- textarea is like a <p></p> tag; input field ain't
-
-How to Program a Self-Driving Car
-if (aboutToHitStuff) {
-    dont();
-};

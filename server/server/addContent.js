@@ -35,6 +35,7 @@ addContentRouter.post("/:type", (req, res) => {
         })     
     }
     if (type === "lesson") {
+        // make inserting dynamic
         Lesson.create(content, function(err, lesson) {
             if (err) res.send(err)
             else res.json(lesson)                      
