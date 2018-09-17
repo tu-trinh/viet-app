@@ -16,7 +16,7 @@ export default class BackButton extends Component {
   render() {
     return (
       this.props.backbuttonLink !== "no" ?
-      <NavLink to = {this.props.backbuttonLink}><img src = {Arrow} style = {{width: 80, position: 'fixed', left: 0}} /></NavLink> :
+      <NavLink to = {this.props.backbuttonLink}><img src = {Arrow} style = {{width: 80, position: 'fixed', left: 250}} /></NavLink> :
       <p></p>
     );
   }

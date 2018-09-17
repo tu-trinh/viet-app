@@ -41,7 +41,7 @@
     "webpack": "^3.11.0"
   },
   "scripts": {
-    "start": "concurrently \"cd server && node server.js\" \"react-scripts start\"",
+    "start": "concurrently \"cd server/server && node server.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
