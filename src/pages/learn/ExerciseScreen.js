@@ -6,12 +6,11 @@ import {
   NavLink
 } from 'react-router-dom';
 import TitleBar from '../TitleBar';
-import VietKey from '../VietKey';
+import VietKey from '../../keyboard/VietKey';
 
 const Video = () => {
   return(
     <div>
-      <TitleBar title='Lesson 1' color='purple'/>
       <SideNav currentTab = 'video'/>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/XwdqfH-wRkY" ></iframe>
     </div>
@@ -21,7 +20,6 @@ const Video = () => {
 const Vocab = () => {
     return (
     <div>
-      <TitleBar title='Lesson 1' color='purple' backbuttonPath = "/Learn/:Book"/>
       <SideNav currentTab = 'vocab'/>
 
       <h2>Vocabulary</h2>
@@ -83,7 +81,6 @@ class Blanks extends Component {
     const {blank1, blank2, blank3} = this.state;
     return (
       <div>
-        <TitleBar title='Lesson 1' color='purple'/>
         <SideNav currentTab = 'blanks'/>
         <VietKey letter = 'â'/>
         <h2>Fill in the blanks</h2>
@@ -127,7 +124,6 @@ class SentenceCreation extends Component {
     const {sentence1, sentence2, sentence3} = this.state;
     return (
       <div>
-        <TitleBar title = 'Lesson 1' color = 'purple'/>
         <SideNav currentTab = 'sentence'/>
         <h2>Sentence Creation</h2>
         <form>
@@ -159,7 +155,6 @@ class EssayWriting extends Component {
     const {essay} = this.state;
     return (
       <div>
-        <TitleBar title = 'Lesson 1' color = 'purple'/>
         <SideNav currentTab = 'essay'/>
         <h2>Essay</h2>
         <h3>Essay Prompt: Why did the turtle beat the rabbit?</h3>
@@ -211,6 +206,7 @@ export default class ExerciseScreen extends Component {
   render() {
     return (    
        <div>
+         <TitleBar title='Lesson 1' color='purple' backbuttonPath = '/Learn/:Book'/>
          <Router>
            <Switch>
              <Route path = "/:learn/:book/:lesson/Video" component={Video}/>

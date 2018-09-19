@@ -1,7 +1,8 @@
 ﻿Current To Do:
 Minh:
 Mako backo butts ( ͡° ͜ʖ ͡°)
-Help with floating keyboard
+Help with floating keyboard - exercise screen passes event object to vietkey, vietkey adds text,
+referring to a json file with letters and their values
 
 Chi Tu:
 Floating keyboard
