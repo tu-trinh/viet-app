@@ -18,13 +18,16 @@ import {
 } from 'react-router-dom';
 import {Callback} from './Callback';
 
+// Test File Imports
+import VietKeyForm from './keyboard/VietKey.js';
+
 ReactDOM.render(
     <Router>
           <Switch>
             {/* Note: All files here are currently static; all lessons and books, lead to the same screen.
             We do not have a database of any sort; we can't make fetches to get correct data. This is only
             the first phase. */}
-            <Route exact path = "/testing" component = {WelcomeScreen}/>
+            <Route exact path = "/testing" component = {VietKeyForm}/>
             <Route exact path = "/" component = {WelcomeScreen}/>
             <Route exact path = "/AdminEditor" component = {AdminEditor}/>
             <Route exact path = "/Learn/:Book" component = {LearnLessonScreen}/>
