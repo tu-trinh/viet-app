@@ -1,7 +1,7 @@
 ﻿Current To Do:
 Minh:
 Mako backo butts ( ͡° ͜ʖ ͡°)
-VietKey todo list - go thru the comments in VietKey.js
+make an entire vietkeyboard passable into exercise screen.
 
 Chi Tu:
 Floating keyboard

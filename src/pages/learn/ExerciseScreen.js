@@ -61,18 +61,21 @@ class Blanks extends Component {
   constructor(props) {
     super(props);
     this.state = {blank1: '', blank2: '', blank3: '', submitDisabled: true};
-    this.handleChange1 = this.handleChange1.bind(this);
-    this.handleChange2 = this.handleChange2.bind(this);
-    this.handleChange3 = this.handleChange3.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
-  handleChange1(e) {
-    this.setState({blank1: e.target.value});
-  }
-  handleChange2(e) {
-    this.setState({blank2: e.target.value});
-  }
-  handleChange3(e) {
-    this.setState({blank3: e.target.value});
+
+
+  handleChange (e, blank_num) {
+    const makeObjToPass = (e, blank_num) => {
+      const returnObj = {}
+      const property = 'blank' + blank_num
+      returnObj[property] = e.target.value
+      return returnObj
+    }
+
+    const objToPass = makeObjToPass(e, blank_num)
+
+    this.setState(objToPass)
   }
   componentWillUpdate(nextProps, nextState) {
     nextState.submitDisabled = !(nextState.blank1 && nextState.blank2 && nextState.blank3);
@@ -84,14 +87,12 @@ class Blanks extends Component {
         <SideNav currentTab = 'blanks'/>
         <VietKey letter = 'â'/>
         <h2>Fill in the blanks</h2>
-        <h3>Word Bank</h3>
-        <p><strong>dab     |     on     |     haters</strong></p>
         <br/><br/>
         <form>
           <ol>
-            <li> Blank 1 <input type = 'text' value = {blank1} onChange = {this.handleChange1} />.</li>
-            <li> Blank 2 <input type = 'text' value = {blank2} onChange = {this.handleChange2} />.</li>
-            <li> Blank 3 <input type = 'text' value = {blank3} onChange = {this.handleChange3} />.</li>
+            <li> <input type = "text" value = {this.state.blank1} onChange = {(e) => this.handleChange(e, 1)}/></li>
+            <li> <input type = "text" value = {this.state.blank2} onChange = {(e) => this.handleChange(e, 2)}/></li>
+            <li> <input type = "text" value = {this.state.blank3} onChange = {(e) => this.handleChange(e, 3)}/></li>
             <button type = 'submit' disabled = {this.state.submitDisabled} style = {{backgroundColor: 'green'}}>Submit</button>
           </ol>
         </form>

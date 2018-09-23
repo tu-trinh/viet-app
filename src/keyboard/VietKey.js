@@ -20,11 +20,22 @@ import React, {Component} from 'react';
     //     }
     // }
 
+class Key extends Component {
+    constructor(props) {
+        super(props);
+    }
+    render () {
+        return (
+            <button onClick = {this.props.handleClick}>{this.props.character}</button>
+        )
+    }
+}
+
 export default class Full extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            characters: ['â'], // Will probably be JSON or something later
+            characters:['â'], // Will probably be JSON or something later
             letterToChange : '',
             formText: ''
         }
@@ -42,7 +53,7 @@ export default class Full extends Component {
 
     render () { // try to split up the components. also the input blurs after pressing the button.
         return(<div> 
-            <button onClick = {this.handleClick}>{this.state.characters[0]}</button>
+            <Key onClick = {this.handleClick} character = {this.state.characters[0]}/>
             <input type = "text" value = {this.state.formText} onChange = {this.handleChange}/>
         </div>)
     }
