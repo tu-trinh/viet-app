@@ -53,7 +53,7 @@ export default class Full extends Component {
 
     render () { // try to split up the components. also the input blurs after pressing the button.
         return(<div> 
-            <Key onClick = {this.handleClick} character = {this.state.characters[0]}/>
+            <button onClick = {this.handleClick} character = {this.state.characters[0]}/>
             <input type = "text" value = {this.state.formText} onChange = {this.handleChange}/>
         </div>)
     }

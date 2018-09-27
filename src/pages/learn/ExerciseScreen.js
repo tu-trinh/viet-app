@@ -60,10 +60,22 @@ const Vocab = () => {
 class Blanks extends Component {
   constructor(props) {
     super(props);
-    this.state = {blank1: '', blank2: '', blank3: '', submitDisabled: true};
+    this.state = {blank1: '', blank2: '', blank3: '', characters:['â'],submitDisabled: true};
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
+  handleClick (e, blank_num) { // Find a way to make this dynamic, like this.state.characters[0] is passed in.
+    const makeObjToPass = (e, blank_num) =>{
+      const returnObj = {}
+      const property = 'blank' + blank_num
+      const newText = this.state[property] + this.state.characters[0]
+      returnObj[property] = newText
+      return returnObj
+    }
+    const objToPass = makeObjToPass(e, blank_num)
+    this.setState(objToPass)
+  }
 
   handleChange (e, blank_num) {
     const makeObjToPass = (e, blank_num) => {
@@ -85,8 +97,9 @@ class Blanks extends Component {
     return (
       <div>
         <SideNav currentTab = 'blanks'/>
-        <VietKey letter = 'â'/>
+        <button onClick = {(e) => this.handleClick(e, 1)} character = {this.state.characters[0]}/>
         <h2>Fill in the blanks</h2>
+
         <br/><br/>
         <form>
           <ol>

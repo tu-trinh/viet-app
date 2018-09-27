@@ -1,7 +1,9 @@
 ﻿Current To Do:
 Minh:
 Mako backo butts ( ͡° ͜ʖ ͡°)
-make an entire vietkeyboard passable into exercise screen.
+Make VietKey board that has been incorporated in Exercise screen seperate and the handleClick dynamic.
+Then make the entire array of the keyboard, with values passed in via props if necessary for anything,
+fixed positioning, expanding and closing.
 
 Chi Tu:
 Floating keyboard
