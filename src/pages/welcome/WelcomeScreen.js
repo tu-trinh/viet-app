@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 // import renderHTML from 'react-render-html';
 // import page from '../../Test.html';
 // import HelloWorldText from '../../TestChild';
-import CustomEditor from '../../CustomEditor'
+//import CustomEditor from '../../CustomEditor'
 
 
 export default class WelcomeScreen extends Component {

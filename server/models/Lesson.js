@@ -6,8 +6,6 @@ var LessonSchema = new Schema({
     name: String,
     exercises:[{id: String,
               name: String,
-              instructions: String,
-              title: String,  
               content: String}]
             //    String is the location of the HTML file that contains the content
   });
