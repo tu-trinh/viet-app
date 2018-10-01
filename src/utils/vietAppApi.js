@@ -5,7 +5,7 @@ const BASE_URL = 'http://localhost:3007';
 export {getBookData, getLessonData};
 
 function getBookData() {
-  const url = `${BASE_URL}/api/books`;
+  const url = `${BASE_URL}/api/getContent/books`;
   return axios.get(url).then(response => response.data);
 }
 

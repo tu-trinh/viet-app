@@ -12,7 +12,9 @@ var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/viet-app";
 
 const addContentRouter = require("./addContent")
+const getContentRouter = require("./getContent")
 app.use('/addContent', addContentRouter)
+app.use('/api/getContent', getContentRouter)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -80,7 +82,6 @@ app.get('/api/:book/lessons', (req, res) => {
     ];
     res.json(Lessons);
   })
-
 
 // Need to add to specific collection
 // Make post instead of get

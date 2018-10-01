@@ -1,6 +1,9 @@
 ﻿Current To Do:
 Minh:
 Mako backo butts ( ͡° ͜ʖ ͡°)
+
+Next: Display Lesson data, then Exercise Data taken from the MongoDB Database
+
 Make VietKey board that has been incorporated in Exercise screen seperate and the handleClick dynamic.
 Then make the entire array of the keyboard, with values passed in via props if necessary for anything,
 fixed positioning, expanding and closing.
