@@ -2,7 +2,9 @@
 Minh:
 Mako backo butts ( ͡° ͜ʖ ͡°)
 
-Next: Display Lesson data, then Exercise Data taken from the MongoDB Database
+We can configure which collection to store something in in the model file. Look at Lesson model for example.
+Next: Display Lesson data, then Exercise Data taken from the MongoDB Database. Maybe store data in 
+cookies or something so you dont have to re-fetch when you get to Exercise Screen?
 
 Make VietKey board that has been incorporated in Exercise screen seperate and the handleClick dynamic.
 Then make the entire array of the keyboard, with values passed in via props if necessary for anything,

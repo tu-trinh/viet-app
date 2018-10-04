@@ -12,7 +12,7 @@ var LessonSchema = new Schema({
 
 // var bookNumber = 3; 
 // var modelName =  'Book' + bookNumber + '-Lesson';
-var Lesson = mongoose.model('Lesson', LessonSchema, 'Book3-Lessons');
+var Lesson = mongoose.model('Lesson', LessonSchema, 'Book1-Lessons');
 
 module.exports = Lesson;
 

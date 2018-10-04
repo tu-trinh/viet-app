@@ -8,20 +8,27 @@ export default class LearnLessonScreen extends Component {
     super(props); 
     this.state = {
       screenStatus: 'Choose your Lesson',
-      lessons: ['Lesson 1', 'Lesson 2', 'Lesson 3', 'Lesson 4']
+      lessonsToDisplay:[]
     }
     // Later, we can change and store recent data so user doesnt have to go thru signin, book, lesson
   }
 
-  // fetchData () {
-  //   api.getLessonData().then((lessons) => {
-  //     this.setState({lessons})
-  //   })
-  // }
-  
-  // componentDidMount() {
-  //   this.fetchData()
-  // }
+  componentDidMount() {
+    api.getLessonData(1).then((lessons) => {
+      console.log(lessons)
+      return lessons
+    }).then((lessons) => {
+      let names = lessons.map((lessons) => {
+        return (
+          <div>
+            <LearnButton newLink = {"/Learn/" + lessons.name} text = {lessons.name}/>
+          </div>
+        )
+      })
+      
+      this.setState({lessonsToDisplay: names})
+    })
+  }
 
   render() {
     return (
@@ -29,13 +36,14 @@ export default class LearnLessonScreen extends Component {
         <TitleBar title = {this.state.screenStatus} color = "purple" backbuttonPath = "/Learn"/>
         <h2>Your Lessons</h2>
         <br/>
-        <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[0] + "/Video"} text = {this.state.lessons[0]}/>
+        <div>{this.state.lessonsToDisplay}</div>
+        {/* <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[0] + "/Video"} text = {this.state.lessons[0]}/>
         <br/>
         <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[1] + "/Video"} text = {this.state.lessons[1]}/>
         <br/>
         <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[2] + "/Video"} text = {this.state.lessons[2]}/>
         <br/>
-        <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[3] + "/Video"} text = {this.state.lessons[3]}/>
+        <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[3] + "/Video"} text = {this.state.lessons[3]}/> */}
         <br/>
       </div>
     );

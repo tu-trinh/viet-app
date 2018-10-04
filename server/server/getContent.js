@@ -25,30 +25,28 @@ getContentRouter.use(express.urlencoded());
 var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/viet-app");
 
-getContentRouter.get("/:type", (req, res) => {
-    var type = req.params.type
-    var content = req.body;
-    if (type === "books") {
-        Book.find((err, book) => {
-            if (err) res.send(err)
-            else res.status(200).json(book)
-        })
-                                 
-    }
-    if (type === "lesson") {
-        // make inserting dynamic
-        Lesson.create(content, function(err, lesson) {
-            if (err) res.send(err)
-            else res.json(lesson)                      
-        })
-    } 
-    if (type === "exercise") {
-        let idToChange = req.body._id;
-        Lesson.findByIdAndUpdate(idToChange, {$push: {exercises: req.body.exercises}}, {new: true}, function(err, lesson) {
-            if (err) throw err;
-            else res.json(lesson)
-        })
-    }
+getContentRouter.get("/books", (req, res) => {
+    Book.find((err, book) => {
+        if (err) res.send(err)
+        else res.status(200).json(book)
+    })
+        
+    // if (type === "exercise") {
+    //     let idToChange = req.body._id;
+    //     Lesson.findByIdAndUpdate(idToChange, {$push: {exercises: req.body.exercises}}, {new: true}, function(err, lesson) {
+    //         if (err) throw err;
+    //         else res.json(lesson)
+    //     })
+    // }
 });
+
+getContentRouter.get("/lessons", (req, res) => {
+    // make inserting dynamic
+    Lesson.find((err, lesson) => {
+        if (err) res.send(err)
+        else res.json(lesson)                      
+    })
+})
+
 
 

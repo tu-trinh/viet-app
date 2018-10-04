@@ -19,20 +19,9 @@ export default class LearnBookScreen extends Component {
     this.state = {
       screenStatus: 'Choose your book',
       booksToDisplay: [],
-      forDisplay: []
     }
     
-    this.fetchAndDisplayData = this.fetchAndDisplayData.bind(this);
     // Later, we can change and store recent data so user doesnt have to go thru signin, book, lesson
-  }
-
-  fetchAndDisplayData () {
-    
-    // var toDisplay = <div></div>
-    // for (let i = 0; i < booksList; i++) {
-    //   toDisplay = toDisplay + <div>booksList[i].name</div>
-    // }
-    // this.setState({forDisplay: toDisplay})
   }
 
   componentDidMount() {
