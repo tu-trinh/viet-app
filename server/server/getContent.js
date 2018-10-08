@@ -41,7 +41,7 @@ getContentRouter.get("/books", (req, res) => {
 });
 
 getContentRouter.get("/lessons", (req, res) => {
-    // make inserting dynamic
+    // make searching dynamic
     Lesson.find((err, lesson) => {
         if (err) res.send(err)
         else res.json(lesson)                      

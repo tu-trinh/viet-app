@@ -11,6 +11,6 @@ function getBookData() {
 
 function getLessonData(book_num) {
     // will pass in a prop or something to make the :book dynamic
-  const url = `${BASE_URL}/api/getContent/lessons/${book_num}`;
+  const url = `${BASE_URL}/api/getContent/lessons/`;//${book_num}`;
   return axios.get(url).then(response => response.data);
 }

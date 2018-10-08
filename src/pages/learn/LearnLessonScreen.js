@@ -14,14 +14,14 @@ export default class LearnLessonScreen extends Component {
   }
 
   componentDidMount() {
-    api.getLessonData(1).then((lessons) => {
+    api.getLessonData().then((lessons) => {
       console.log(lessons)
       return lessons
     }).then((lessons) => {
       let names = lessons.map((lessons) => {
         return (
-          <div>
-            <LearnButton newLink = {"/Learn/" + lessons.name} text = {lessons.name}/>
+          <div key = {lessons.id}>
+            <LearnButton key = {lessons.id} newLink = {"/Learn/" + lessons.name} text = {lessons.name}/>
           </div>
         )
       })

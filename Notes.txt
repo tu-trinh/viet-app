@@ -6,6 +6,9 @@ We can configure which collection to store something in in the model file. Look 
 Next: Display Lesson data, then Exercise Data taken from the MongoDB Database. Maybe store data in 
 cookies or something so you dont have to re-fetch when you get to Exercise Screen?
 
+NEXT: Lesson Display has been successful. Now make it dynamic, I was thinking of inputting all collections
+into the model file and then when searching, use a query to locate ones in a specific book.
+
 Make VietKey board that has been incorporated in Exercise screen seperate and the handleClick dynamic.
 Then make the entire array of the keyboard, with values passed in via props if necessary for anything,
 fixed positioning, expanding and closing.
