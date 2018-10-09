@@ -5,8 +5,8 @@ import {
   Switch,
   NavLink
 } from 'react-router-dom';
-import TitleBar from '../TitleBar';
 import VietKey from '../../keyboard/VietKey';
+import TitleBar from '../TitleBar';
 
 const Video = () => {
   return(

@@ -48,5 +48,12 @@ getContentRouter.get("/lessons", (req, res) => {
     })
 })
 
+getContentRouter.get('/exercises', (req,res) => {
+    Lesson.findOne({id:'lesson1'}, {exercises: true}, (err, lesson) => {
+        if (err) res.send(err)
+        else res.json(lesson)
+    })
+})
+
 
 
