@@ -31,7 +31,7 @@ ReactDOM.render(
             <Route exact path = "/" component = {WelcomeScreen}/>
             <Route exact path = "/AdminEditor" component = {AdminEditor}/>
             <Route exact path = "/Learn/:Book" component = {LearnLessonScreen}/>
-            <Route exact path = "/Learn/:Book/:Lesson/:Exercise" component = {ExerciseScreen}/>
+            <Route exact path = "/Learn/:Book/:Lesson/" component = {ExerciseScreen}/>
             <Route path="/Learn" component={LearnBookScreen} onEnter={requireAuth} />
             <Route path="/callback" component={Callback} />
             {/* <Route path = "/Learn/Book2" component = {LearnLessonScreen}/>

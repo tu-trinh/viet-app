@@ -21,7 +21,7 @@ export default class LearnLessonScreen extends Component {
       let names = lessons.map((lessons) => {
         return (
           <div key = {lessons.id}>
-            <LearnButton key = {lessons.id} newLink = {"/Learn/" + lessons.name} text = {lessons.name}/>
+            <LearnButton key = {lessons.id} newLink = {"/Learn/Book/" + lessons.name} text = {lessons.name}/>
           </div>
         )
       })

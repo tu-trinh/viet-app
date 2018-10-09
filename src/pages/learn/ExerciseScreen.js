@@ -23,14 +23,15 @@ export default class ExerciseScreen extends Component {
   componentDidMount() {
     api.getExerciseData().then((exercises) => {
       console.log(exercises)
-      return exercises
+      return exercises.exercises
     }).then((exercises) => {
       let pages = exercises.map((exercise) => {
         // the exercise.content can maybe replaced with a function later on that will go through the content
         // and see what to replace as an input or submit, etc.
+        // or maybe use the convertToRaw
         return (
           <div key = {exercise.id}>
-            {exercise.content} 
+            {exercise.content}
           </div>
         )
       })
@@ -43,7 +44,7 @@ export default class ExerciseScreen extends Component {
     return (
       <div className="App">
         <TitleBar title = {this.state.screenStatus} color = "purple" backbuttonPath = "/Learn/:Book"/>
-        <h2>Your Lessons</h2>
+        <h2>Exercises</h2>
         <br/>
         <div>{this.state.exercisesToDisplay}</div>
         {/* <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[0] + "/Video"} text = {this.state.lessons[0]}/>
