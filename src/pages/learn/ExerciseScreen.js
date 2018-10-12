@@ -35,7 +35,7 @@ export default class ExerciseScreen extends Component {
         // the exercise.content can maybe replaced with a function later on that will go through the content
         // and see what to replace as an input or submit, etc.
         // or maybe use the convertToRaw
-        // const display = convertFromHTML(exercise.content);
+        const display = convertFromHTML(exercise.content);
         return (
           <div key = {exercise.id}> 
             {exercise.content}
