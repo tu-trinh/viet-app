@@ -9,6 +9,7 @@ import ExerciseScreen from "./pages/learn/ExerciseScreen"
 import NotFound from "./pages/NotFound"
 import AdminEditor from "./pages/admin/AdminEditor";
 import {requireAuth} from './utils/AuthService';
+import TestHTMLPage from './TestHTMLPage';
 import {
   BrowserRouter as Router,
   Route,
@@ -27,7 +28,7 @@ ReactDOM.render(
             {/* Note: All files here are currently static; all lessons and books, lead to the same screen.
             We do not have a database of any sort; we can't make fetches to get correct data. This is only
             the first phase. */}
-            <Route exact path = "/testing" component = {VietKeyForm}/>
+            <Route exact path = "/testing" component = {TestHTMLPage}/>
             <Route exact path = "/" component = {WelcomeScreen}/>
             <Route exact path = "/AdminEditor" component = {AdminEditor}/>
             <Route exact path = "/Learn/:Book" component = {LearnLessonScreen}/>
