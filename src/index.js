@@ -6,6 +6,8 @@ import WelcomeScreen from "./pages/welcome/WelcomeScreen"
 import LearnBookScreen from "./pages/learn/LearnBookScreen"
 import LearnLessonScreen from "./pages/learn/LearnLessonScreen"
 import ExerciseSideNav from "./pages/learn/ExerciseSideNav"
+import ExerciseScreen from './pages/learn/ExerciseScreen'
+import Exercise from "./pages/learn/Exercise";
 import NotFound from "./pages/NotFound"
 import AdminEditor from "./pages/admin/AdminEditor";
 import {requireAuth} from './utils/AuthService';
@@ -31,7 +33,7 @@ ReactDOM.render(
             <Route exact path = "/" component = {WelcomeScreen}/>
             <Route exact path = "/AdminEditor" component = {AdminEditor}/>
             <Route exact path = "/Learn/:Book" component = {LearnLessonScreen}/>
-            <Route exact path = "/Learn/:Book/:Lesson/" component = {ExerciseSideNav}/>
+            <Route exact path = "/Learn/:Book/:Lesson/" component = {Exercise}/>
             {/* <Route exact path = "/Learn/:Book/:Lesson/:Exercise" component = {Exercise}/> */}
             <Route path="/Learn" component={LearnBookScreen} onEnter={requireAuth} />
             <Route path="/callback" component={Callback} />

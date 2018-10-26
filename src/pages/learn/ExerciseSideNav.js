@@ -56,7 +56,7 @@ class Switcher extends Component {
   }
 }
 
-export default class ExerciseScreen extends Component {
+export default class ExerciseSideNav extends Component {
   constructor(props) {
     super(props); 
     this.state = {
@@ -73,7 +73,7 @@ export default class ExerciseScreen extends Component {
     }).then((exercises) => {
       let sideNav = exercises.map((exercise) => {
         return(
-          <div>
+          <div key = {exercise.id}>
             <SideLink newLink = {`/${exercise.name}`} text = {`${exercise.name}`}/><br/>
           </div>
         )
