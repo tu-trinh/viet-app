@@ -64,6 +64,7 @@ export default class ExerciseScreen extends Component {
           </div>
         )
       })
+      
       let sideNavIndividualRoutes = exercises.map((exercise) => {
         return(
           <div>
