@@ -33,9 +33,12 @@ export default class Exercise extends Component {
         }).then((exercises) => {
             let workspace = exercises.map((exercise) => {
                 return(
-                    <Route exact path = {`/${exercise.name}`} component = {
-                        (content = exercise.content, id = exercise.id) => {
-                            return (<div key = {id}>{ReactHtmlParser(content)}</div>)
+                    <Route exact path = {`
+                    /Learn/:Book/:Lesson/${exercise.name}`} component = {
+                        () => {
+                            <div key = {exercise.id}> 
+                            { ReactHtmlParser(exercise.content) }
+                            </div>
                         }
                     }/>
                 ) 
@@ -46,6 +49,7 @@ export default class Exercise extends Component {
     render() {
         return (
             <div>
+                <Router><Switch>{this.state.exerciseToDisplay}</Switch></Router>
                 <ExerciseSideNav />
             </div>
         )
