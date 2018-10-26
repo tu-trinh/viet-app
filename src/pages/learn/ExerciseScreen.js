@@ -1,4 +1,3 @@
-//GO THRU ALL OF THE EXERCISE LIST ARRAY AND CREATE ROUTE NAVLINKS
 import React, {Component} from 'react';
 import {
   convertFromRaw,
@@ -16,36 +15,16 @@ import {
   NavLink
 } from 'react-router-dom';
 import VietKey from '../../keyboard/VietKey';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
-
-// var styles = {
-// }
-
-class SideLink extends Component {
-  constructor(props) {
-    super(props)
-  }
-  render() {
-    return (
-      <NavLink to = {this.props.newLink}> {this.props.text} </NavLink>
-    );
-  }
-}
 
 export default class ExerciseScreen extends Component {
   constructor(props) {
     super(props); 
     this.state = {
       screenStatus: 'Lesson Num Here Somehow, maybe props',
-      exercisesToDisplay: [],
-      sideNavRoutes: [],
-      sideNav: []
+      exercisesToDisplay: []
+      
     }
     // Later, we can change and store recent data so user doesnt have to go thru signin, book, lesson
-  }
-
-  createComponent = (html) => {
-
   }
 
   componentDidMount() {
@@ -57,10 +36,10 @@ export default class ExerciseScreen extends Component {
         // the exercise.content can maybe replaced with a function later on that will go through the content
         // and see what to replace as an input or submit, etc.
         // or maybe use the convertToRaw
-        const display = exercise.content;
+        const display = convertFromHTML(exercise.content);
         return (
           <div key = {exercise.id}> 
-            { ReactHtmlParser(display) }
+            {exercise.content}
           </div>
         )
       })
@@ -85,7 +64,7 @@ export default class ExerciseScreen extends Component {
       })
 
       
-      this.setState({exercisesToDisplay: pages, sideNavRoutes: sideNavRoutes, sideNav: sideNav})
+      this.setState({exercisesToDisplay: pages})
     })
   }
 
@@ -95,10 +74,7 @@ export default class ExerciseScreen extends Component {
         <TitleBar title = {this.state.screenStatus} color = "purple" backbuttonPath = "/Learn/:Book"/>
         <h2>Exercises</h2>
         <br/>
-        <div> {this.state.exercisesToDisplay}</div>
-        <div>{this.state.sideNav}</div>
-        <div>{this.state.sideNavRoutes}</div>
-        
+        <div>{this.state.exercisesToDisplay}</div>
         {/* <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[0] + "/Video"} text = {this.state.lessons[0]}/>
         <br/>
         <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[1] + "/Video"} text = {this.state.lessons[1]}/>
