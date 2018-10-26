@@ -1,3 +1,4 @@
+//GO THRU ALL OF THE EXERCISE LIST ARRAY AND CREATE ROUTE NAVLINKS
 import React, {Component} from 'react';
 import {
   convertFromRaw,
@@ -20,15 +21,31 @@ import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from
 // var styles = {
 // }
 
+class SideLink extends Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    return (
+      <NavLink to = {this.props.newLink}> {this.props.text} </NavLink>
+    );
+  }
+}
+
 export default class ExerciseScreen extends Component {
   constructor(props) {
     super(props); 
     this.state = {
       screenStatus: 'Lesson Num Here Somehow, maybe props',
       exercisesToDisplay: [],
-      exerciseList: []
+      sideNavRoutes: [],
+      sideNav: []
     }
     // Later, we can change and store recent data so user doesnt have to go thru signin, book, lesson
+  }
+
+  createComponent = (html) => {
+
   }
 
   componentDidMount() {
@@ -36,12 +53,10 @@ export default class ExerciseScreen extends Component {
       console.log(exercises)
       return exercises.exercises
     }).then((exercises) => {
-      let exerciseList = [];
       let pages = exercises.map((exercise) => {
         // the exercise.content can maybe replaced with a function later on that will go through the content
         // and see what to replace as an input or submit, etc.
         // or maybe use the convertToRaw
-        exerciseList = exercise.name;
         const display = exercise.content;
         return (
           <div key = {exercise.id}> 
@@ -49,9 +64,27 @@ export default class ExerciseScreen extends Component {
           </div>
         )
       })
+      let sideNavIndividualRoutes = exercises.map((exercise) => {
+        return(
+          <div>
+            <Route exact path = {`/${exercise.name}`} component = {
+              (content = exercise.content, id = exercise.id) => {
+                return (<div key = {id}>ReactHtmlParser(contents)</div>)
+              }}/>
+          </div>
+        ) 
+      })
+      let sideNavRoutes = <Router><Switch>{...sideNavIndividualRoutes}</Switch></Router>
+      let sideNav = exercises.map((exercise) => {
+        return(
+          <div>
+            <SideLink newLink = {`/${exercise.name}`} text = {`${exercise.name}`}/><br/>
+          </div>
+        )
+      })
 
       
-      this.setState({exercisesToDisplay: pages, exerciseList: exerciseList})
+      this.setState({exercisesToDisplay: pages, sideNavRoutes: sideNavRoutes, sideNav: sideNav})
     })
   }
 
@@ -61,8 +94,10 @@ export default class ExerciseScreen extends Component {
         <TitleBar title = {this.state.screenStatus} color = "purple" backbuttonPath = "/Learn/:Book"/>
         <h2>Exercises</h2>
         <br/>
-        <div>{this.state.exerciseList}</div>
-        {/* <div>{this.state.exercisesToDisplay}</div> */}
+        <div> {this.state.exercisesToDisplay}</div>
+        <div>{this.state.sideNav}</div>
+        <div>{this.state.sideNavRoutes}</div>
+        
         {/* <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[0] + "/Video"} text = {this.state.lessons[0]}/>
         <br/>
         <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[1] + "/Video"} text = {this.state.lessons[1]}/>
