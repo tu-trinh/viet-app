@@ -22,6 +22,7 @@ export default class ExerciseScreen extends Component {
     this.state = {
       screenStatus: 'Lesson Num Here Somehow, maybe props',
       exercisesToDisplay: []
+      
     }
     // Later, we can change and store recent data so user doesnt have to go thru signin, book, lesson
   }
