@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import TitleBar from '../TitleBar';
 import LearnButton from './LearnButton';
 import * as api from '../../utils/vietAppApi';
+import {Switch, Route} from 'react-router-dom';
+import LearnLessonScreen from './LearnLessonScreen';
 
 class BookDisplayer extends Component {
   constructor(props) {
@@ -24,6 +26,10 @@ export default class LearnBookScreen extends Component {
     // Later, we can change and store recent data so user doesnt have to go thru signin, book, lesson
   }
 
+  adjustLink(link) {
+    return link.replace(/ /g, "_");
+  }
+
   componentDidMount() {
     api.getBookData().then((books) => {
       console.log(books)
@@ -32,7 +38,7 @@ export default class LearnBookScreen extends Component {
       let names = books.map((book) => {
         return (
           <div key = {book.id}>
-            <LearnButton newLink = {"/Learn/" + book.name} text = {book.name}/>
+            <LearnButton newLink = {"/Learn/" + this.adjustLink(book.name)} text = {book.name}/>
           </div>
         )
       })
@@ -48,6 +54,10 @@ export default class LearnBookScreen extends Component {
         <h2>Your Books</h2>
         <br/>
         <div>{this.state.booksToDisplay}</div>
+        <Switch>
+          {/* <Route exact path='/Learn' component={LearnBookScreen}/> */}
+          <Route path='/Learn/:book' component={LearnLessonScreen}/>
+        </Switch>
       </div>
     );
   }

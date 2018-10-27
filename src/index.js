@@ -33,8 +33,8 @@ ReactDOM.render(
             <Route exact path = "/testing" component = {ExerciseTest}/>
             <Route exact path = "/" component = {WelcomeScreen}/>
             <Route exact path = "/AdminEditor" component = {AdminEditor}/>
-            <Route exact path = "/Learn/:Book" component = {LearnLessonScreen}/>
-            <Route exact path = "/Learn/:Book/:Lesson/" component = {Exercise}/>
+            {/* <Route exact path = "/Learn/:Book" component = {LearnLessonScreen}/> */}
+            {/* <Route exact path = "/Learn/:Book/:Lesson/" component = {Exercise}/> */}
             {/* <Route exact path = "/Learn/:Book/:Lesson/:Exercise" component = {Exercise}/> */}
             <Route path="/Learn" component={LearnBookScreen} onEnter={requireAuth} />
             <Route path="/callback" component={Callback} />

@@ -66,6 +66,10 @@ export default class ExerciseSideNav extends Component {
     // Later, we can change and store recent data so user doesnt have to go thru signin, book, lesson
   }
 
+  adjustLink(link) {
+    return link.replace(/ /g, "_");
+  }
+
   componentDidMount() {
     api.getExerciseData().then((exercises) => {
       console.log(exercises)
@@ -74,7 +78,7 @@ export default class ExerciseSideNav extends Component {
       let sideNav = exercises.map((exercise) => {
         return(
           <div key = {exercise.id}>
-            <SideLink key = {exercise.id} newLink = {exercise.name} text = {exercise.name}/><br/>
+            <SideLink key = {exercise.id} newLink = {"/Learn/:Book/:Lesson" + this.adjustLink(exercise.name)} text = {exercise.name}/><br/>
           </div>
         )
       })

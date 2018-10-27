@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import TitleBar from '../TitleBar';
 import LearnButton from './LearnButton';
 import * as api from '../../utils/vietAppApi';
+import { browserHistory } from 'react-router'
 
 export default class LearnLessonScreen extends Component {
   constructor(props) {
@@ -13,6 +14,14 @@ export default class LearnLessonScreen extends Component {
     // Later, we can change and store recent data so user doesnt have to go thru signin, book, lesson
   }
 
+  // changeLink = () => {
+  //   browserHistory.push('lol');
+  // }
+
+  adjustLink(link) {
+    return link.replace(/ /g, "_");
+  }
+
   componentDidMount() {
     api.getLessonData().then((lessons) => {
       console.log(lessons)
@@ -21,7 +30,7 @@ export default class LearnLessonScreen extends Component {
       let names = lessons.map((lessons) => {
         return (
           <div key = {lessons.id}>
-            <LearnButton key = {lessons.id} newLink = {"/Learn/Book/" + lessons.name} text = {lessons.name}/>
+            <LearnButton key = {lessons.id} newLink = {"/Learn/:Book/" + this.adjustLink(lessons.name)} text = {lessons.name}/>
           </div>
         )
       })
