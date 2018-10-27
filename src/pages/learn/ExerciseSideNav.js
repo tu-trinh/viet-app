@@ -32,29 +32,29 @@ class SideLink extends Component {
   }
 }
 
-class RandomComp extends Component {
-  render() {
-    return (
-      <p>no u</p>
-    )
-  }
-}
+// class RandomComp extends Component {
+//   render() {
+//     return (
+//       <p>no u</p>
+//     )
+//   }
+// }
 
-class Switcher extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <Router>
-        <Switch>
-          <Route exact path = "/:hi" component = {RandomComp}/>
-          {/* {this.props.sideNavRoutes} */}
-        </Switch>
-      </Router>
-    )
-  }
-}
+// class Switcher extends Component {
+//   constructor(props) {
+//     super(props);
+//   }
+//   render() {
+//     return (
+//       <Router>
+//         <Switch>
+//           <Route exact path = "/:hi" component = {RandomComp}/>
+//           {/* {this.props.sideNavRoutes} */}
+//         </Switch>
+//       </Router>
+//     )
+//   }
+// }
 
 export default class ExerciseSideNav extends Component {
   constructor(props) {
@@ -74,12 +74,10 @@ export default class ExerciseSideNav extends Component {
       let sideNav = exercises.map((exercise) => {
         return(
           <div key = {exercise.id}>
-            <SideLink newLink = {`/${exercise.name}`} text = {`${exercise.name}`}/><br/>
+            <SideLink key = {exercise.id} newLink = {exercise.name} text = {exercise.name}/><br/>
           </div>
         )
       })
-      
-      
       this.setState({sideNavToDisplay: sideNav})
     })
   }
