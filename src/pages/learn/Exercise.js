@@ -23,17 +23,20 @@ export default class Exercise extends Component {
         super(props);
         this.state = {
             screenStatus: 'Probs still just the lesson name',
-            exerciseToDisplay: []
+            exerciseToDisplay: [],
+            currentBookAndLesson: {}
         }
     }
     componentDidMount() {
+        var currentBookAndLesson = this.props.match.params
+        this.setState({ currentBookAndLesson: currentBookAndLesson})
         api.getExerciseData().then((exercises) => {
           console.log(exercises)
           return exercises.exercises
         }).then((exercises) => {
             let workspace = exercises.map((exercise) => {
                 return(
-                    <Route exact path = {`/Learn/:Book/:Lesson/${exercise.name}`}
+                    <Route exact path = {`/Learn/${currentBookAndLesson.book}/${currentBookAndLesson.lesson}/${exercise.name}`}
                     component = {() => {
                             <div key = {exercise.id}> 
                             { ReactHtmlParser(exercise.content) }
@@ -49,7 +52,7 @@ export default class Exercise extends Component {
         return (
             <div>
                 <Router><Switch>{this.state.exerciseToDisplay}</Switch></Router>
-                <ExerciseSideNav />
+                <ExerciseSideNav params = {this.state.currentBookAndLesson}/>
             </div>
         )
     }

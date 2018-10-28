@@ -23,6 +23,10 @@ export default class LearnLessonScreen extends Component {
   }
 
   componentDidMount() {
+    var bookToSearch = this.props.match.params.book
+    console.log(bookToSearch) // Capturing the :book parameter value
+    // when you get all the params it will return an object with the key as the param and the value as value.
+    // when you name a specific param it will just return the value, maybe as a string I think
     api.getLessonData().then((lessons) => {
       console.log(lessons)
       return lessons
@@ -30,7 +34,7 @@ export default class LearnLessonScreen extends Component {
       let names = lessons.map((lessons) => {
         return (
           <div key = {lessons.id}>
-            <LearnButton key = {lessons.id} newLink = {"/Learn/:Book/" + this.adjustLink(lessons.name)} text = {lessons.name}/>
+            <LearnButton key = {lessons.id} newLink = {"/Learn/"+ bookToSearch + "/" + this.adjustLink(lessons.name)} text = {lessons.name}/>
           </div>
         )
       })

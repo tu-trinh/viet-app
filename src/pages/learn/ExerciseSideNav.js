@@ -78,7 +78,7 @@ export default class ExerciseSideNav extends Component {
       let sideNav = exercises.map((exercise) => {
         return(
           <div key = {exercise.id}>
-            <SideLink key = {exercise.id} newLink = {"/Learn/:Book/:Lesson" + this.adjustLink(exercise.name)} text = {exercise.name}/><br/>
+            <SideLink key = {exercise.id} newLink = {`/Learn/${this.props.params.book}/${this.props.params.lesson}/${this.adjustLink(exercise.name)}`} text = {exercise.name}/><br/>
           </div>
         )
       })

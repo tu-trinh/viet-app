@@ -2,6 +2,9 @@
 Minh:
 Mako backo butts ( ͡° ͜ʖ ͡°)
 
+IN ORDER TO SEARCH FOR A LESSON, BOOK, OR EXERCISE IN A SPECIFIC LOCATION OR COLLECTION IN DB, WE CAN USE QUERIES AND ADD 
+AN EXTRA FIELD TO EACH DOCUMENT
+
 We can configure which collection to store something in in the model file. Look at Lesson model for example.
 Next: Display Lesson data, then Exercise Data taken from the MongoDB Database. Maybe store data in 
 cookies or something so you dont have to re-fetch when you get to Exercise Screen?

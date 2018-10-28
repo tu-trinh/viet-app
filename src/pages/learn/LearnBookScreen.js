@@ -54,10 +54,7 @@ export default class LearnBookScreen extends Component {
         <h2>Your Books</h2>
         <br/>
         <div>{this.state.booksToDisplay}</div>
-        <Switch>
           {/* <Route exact path='/Learn' component={LearnBookScreen}/> */}
-          <Route path='/Learn/:book' component={LearnLessonScreen}/>
-        </Switch>
       </div>
     );
   }
