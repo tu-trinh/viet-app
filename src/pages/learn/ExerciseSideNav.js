@@ -89,7 +89,7 @@ export default class ExerciseSideNav extends Component {
   render() {
     return (
       <div className="App">
-        <TitleBar title = {this.state.screenStatus} color = "purple" backbuttonPath = "/Learn/:Book"/>
+        <TitleBar title = {this.state.screenStatus} color = "purple" backbuttonPath = {"/Learn/" + this.props.params.book}/>
         <h2>Exercises</h2>
         <br/>
         <div>{this.state.sideNavToDisplay}</div>        
