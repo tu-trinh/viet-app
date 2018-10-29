@@ -27,6 +27,19 @@ export default class Exercise extends Component {
             currentBookAndLesson: {}
         }
     }
+
+    adjustLink(link) {
+        return link.replace(/ /g, "_");
+    }
+
+    createHTMLComponent (exercise) { 
+        let component = <div key = {exercise.id}> 
+        
+        </div>
+
+        return component
+    }
+
     componentDidMount() {
         var currentBookAndLesson = this.props.match.params
         this.setState({ currentBookAndLesson: currentBookAndLesson})
@@ -35,14 +48,13 @@ export default class Exercise extends Component {
           return exercises.exercises
         }).then((exercises) => {
             let workspace = exercises.map((exercise) => {
+                console.log(exercise.content)
+                var content = exercise.content
                 return(
-                    <Route exact path = {`/Learn/${currentBookAndLesson.book}/${currentBookAndLesson.lesson}/${exercise.name}`}
-                    component = {() => {
-                            <div key = {exercise.id}> 
-                            { ReactHtmlParser(exercise.content) }
-                            </div>
-                        }
-                    }/>
+                    <Route key = {exercise.id} exact path = {`/Learn/${currentBookAndLesson.book}/${currentBookAndLesson.lesson}/${this.adjustLink(exercise.name)}`}
+                    component = {(exercise) => <div>{ReactHtmlParser(content)} </div>}
+                    // {(exercise) => ReactHtmlParser(exercise.content)}
+                    />
                 ) 
             })
             this.setState({exerciseToDisplay: workspace})
@@ -51,7 +63,7 @@ export default class Exercise extends Component {
     render() {
         return (
             <div>
-                <Router><Switch>{this.state.exerciseToDisplay}</Switch></Router>
+                <Switch>{this.state.exerciseToDisplay}</Switch>
                 <ExerciseSideNav params = {this.state.currentBookAndLesson}/>
             </div>
         )
