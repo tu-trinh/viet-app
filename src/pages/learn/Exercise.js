@@ -22,7 +22,6 @@ export default class Exercise extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            screenStatus: 'Probs still just the lesson name',
             exerciseToDisplay: [],
             currentBookAndLesson: {}
         }
@@ -32,15 +31,11 @@ export default class Exercise extends Component {
         return link.replace(/ /g, "_");
     }
 
-    createHTMLComponent (exercise) { 
-        let component = <div key = {exercise.id}> 
-        
-        </div>
-
-        return component
+    adjustName(name) {
+        return name.replace(/_/g, " ");
     }
 
-    componentDidMount() {
+    componentWillMount() {
         var currentBookAndLesson = this.props.match.params
         this.setState({ currentBookAndLesson: currentBookAndLesson})
         api.getExerciseData().then((exercises) => {
@@ -63,6 +58,9 @@ export default class Exercise extends Component {
     render() {
         return (
             <div>
+                <TitleBar title = {this.adjustName(this.state.currentBookAndLesson.lesson)}
+                color = "purple" backbuttonPath = {"/Learn/" + (this.state.currentBookAndLesson.book)}/>
+                <h2>Exercises</h2>
                 <Switch>{this.state.exerciseToDisplay}</Switch>
                 <ExerciseSideNav params = {this.state.currentBookAndLesson}/>
             </div>

@@ -22,7 +22,7 @@ export default class LearnLessonScreen extends Component {
     return link.replace(/ /g, "_");
   }
 
-  componentDidMount() {
+  componentWillMount() {
     var bookToSearch = this.props.match.params.book
     console.log(bookToSearch) // Capturing the :book parameter value
     // when you get all the params it will return an object with the key as the param and the value as value.

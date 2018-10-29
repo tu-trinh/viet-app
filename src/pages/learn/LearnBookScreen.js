@@ -30,7 +30,7 @@ export default class LearnBookScreen extends Component {
     return link.replace(/ /g, "_");
   }
 
-  componentDidMount() {
+  componentWillMount() {
     api.getBookData().then((books) => {
       console.log(books)
       return books

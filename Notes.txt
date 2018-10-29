@@ -2,6 +2,8 @@
 Minh:
 Mako backo butts ( ͡° ͜ʖ ͡°)
 
+Optimization Idea: Only Exercise makes the API call and passes info down to ExerciseSideNav
+
 IN ORDER TO SEARCH FOR A LESSON, BOOK, OR EXERCISE IN A SPECIFIC LOCATION OR COLLECTION IN DB, WE CAN USE QUERIES AND ADD 
 AN EXTRA FIELD TO EACH DOCUMENT
 
