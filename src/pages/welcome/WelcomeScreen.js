@@ -4,11 +4,29 @@ import WelcomeButton from './WelcomeButton';
 //import './App.css';
 import {login, logout, isLoggedIn} from '../../utils/AuthService';
 import {Link} from 'react-router-dom';
+import styled, {css} from 'styled-components';
 // import renderHTML from 'react-render-html';
 // import page from '../../Test.html';
 // import HelloWorldText from '../../TestChild';
 //import CustomEditor from '../../CustomEditor'
 
+const Button = styled.button`
+    position: relative;
+    float: right;
+    bottom: 55px;
+    background: white;
+    border-radius: 30px;
+    border: 3px green;
+    color: green;
+    margin: 0 1em;
+    padding: 0.25em 1em;
+
+    ${props =>
+        props.primary && css `
+        background: green;
+        color: white;
+    `};
+`
 
 export default class WelcomeScreen extends Component {
   constructor(props) {
@@ -28,32 +46,21 @@ export default class WelcomeScreen extends Component {
       <div className="App">
         <TitleBar title = {this.state.screenStatus} color = "green" backbuttonPath = "no"/>
         <div>
-          <ul>
-            <li>
               <Link to="/">Home</Link>
-            </li>
-            <li>
               { // replace "/special" with the path to whatever the secured path is
               ( isLoggedIn() ) ? <div><Link to="/Learn">Learn</Link><br/><Link to="/AdminEditor">Admin Editor</Link></div> :  ''
               }
-              
-            </li>
-          </ul>
-          <ul>
-            <li>
             {
               (isLoggedIn()) ? 
-                ( <button 
+                ( <Button 
                   className="btn btn-danger log"
                   onClick={() => {
                     logout();
                     this.props.history.push('/');
-                  }}>Log out </button> ) 
-                  : ( <button className="btn btn-info log"
-                  onClick={() => login()}>Log In</button> )
+                  }}>Log out </Button> ) 
+                  : ( <Button className="btn btn-info log"
+                  onClick={() => login()}>Log In</Button> )
             }
-            </li>
-          </ul>
         </div>
         <br/>
         {/* <Welcome0Button handleClick = {this.screenStatusChange} color = 'purple' text = 'Học' newLink = '/Learn'/>
