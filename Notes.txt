@@ -1,4 +1,13 @@
-﻿Current To Do:
+﻿10/28/18:
+- HTML fragments
+- Say book instead of "choose..."
+- Exercise screen initially displays an exercise
+- Master CSS file
+- Welcome landing page
+- Get domain
+
+
+Current To Do:
 Minh:
 Mako backo butts ( ͡° ͜ʖ ͡°)
 

@@ -14,7 +14,7 @@ export default class WelcomeScreen extends Component {
   constructor(props) {
     super(props); 
     this.state = {
-      screenStatus: 'Welcome!' // Can be login, welcome, learnBook, learngLesson, etc.
+      screenStatus: 'Welcome!!!' // Can be login, welcome, learnBook, learngLesson, etc.
     }
     this.screenStatusChange = this.screenStatusChange.bind(this);
   }
