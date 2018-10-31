@@ -1,0 +1,35 @@
+.overall {
+    overflow: "auto";
+    width: 80%;
+    height: 100%;
+    float: right;
+    line-height: 1.5;
+}
+
+.category-name {
+    font-size: 35px;
+    text-align: center;
+    color: #003366;
+    font-weight: bold;
+}
+
+.section-title {
+    text-align: center;
+    margin: auto;
+    position: relative;
+    font-size: 35px;
+    color: red;
+    font-weight:bold;
+}
+
+.text, select, input {
+    font-size: 24px;
+    color: black;
+    font-family: "Times New Roman";
+}
+
+.instructions {
+    font-size: 20px;
+    color: black;
+    text-align: center;
+}

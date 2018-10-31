@@ -10,10 +10,27 @@ import styled, {css} from 'styled-components';
 // import HelloWorldText from '../../TestChild';
 //import CustomEditor from '../../CustomEditor'
 
-const Button = styled.button`
+const TitleBarButton = styled.button`
     position: relative;
     float: right;
     bottom: 55px;
+    background: white;
+    border-radius: 30px;
+    border: 3px green;
+    color: green;
+    margin: 0 1em;
+    padding: 0.25em 1em;
+
+    ${props =>
+        props.primary && css `
+        background: green;
+        color: white;
+    `};
+`
+
+const SignInButton = styled.button`
+    position: static;
+    bottom: 5px;
     background: white;
     border-radius: 30px;
     border: 3px green;
@@ -32,7 +49,7 @@ export default class WelcomeScreen extends Component {
   constructor(props) {
     super(props); 
     this.state = {
-      screenStatus: 'Welcome!!!' // Can be login, welcome, learnBook, learngLesson, etc.
+      screenStatus: 'THE VIET CLASS' // Can be login, welcome, learnBook, learngLesson, etc.
     }
     this.screenStatusChange = this.screenStatusChange.bind(this);
   }
@@ -46,21 +63,25 @@ export default class WelcomeScreen extends Component {
       <div className="App">
         <TitleBar title = {this.state.screenStatus} color = "green" backbuttonPath = "no"/>
         <div>
-              <Link to="/">Home</Link>
-              { // replace "/special" with the path to whatever the secured path is
-              ( isLoggedIn() ) ? <div><Link to="/Learn">Learn</Link><br/><Link to="/AdminEditor">Admin Editor</Link></div> :  ''
-              }
+            {/* <Link to="/">Home</Link> */}
+            { // replace "/special" with the path to whatever the secured path is
+            ( isLoggedIn() ) ? <div><Link to="/Learn">Learn</Link><br/><Link to="/AdminEditor">Admin Editor</Link></div> :  ''
+            }
             {
               (isLoggedIn()) ? 
-                ( <Button 
+                ( <TitleBarButton 
                   className="btn btn-danger log"
                   onClick={() => {
                     logout();
                     this.props.history.push('/');
-                  }}>Log out </Button> ) 
-                  : ( <Button className="btn btn-info log"
-                  onClick={() => login()}>Log In</Button> )
+                  }}>Log out </TitleBarButton> ) 
+                  : ( <TitleBarButton className="btn btn-info log"
+                  onClick={() => login()}>Log In</TitleBarButton> )
             }
+            <TitleBarButton primary>Preview</TitleBarButton>
+            <TitleBarButton primary>About</TitleBarButton>
+            <TitleBarButton primary>Home</TitleBarButton>
+            <div style={{"position:": "static", "top": "-900px", "display": "inline-block","width": "100%", "alignItems": "center", "textAlign": "center",}}><SignInButton primary >GET STARTED NOW</SignInButton></div>
         </div>
         <br/>
         {/* <Welcome0Button handleClick = {this.screenStatusChange} color = 'purple' text = 'Học' newLink = '/Learn'/>
