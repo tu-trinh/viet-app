@@ -16,7 +16,6 @@ export default class TitleBar extends Component {
           <BackButton backbuttonLink = {this.props.backbuttonPath}/>
           <h1>{this.props.title}</h1>
         </div>
-        <br/><br/><br/><br/><br/>
       </div>
     );
   }

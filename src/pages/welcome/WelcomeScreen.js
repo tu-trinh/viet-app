@@ -5,15 +5,19 @@ import WelcomeButton from './WelcomeButton';
 import {login, logout, isLoggedIn} from '../../utils/AuthService';
 import {Link} from 'react-router-dom';
 import styled, {css} from 'styled-components';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import Slideshow from './Slideshow';
 // import renderHTML from 'react-render-html';
 // import page from '../../Test.html';
 // import HelloWorldText from '../../TestChild';
 //import CustomEditor from '../../CustomEditor'
+import backArrow from '../../media/backArrow.png'
+import HomeButton from '../../media/HomeButton.png'
 
 const TitleBarButton = styled.button`
-    position: relative;
     float: right;
-    bottom: 55px;
+    position: sticky;
+    top: 30px;    
     background: white;
     border-radius: 30px;
     border: 3px green;
@@ -29,6 +33,7 @@ const TitleBarButton = styled.button`
 `
 
 const SignInButton = styled.button`
+    font-size: 18;
     position: static;
     bottom: 5px;
     background: white;
@@ -36,7 +41,7 @@ const SignInButton = styled.button`
     border: 3px green;
     color: green;
     margin: 0 1em;
-    padding: 0.25em 1em;
+    padding: 1em 2em;
 
     ${props =>
         props.primary && css `
@@ -61,7 +66,10 @@ export default class WelcomeScreen extends Component {
   render() {
     return (
       <div className="App">
-        <TitleBar title = {this.state.screenStatus} color = "green" backbuttonPath = "no"/>
+        <TitleBar title = {this.state.screenStatus} color = "green" backbuttonPath = "no" />
+        <a href = "#Preview"><TitleBarButton primary>Preview</TitleBarButton></a>
+        <a href = "#About"><TitleBarButton primary>About</TitleBarButton></a>
+        <a href = "#Video"><TitleBarButton primary>Home</TitleBarButton></a> 
         <div>
             {/* <Link to="/">Home</Link> */}
             { // replace "/special" with the path to whatever the secured path is
@@ -69,20 +77,29 @@ export default class WelcomeScreen extends Component {
             }
             {
               (isLoggedIn()) ? 
-                ( <TitleBarButton 
-                  className="btn btn-danger log"
+                ( <TitleBarButton
                   onClick={() => {
                     logout();
                     this.props.history.push('/');
                   }}>Log out </TitleBarButton> ) 
-                  : ( <TitleBarButton className="btn btn-info log"
+                  : ( <TitleBarButton
                   onClick={() => login()}>Log In</TitleBarButton> )
-            }
-            <TitleBarButton primary>Preview</TitleBarButton>
-            <TitleBarButton primary>About</TitleBarButton>
-            <TitleBarButton primary>Home</TitleBarButton>
-            <div style={{"position:": "static", "top": "-900px", "display": "inline-block","width": "100%", "alignItems": "center", "textAlign": "center",}}><SignInButton primary >GET STARTED NOW</SignInButton></div>
-        </div>
+            }         
+                        
+            <div style={{'top': '60px', 'position': 'relative'}}>
+              <video id = "Video" style = {{"width":"100%"}} loop="true" autoplay="" muted="true" playsinline="">
+                <source src = "https://s3-us-west-1.amazonaws.com/viet-app/Intro+Video+Export.mp4" type = "video/mp4"/>          
+              </video>
+            </div>
+
+            <div style={{"position:": "float", "display": "inline-block","width": "100%", "alignItems": "center", "textAlign": "center"}}><SignInButton primary >GET STARTED NOW</SignInButton></div>
+
+            <div id = "About" style={{'marginLeft': '150px', 'marginRight': '150px'}}>{ReactHtmlParser("<br><h2 style='color:green'>ABOUT</h2><p>Welcome to the Viet Class! Here you will find all the resources you need to learn Vietnamese. Viet Class offers complete lessons from all eight Vietnamese textbooks published by the Association of the Vietnamese Language and Culture Schools. Each lesson is complete with interactive exercises, audio examples, and a helpful video to best support you in your endeavors to learn Vietnamese. At Viet Class, no longer will you pore over your textbook for hours on end. Instead, enjoy the dynamic and fun-filled lessons online and learn Vietnamese like never before!</p><p>Chào mừng các bạn đến Việt Class! Ở đây các bạn sẽ thấy tất cả mọi thứ các bạn cần để học tiếng Việt. Việt Class có tất cả các bài từ cả tám sách giáo khoa Việt Ngữ của Ban Đại Diện Các Trung Tâm Việt Ngữ Nam California. Mỗi bài có đầy đủ các bài tập tương tác, ví dụ âm thanh, và một video hữu ích để giúp các bạn học tiếng Việt. Nếu dùng Việt Class, các bạn sẽ không bao giờ phải dành hàng tiếng đồng hồ ngồi đọc sách. Thay vì thế, hãy thưởng thức những bài điện tử năng động và học tiếng Việt theo một cách chưa từng có bao giờ!</p>")}
+            </div>
+            <div id = "Preview" style={{'marginLeft': '150px', 'marginRight': '150px'}}>{ReactHtmlParser("<h2 style='color:green'>PREVIEW</h2>")}</div>
+            <div style={{'marginLeft': '150px'}}><Slideshow /></div>
+            
+          </div>
         <br/>
         {/* <Welcome0Button handleClick = {this.screenStatusChange} color = 'purple' text = 'Học' newLink = '/Learn'/>
         <br/>

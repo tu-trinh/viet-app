@@ -40,6 +40,8 @@
     "react-render-html": "^0.6.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
+    "react-slideshow-image": "^1.0.8",
+    "react-slidez": "0.0.30",
     "react-sticky": "^6.0.3",
     "redux": "^4.0.0",
     "styled-components": "^4.0.2",

@@ -1,15 +1,12 @@
-﻿10/28/18:
+﻿10/31/18:
 - HTML fragments
 - Say book instead of "choose..."
 - Exercise screen initially displays an exercise
-- Master CSS file
-- Welcome landing page
-- Get domain
+- Master CSS file ♫
+- Landing page link to bookmarks and learn page
+- Slideshow
+- Database fill in!
 
-
-Current To Do:
-Minh:
-Mako backo butts ( ͡° ͜ʖ ͡°)
 
 Optimization Idea: Only Exercise makes the API call and passes info down to ExerciseSideNav
 
@@ -18,7 +15,7 @@ AN EXTRA FIELD TO EACH DOCUMENT
 
 We can configure which collection to store something in in the model file. Look at Lesson model for example.
 Next: Display Lesson data, then Exercise Data taken from the MongoDB Database. Maybe store data in 
-cookies or something so you dont have to re-fetch when you get to Exercise Screen?
+cookies or something so you don't have to re-fetch when you get to Exercise Screen?
 
 NEXT: Lesson Display has been successful. Now make it dynamic, I was thinking of inputting all collections
 into the model file and then when searching, use a query to locate ones in a specific book.
@@ -36,12 +33,6 @@ All lesson links currently link to Lesson 1
 Floating keyboard VietKey would have to render a component for every special character :O
 how to get user id from auth0
 
-ToDo for 7/26:
-Minh: Back Buttons
-
-Chi Tu: Submit Forms, form required
-
-Back buttons (to previous heading and to previous previous heading)
 Finish editor
 Save to db
 

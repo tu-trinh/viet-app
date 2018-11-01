@@ -22,7 +22,12 @@
     font-weight:bold;
 }
 
-.text, select, input {
+h2 { /* subsection headers */
+    color: mediumvioletred;
+    font-style: bold;
+}
+
+p, select, input {
     font-size: 24px;
     color: black;
     font-family: "Times New Roman";
@@ -30,6 +35,74 @@
 
 .instructions {
     font-size: 20px;
-    color: black;
+    color: red;
     text-align: center;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+/* td {
+    text-align: center;
+} */
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.word-bank {
+    text-align: center;
+    word-spacing: 40px; /* variable */
+}
+
+.role {
+    font-size: 24px;
+    color: black;
+    font-weight: bold;
+}
+
+.script-text {
+    font-size: 24px;
+    color: purple;
+    font-style: italic;
+}
+
+.float-select {
+    position: relative;
+    bottom: 60px; /* variable */
+}
+
+.vocab {
+    font-size: 24px;
+    color: black;
+    font-weight: bold;
+}
+
+.pos {
+    font-size: 24px;
+    color: red;
+    font-style: italic;
+}
+
+.english {
+    font-size: 24px;
+    color: black;
+    font-style: italic;
 }
