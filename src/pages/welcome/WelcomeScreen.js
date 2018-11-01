@@ -87,17 +87,19 @@ export default class WelcomeScreen extends Component {
             }         
                         
             <div style={{'top': '60px', 'position': 'relative'}}>
-              <video id = "Video" style = {{"width":"100%"}} loop="true" autoplay="" muted="true" playsinline="">
+              <video id = "Video" style = {{"width":"100%", '-webkit-filter': 'brightness(.5)', 'filter': 'brightness(.5)'}} loop="true" autoplay="" muted="true" playsinline="">
                 <source src = "https://s3-us-west-1.amazonaws.com/viet-app/Intro+Video+Export.mp4" type = "video/mp4"/>          
               </video>
             </div>
 
             <div style={{"position:": "float", "display": "inline-block","width": "100%", "alignItems": "center", "textAlign": "center"}}><SignInButton primary >GET STARTED NOW</SignInButton></div>
 
-            <div id = "About" style={{'marginLeft': '150px', 'marginRight': '150px'}}>{ReactHtmlParser("<br><h2 style='color:green'>ABOUT</h2><p>Welcome to the Viet Class! Here you will find all the resources you need to learn Vietnamese. Viet Class offers complete lessons from all eight Vietnamese textbooks published by the Association of the Vietnamese Language and Culture Schools. Each lesson is complete with interactive exercises, audio examples, and a helpful video to best support you in your endeavors to learn Vietnamese. At Viet Class, no longer will you pore over your textbook for hours on end. Instead, enjoy the dynamic and fun-filled lessons online and learn Vietnamese like never before!</p><p>Chào mừng các bạn đến Việt Class! Ở đây các bạn sẽ thấy tất cả mọi thứ các bạn cần để học tiếng Việt. Việt Class có tất cả các bài từ cả tám sách giáo khoa Việt Ngữ của Ban Đại Diện Các Trung Tâm Việt Ngữ Nam California. Mỗi bài có đầy đủ các bài tập tương tác, ví dụ âm thanh, và một video hữu ích để giúp các bạn học tiếng Việt. Nếu dùng Việt Class, các bạn sẽ không bao giờ phải dành hàng tiếng đồng hồ ngồi đọc sách. Thay vì thế, hãy thưởng thức những bài điện tử năng động và học tiếng Việt theo một cách chưa từng có bao giờ!</p>")}
+            <div id = "About" style={{'position': 'absolute', 'top': '300px', 'zIndex': '10000', 'marginLeft': '310px', 'width': '40%', 'color': 'white', 'font-size': '40px'}}>{ReactHtmlParser("<br><p>Xin chào các bạn!<br>Welcome to the Viet Class!</p>")}</div>
+
+            <div id = "About" style={{'marginLeft': '150px', 'marginRight': '150px'}}>{ReactHtmlParser("<br><h2 style='color:green'>ABOUT</h2><p>Xin chào các bạn!</p><p>Welcome to the Viet Class! Here you will find all the resources you need to learn Vietnamese. Viet Class offers complete lessons from all eight Vietnamese textbooks published by the Association of the Vietnamese Language and Culture Schools. Each lesson is complete with interactive exercises, audio examples, and a helpful video to best support you in your endeavors to learn Vietnamese. At Viet Class, no longer will you pore over your textbook for hours on end. Instead, enjoy the dynamic and fun-filled lessons online and learn Vietnamese like never before!</p><p>Chào mừng các bạn đến Việt Class! Ở đây các bạn sẽ thấy tất cả mọi thứ các bạn cần để học tiếng Việt. Việt Class có tất cả các bài từ cả tám sách giáo khoa Việt Ngữ của Ban Đại Diện Các Trung Tâm Việt Ngữ Nam California. Mỗi bài có đầy đủ các bài tập tương tác, ví dụ âm thanh, và một video hữu ích để giúp các bạn học tiếng Việt. Nếu dùng Việt Class, các bạn sẽ không bao giờ phải dành hàng tiếng đồng hồ lật từng trang sách. Thay vì thế, hãy thưởng thức những bài học điện tử sinh động và học tiếng Việt theo một cách chưa từng có bao giờ!</p>")}
             </div>
             <div id = "Preview" style={{'marginLeft': '150px', 'marginRight': '150px'}}>{ReactHtmlParser("<h2 style='color:green'>PREVIEW</h2>")}</div>
-            <div style={{'marginLeft': '150px'}}><Slideshow /></div>
+            <div style={{'marginLeft': '300px'}}><Slideshow /></div>
             
           </div>
         <br/>
