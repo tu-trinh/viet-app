@@ -9,11 +9,11 @@ require('./slideshow.css');
 
  
 const slideImages = [
-  "https://s3-us-west-1.amazonaws.com/viet-app/Hoc+Thuoc+Long+XD.PNG",
-  "https://s3-us-west-1.amazonaws.com/viet-app/Hoc+Tieng+On+Van+XD.PNG",
-  "https://s3-us-west-1.amazonaws.com/viet-app/Video+XD.PNG",
-  "https://s3-us-west-1.amazonaws.com/viet-app/Tap+Noi+XD.PNG", 
-  "https://s3-us-west-1.amazonaws.com/viet-app/Tap+Doc+XD.PNG"
+  "https://s3-us-west-1.amazonaws.com/viet-app/Hoc+Thuoc+Long+XD+demo.PNG",
+  "https://s3-us-west-1.amazonaws.com/viet-app/Hoc+Tieng+On+Van+XD+demo.PNG",
+  "https://s3-us-west-1.amazonaws.com/viet-app/Video+XD+demo.PNG",
+  "https://s3-us-west-1.amazonaws.com/viet-app/Tap+Noi+XD+demo.PNG", 
+  "https://s3-us-west-1.amazonaws.com/viet-app/Tap+Doc+XD+demo.PNG"
 //           
 ];
  
