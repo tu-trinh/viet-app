@@ -9,11 +9,11 @@ require('./slideshow.css');
 
  
 const slideImages = [
-  "https://s3-us-west-1.amazonaws.com/viet-app/Noi+Tu+Voi+Nghia+Preview.PNG",
-  "https://s3-us-west-1.amazonaws.com/viet-app/Bai+Tap+Tu+Ngu+Preview.PNG",
-  "https://s3-us-west-1.amazonaws.com/viet-app/Dien+Vao+Cho+Trong+Preview.PNG",
-  "https://s3-us-west-1.amazonaws.com/viet-app/Hoc+Thuoc+Long+Preview.PNG",
-  "https://s3-us-west-1.amazonaws.com/viet-app/Hoc+Tu+Ngu+Preview.PNG"
+  "https://s3-us-west-1.amazonaws.com/viet-app/Hoc+Thuoc+Long+XD.PNG",
+  "https://s3-us-west-1.amazonaws.com/viet-app/Hoc+Tieng+On+Van+XD.PNG",
+  "https://s3-us-west-1.amazonaws.com/viet-app/Video+XD.PNG",
+  "https://s3-us-west-1.amazonaws.com/viet-app/Tap+Noi+XD.PNG", 
+  "https://s3-us-west-1.amazonaws.com/viet-app/Tap+Doc+XD.PNG"
 //           
 ];
  
@@ -37,22 +37,22 @@ export default class Slideshow extends Component {
         </div>
         <div>
           <div>
-            <img src = {slideImages[1]} style = {{'width': '30%'}}/>
-          </div>
-        </div>
-        {/* <div className="each-slide">
-          <div>
-          <img src = {slideImages[2]} style = {{'width': '75%'}}/>
-          </div>
-        </div> */}
-        <div>
-          <div>
-          <img src = {slideImages[3]} style = {{'width': '30%'}}/>
+            <img src = {slideImages[1]} style = {{'width': '50%'}}/>
           </div>
         </div>
         <div>
           <div>
-          <img src = {slideImages[4]} style = {{'width': '30%'}}/>
+          <img src = {slideImages[2]} style = {{'width': '50%'}}/>
+          </div>
+        </div>
+        <div>
+          <div>
+          <img src = {slideImages[3]} style = {{'width': '50%'}}/>
+          </div>
+        </div>
+        <div>
+          <div>
+          <img src = {slideImages[4]} style = {{'width': '50%'}}/>
           </div>
         </div>
       </Slide>
