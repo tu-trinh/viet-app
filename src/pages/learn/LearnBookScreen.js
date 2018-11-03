@@ -50,10 +50,10 @@ export default class LearnBookScreen extends Component {
   render() {
     return (
       <div className="App">
-        <TitleBar title = {this.state.screenStatus} color = "purple" backbuttonPath = "/" appear = {false}/>
-        <h2>Your Books</h2>
+        <TitleBar title = {this.state.screenStatus} color = "purple" backbuttonPath = "no" appear = {false}/>
+        <h2 style={{margin: '0px'}}>Your Books</h2>
         <br/>
-        <div>{this.state.booksToDisplay}</div>
+        <div style={{paddingTop: '50px'}}>{this.state.booksToDisplay}</div>
           {/* <Route exact path='/Learn' component={LearnBookScreen}/> */}
       </div>
     );

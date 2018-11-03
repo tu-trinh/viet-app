@@ -32,20 +32,20 @@ const TitleBarButton = styled.button`
     `};
 `
 
-const SignInButton = styled.button`
+const LearnScreenButton = styled.button`
     font-size: 18;
-    position: static;
-    bottom: 5px;
-    background: white;
+    position: relative;
+    top: 50px;
+    background: green;
     border-radius: 30px;
     border: 3px green;
-    color: green;
+    color: white;
     margin: 0 1em;
     padding: 1em 2em;
 
     ${props =>
         props.primary && css `
-        background: green;
+        background: purple;
         color: white;
     `};
 `
@@ -54,7 +54,7 @@ export default class WelcomeScreen extends Component {
   constructor(props) {
     super(props); 
     this.state = {
-      screenStatus: 'THE VIET CLASS' // Can be login, welcome, learnBook, learngLesson, etc.
+      screenStatus: 'THE VIET CLASS' // Can be login, welcome, learnBook, learnLesson, etc.
     }
     this.screenStatusChange = this.screenStatusChange.bind(this);
   }
@@ -66,43 +66,55 @@ export default class WelcomeScreen extends Component {
   render() {
     return (
       <div className="App">
-        <TitleBar title = {this.state.screenStatus} color = "green" backbuttonPath = "no" />
-        <a href = "#Preview"><TitleBarButton primary>Preview</TitleBarButton></a>
+        <TitleBar title = {this.state.screenStatus} color = "purple" backbuttonPath = "no" />
+        {/* {
+          (isLoggedIn()) ? 
+            ( <TitleBarButton
+              onClick={() => {
+                logout();
+                this.props.history.push('/');
+              }}>Log Out</TitleBarButton>
+              ) 
+              : ( <TitleBarButton
+              onClick={() => login()}>Log In</TitleBarButton> )
+        } */}
+
+        {/* <a href = "#Preview"><TitleBarButton primary>Preview</TitleBarButton></a>
         <a href = "#About"><TitleBarButton primary>About</TitleBarButton></a>
-        <a href = "#Video"><TitleBarButton primary>Home</TitleBarButton></a> 
+        <a href = "#Video"><TitleBarButton primary>Home</TitleBarButton></a>  */}
+        
+        {/* Figure out where to put this */}
+        {/* <div style={{"position:": "float", "display": "inline-block","width": "100%", "alignItems": "center", "textAlign": "center"}}><a href ='/Learn'><LearnScreenButton>LET'S LEARN</LearnScreenButton></a></div> */}
+        
         <div>
             {/* <Link to="/">Home</Link> */}
-            { // replace "/special" with the path to whatever the secured path is
+            {/* replace "/special" with the path to whatever the secured path is */}
+            {/* { 
             ( isLoggedIn() ) ? <div><Link to="/Learn">Learn</Link><br/><Link to="/AdminEditor">Admin Editor</Link></div> :  ''
-            }
-            {
-              (isLoggedIn()) ? 
-                ( <div><TitleBarButton
-                  onClick={() => {
-                    logout();
-                    this.props.history.push('/');
-                  }}>Log out </TitleBarButton>
-                  </div> ) 
-                  : ( <TitleBarButton
-                  onClick={() => login()}>Log In</TitleBarButton> )
-            }         
-                        
-            <div style={{'top': '60px', 'position': 'relative'}}>
+            } */}  
+            <div style={{'top': '91px', 'position': 'relative'}}>
               <video id = "Video" style = {{"width":"100%", '-webkit-filter': 'brightness(.5)', 'filter': 'brightness(.5)'}} loop="true" autoplay="" muted="true" playsinline="">
                 <source src = "https://s3-us-west-1.amazonaws.com/viet-app/Intro+Video+Export.mp4" type = "video/mp4"/>          
               </video>
             </div>
 
-            <div style={{"position:": "float", "display": "inline-block","width": "100%", "alignItems": "center", "textAlign": "center"}}><SignInButton primary >GET STARTED NOW</SignInButton></div>
+            <div id = "Welcome-Text" style={{'position': 'absolute', 'top': '300px', 'zIndex': '10000', 'marginLeft': '310px', 'width': '40%', 'color': 'white', 'font-size': '40px'}}>{ReactHtmlParser("<br><p>Xin chào các bạn!<br>Welcome to the Viet Class!</p>")}</div>
 
-            <div id = "About" style={{'position': 'absolute', 'top': '300px', 'zIndex': '10000', 'marginLeft': '310px', 'width': '40%', 'color': 'white', 'font-size': '40px'}}>{ReactHtmlParser("<br><p>Xin chào các bạn!<br>Welcome to the Viet Class!</p>")}</div>
-
-            <div id = "About" style={{'marginLeft': '150px', 'marginRight': '150px'}}>{ReactHtmlParser("<br><h2 style='color:green'>ABOUT</h2><p>Xin chào các bạn!</p><p>Welcome to the Viet Class! Here you will find a fun way to learn Vietnamese. Viet Class offers complete lessons from all eight Vietnamese textbooks published by the Association of the Vietnamese Language and Culture Schools. Each lesson is complete with interactive exercises, audio examples, and a helpful video to best support you in your endeavors to learn Vietnamese. At Viet Class, no longer will you pore over your textbook for hours on end. Instead, enjoy the dynamic and fun-filled lessons online and learn Vietnamese like never before!</p><p>Chào mừng các bạn đến với Việt Class! Ở đây các bạn sẽ thấy một cách học tiếng Việt rất thú vị. Việt Class có tất cả các bài học từ tám quyển sách giáo khoa Việt Ngữ của Ban Đại Diện Các Trung Tâm Việt Ngữ Nam California. Mỗi bài có đầy đủ các bài tập tương tác, các ví dụ bằng âm thanh, và một video hữu ích để giúp các bạn học tiếng Việt. Nếu dùng Việt Class, các bạn sẽ không còn phải dành hàng tiếng đồng hồ lật từng trang sách. Thay vì thế, hãy thưởng thức những bài học điện tử sinh động, và học tiếng Việt theo một cách chưa từng có bao giờ!</p>")}
+            <div id = "About" style={{'marginLeft': '150px', 'marginRight': '150px'}}>{ReactHtmlParser("<br><br><br><br><h2 style='color:purple'>ABOUT</h2><p>Xin chào các bạn!</p><p>Welcome to the Viet Class! Here you will find a fun way to learn Vietnamese. Viet Class offers complete lessons from all eight Vietnamese textbooks published by the Association of the Vietnamese Language and Culture Schools. Each lesson is complete with interactive exercises, audio examples, and a helpful video to best support you in your endeavors to learn Vietnamese. At Viet Class, no longer will you pore over your textbook for hours on end. Instead, enjoy the dynamic and fun-filled lessons online and learn Vietnamese like never before!</p><p>Chào mừng các bạn đến với Việt Class! Ở đây các bạn sẽ thấy một cách học tiếng Việt rất thú vị. Việt Class có tất cả các bài học từ tám quyển sách giáo khoa Việt Ngữ của Ban Đại Diện Các Trung Tâm Việt Ngữ Nam California. Mỗi bài có đầy đủ các bài tập tương tác, các ví dụ bằng âm thanh, và một video hữu ích để giúp các bạn học tiếng Việt. Nếu dùng Việt Class, các bạn sẽ không còn phải dành hàng tiếng đồng hồ lật từng trang sách. Thay vì thế, hãy thưởng thức những bài học điện tử sinh động, và học tiếng Việt theo một cách chưa từng có bao giờ!</p>")}
             </div>
-            <div id = "Preview" style={{'marginLeft': '150px', 'marginRight': '150px'}}>{ReactHtmlParser("<h2 style='color:green'>PREVIEW</h2>")}</div>
+            <div id = "Preview" style={{'marginLeft': '150px', 'marginRight': '150px'}}>{ReactHtmlParser("<h2 style='color:purple'>PREVIEW</h2>")}</div>
             <div style={{'marginLeft': '300px'}}><Slideshow /></div>
             
           </div>
+          {/* style = {{'fontSize': '18',
+    'position': 'static',
+    'bottom': '5px',
+    'background': 'white',
+    'borderRadius': '30px',
+    'border': '3px green',
+    'color': 'green',
+    'margin': '0 1em',
+    'padding': '1em 2em',}} */}
         <br/>
         {/* <Welcome0Button handleClick = {this.screenStatusChange} color = 'purple' text = 'Học' newLink = '/Learn'/>
         <br/>
