@@ -8,7 +8,7 @@ const CLIENT_ID = 'zZPp1OHnb392igO9QoGxBnJJ2Ct57tGx';
 const CLIENT_DOMAIN = 'mt-at.auth0.com';
 const REDIRECT = 'http://vietclass.org/callback';
 const SCOPE = 'Access:app';
-const AUDIENCE = 'https://hoctiengviet.com';
+const AUDIENCE = 'https://vietclass.org';
 
 var auth = new auth0.WebAuth({
   clientID: CLIENT_ID,
