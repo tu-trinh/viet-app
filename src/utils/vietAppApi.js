@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://www.vietclass.org';
+const BASE_URL = 'http://localhost:3007';
 
 export {getBookData, getLessonData, getExerciseData};
 
