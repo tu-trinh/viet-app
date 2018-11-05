@@ -53,4 +53,3 @@ addContentRouter.post("/:type", (req, res) => {
 addContentRouter.get('/', (req, res, next) => {
     res.send('Hello')
 }) 
-

@@ -57,9 +57,5 @@
   "devDependencies": {
     "css-loader": "^1.0.0",
     "style-loader": "^0.21.0"
-  },
-  "engines": {
-    "node": "^10.6.0",
-    "npm": "^6.1.0"
   }
 }

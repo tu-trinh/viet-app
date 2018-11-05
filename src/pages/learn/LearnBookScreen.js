@@ -31,27 +31,20 @@ export default class LearnBookScreen extends Component {
   }
 
   componentWillMount() {
-    var wue = false
-    if (api.getBookData()) {
-      wue = true
-      this.setState({booksToDisplay: "lol"})
-    }
-    this.setState({booksToDisplay: wue})
-    // api.getBookData().then((books) => {
-    //   console.log(books)
-    //   return books
+    api.getBookData().then((books) => {
+      console.log(books)
+      return books
+    }).then((books) => {
+      let names = books.map((book) => {
+        return (
+          <div key = {book.id}>
+            <LearnButton newLink = {"/Learn/" + this.adjustLink(book.name)} text = {book.name}/>
+          </div>
+        )
+      })
       
-    // }).then((books) => {
-    //   let names = books.map((book) => {
-    //     return (
-    //       <div key = {book.id}>
-    //         <LearnButton newLink = {"/Learn/" + this.adjustLink(book.name)} text = {book.name}/>
-    //       </div>
-    //     )
-    //   })
-      
-    //   this.setState({booksToDisplay: names})
-    // })
+      this.setState({booksToDisplay: names})
+    })
   }
 
   render() {

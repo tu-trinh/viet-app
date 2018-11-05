@@ -15,4 +15,3 @@ var LessonSchema = new Schema({
 var Lesson = mongoose.model('Lesson', LessonSchema, 'Book1-Lessons');
 
 module.exports = Lesson;
-
