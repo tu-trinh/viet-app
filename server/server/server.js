@@ -1,6 +1,6 @@
-const models = require('../models')
-const Book = models.Book;
-const Lesson = models.Lesson;
+// const models = require('../models')
+// const Book = models.Book;
+// const Lesson = models.Lesson;
 
 const express = require('express');
 const app = express();
@@ -8,15 +8,16 @@ const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/viet-app";
+const PORT = process.env.PORT;
+// var MongoClient = require('mongodb').MongoClient;
+// var url = "mongodb://localhost:27017/viet-app";
 
 // const addContentRouter = require("./addContent")
 // const getContentRouter = require("./getContent")
 // app.use('/addContent', addContentRouter)
 // app.use('/api/getContent', getContentRouter)
-const mainRouter = require("../models/index")
-app.use('/api/mainRouter', mainRouter)
+// const mainRouter = require("../models/index")
+// app.use('/api/mainRouter', mainRouter)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -37,8 +38,6 @@ it against a secret key that we provide.
 */
 // JSON Web Token - Token with a special format
 
-
-
 const authCheck = jwt({
   secret: jwks.expressJwtSecret({
         cache: true,
@@ -52,6 +51,69 @@ const authCheck = jwt({
     issuer: 'mt-at.auth0.com',
     algorithms: ['RS256']
 });
+
+var Book, Lesson, Response, TestContent;
+
+db.on('error', console.error.bind(console, 'connection error: '));
+db.once('open', function callback() {
+    var BookSchema = new Schema({
+        id: String,
+        name: String,
+    });
+    Book = mongoose.model('Book', BookSchema, 'Books');
+
+    var LessonSchema = new Schema({
+        id: String,
+        name: String,
+        exercises:[{id: String,
+                  name: String,
+                  content: String}]
+    });
+    Lesson = mongoose.model('Lesson', LessonSchema, 'Book1-Lessons');
+
+    var ResponseSchema = new Schema({
+        userId: String,
+        response: [{
+          bookId: String,
+          lessonId: String,
+          exerciseId: String,
+          answer: [String]
+        }]
+    });
+    Response = mongoose.model('Response', ResponseSchema);
+
+    var TestContentSchema = new Schema({
+        id: String,
+        name: String,
+        material: String,
+    });
+    TestContent = mongoose.model('TestContent', TestContentSchema);
+    
+    // from getContent.js
+    // mongoose.Promise = global.Promise;
+})
+
+app.get("/getContent/books", (req, res) => {
+    return [{id: '1', name: 'Book1'}, {id: '2', name: 'Book2'}]
+    // Book.find((err, book) => {
+    //     if (err) res.send(err)
+    //     else res.status(200).json(book)
+    // })
+});
+
+app.get("/getContent/lessons", (req, res) => {
+    Lesson.find((err, lesson) => {
+        if (err) res.send(err)
+        else res.json(lesson)                      
+    })
+})
+
+app.get('/getContent/exercises', (req,res) => {
+    Lesson.findOne({id:'lesson1'}, {exercises: true}, (err, lesson) => {
+        if (err) res.send(err)
+        else res.json(lesson)
+    })
+})
 
 
 // app.get('/api/books', authCheck, (req, res) => {
@@ -112,4 +174,4 @@ const authCheck = jwt({
 
 
 
-app.listen(3007, () => {console.log('Listening on port 3007')});
+app.listen(PORT);

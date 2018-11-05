@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = window.location.origin//'http://localhost:3007';
+const BASE_URL = window.location.origin //'http://localhost:3007';
 
 export {getBookData, getLessonData, getExerciseData};
 
