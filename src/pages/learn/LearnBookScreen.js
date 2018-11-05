@@ -46,7 +46,7 @@ export default class LearnBookScreen extends Component {
     //   })
       
     //   this.setState({booksToDisplay: names})
-    })
+    // })
   }
 
   render() {
