@@ -87,7 +87,7 @@ var TestContentSchema = new Schema({
 });
 TestContent = mongoose.model('TestContent', TestContentSchema);
 
-app.get("/getContent/books", (req, res) => {
+app.get("/api/mainRouter/getContent/books", (req, res) => {
     return [{id: '1', name: 'Book1'}, {id: '2', name: 'Book2'}]
     // Book.find((err, book) => {
     //     if (err) res.send(err)
@@ -95,14 +95,14 @@ app.get("/getContent/books", (req, res) => {
     // })
 });
 
-app.get("/getContent/lessons", (req, res) => {
+app.get("/api/mainRouter/getContent/lessons", (req, res) => {
     Lesson.find((err, lesson) => {
         if (err) res.send(err)
         else res.json(lesson)                      
     })
 })
 
-app.get('/getContent/exercises', (req,res) => {
+app.get('/api/mainRouter/getContent/exercises', (req,res) => {
     Lesson.findOne({id:'lesson1'}, {exercises: true}, (err, lesson) => {
         if (err) res.send(err)
         else res.json(lesson)
