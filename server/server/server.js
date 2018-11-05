@@ -54,44 +54,38 @@ const authCheck = jwt({
 
 var Book, Lesson, Response, TestContent;
 
-db.on('error', console.error.bind(console, 'connection error: '));
-db.once('open', function callback() {
-    var BookSchema = new Schema({
-        id: String,
-        name: String,
-    });
-    Book = mongoose.model('Book', BookSchema, 'Books');
+var BookSchema = new Schema({
+    id: String,
+    name: String,
+});
+Book = mongoose.model('Book', BookSchema, 'Books');
 
-    var LessonSchema = new Schema({
-        id: String,
-        name: String,
-        exercises:[{id: String,
-                  name: String,
-                  content: String}]
-    });
-    Lesson = mongoose.model('Lesson', LessonSchema, 'Book1-Lessons');
+var LessonSchema = new Schema({
+    id: String,
+    name: String,
+    exercises:[{id: String,
+                name: String,
+                content: String}]
+});
+Lesson = mongoose.model('Lesson', LessonSchema, 'Book1-Lessons');
 
-    var ResponseSchema = new Schema({
-        userId: String,
-        response: [{
-          bookId: String,
-          lessonId: String,
-          exerciseId: String,
-          answer: [String]
-        }]
-    });
-    Response = mongoose.model('Response', ResponseSchema);
+var ResponseSchema = new Schema({
+    userId: String,
+    response: [{
+        bookId: String,
+        lessonId: String,
+        exerciseId: String,
+        answer: [String]
+    }]
+});
+Response = mongoose.model('Response', ResponseSchema);
 
-    var TestContentSchema = new Schema({
-        id: String,
-        name: String,
-        material: String,
-    });
-    TestContent = mongoose.model('TestContent', TestContentSchema);
-    
-    // from getContent.js
-    // mongoose.Promise = global.Promise;
-})
+var TestContentSchema = new Schema({
+    id: String,
+    name: String,
+    material: String,
+});
+TestContent = mongoose.model('TestContent', TestContentSchema);
 
 app.get("/getContent/books", (req, res) => {
     return [{id: '1', name: 'Book1'}, {id: '2', name: 'Book2'}]
@@ -114,7 +108,6 @@ app.get('/getContent/exercises', (req,res) => {
         else res.json(lesson)
     })
 })
-
 
 // app.get('/api/books', authCheck, (req, res) => {
 //   let Books = [
@@ -171,7 +164,5 @@ app.get('/getContent/exercises', (req,res) => {
 //     else res.json(book)                      
 //   })
 // });
-
-
 
 app.listen(PORT);
