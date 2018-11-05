@@ -58,7 +58,7 @@ db.once('open', function callback() {
     mongoose.Promise = global.Promise;
 
     mainRouter.get("/getContent/books", (req, res) => {
-        return "hi"
+        return [{id: '1', name: 'Book1'}, {id: '2', name: 'Book2'}]
         // Book.find((err, book) => {
         //     if (err) res.send(err)
         //     else res.status(200).json(book)
