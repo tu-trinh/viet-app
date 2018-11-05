@@ -8,7 +8,7 @@ const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3007;
 // var MongoClient = require('mongodb').MongoClient;
 // var url = "mongodb://localhost:27017/viet-app";
 
@@ -166,3 +166,4 @@ app.get('/api/mainRouter/getContent/exercises', (req,res) => {
 // });
 
 app.listen(PORT);
+console.log('Listening on port ' + PORT);
