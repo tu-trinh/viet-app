@@ -57,26 +57,28 @@ db.once('open', function callback() {
     // from getContent.js
     mongoose.Promise = global.Promise;
 
-    mainRouter.get("/getContent/books", (req, res) => {
-        return [{id: '1', name: 'Book1'}, {id: '2', name: 'Book2'}]
-        // Book.find((err, book) => {
-        //     if (err) res.send(err)
-        //     else res.status(200).json(book)
-        // })
-    });
 
-    mainRouter.get("/getContent/lessons", (req, res) => {
-        Lesson.find((err, lesson) => {
-            if (err) res.send(err)
-            else res.json(lesson)                      
-        })
+})
+
+mainRouter.get("/getContent/books", (req, res) => {
+    return [{id: '1', name: 'Book1'}, {id: '2', name: 'Book2'}]
+    // Book.find((err, book) => {
+    //     if (err) res.send(err)
+    //     else res.status(200).json(book)
+    // })
+});
+
+mainRouter.get("/getContent/lessons", (req, res) => {
+    Lesson.find((err, lesson) => {
+        if (err) res.send(err)
+        else res.json(lesson)                      
     })
+})
 
-    mainRouter.get('/getContent/exercises', (req,res) => {
-        Lesson.findOne({id:'lesson1'}, {exercises: true}, (err, lesson) => {
-            if (err) res.send(err)
-            else res.json(lesson)
-        })
+mainRouter.get('/getContent/exercises', (req,res) => {
+    Lesson.findOne({id:'lesson1'}, {exercises: true}, (err, lesson) => {
+        if (err) res.send(err)
+        else res.json(lesson)
     })
 })
 
