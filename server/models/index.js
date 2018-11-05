@@ -57,21 +57,21 @@ db.once('open', function callback() {
     // from getContent.js
     mongoose.Promise = global.Promise;
 
-    mainRouter.get("/books", (req, res) => {
+    mainRouter.get("/getContent/books", (req, res) => {
         Book.find((err, book) => {
             if (err) res.send(err)
             else res.status(200).json(book)
         })
     });
 
-    mainRouter.get("/lessons", (req, res) => {
+    mainRouter.get("/getContent/lessons", (req, res) => {
         Lesson.find((err, lesson) => {
             if (err) res.send(err)
             else res.json(lesson)                      
         })
     })
 
-    mainRouter.get('/exercises', (req,res) => {
+    mainRouter.get('/getContent/exercises', (req,res) => {
         Lesson.findOne({id:'lesson1'}, {exercises: true}, (err, lesson) => {
             if (err) res.send(err)
             else res.json(lesson)
