@@ -9,13 +9,15 @@ let db = mongoose.connection;
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const getContentRouter = express.Router();
-module.exports = getContentRouter;
-getContentRouter.use(bodyParser.json());
-getContentRouter.use(bodyParser.urlencoded({ extended: true }));
-getContentRouter.use(cors());
-getContentRouter.use(express.json());
-getContentRouter.use(express.urlencoded());
+const mainRouter = express.Router();
+module.exports = mainRouter;
+// Here
+mainRouter.use(bodyParser.json());
+mainRouter.use(bodyParser.urlencoded({ extended: true }));
+mainRouter.use(cors());
+mainRouter.use(express.json());
+mainRouter.use(express.urlencoded());
+// End Here
 
 db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', function callback() {
@@ -55,21 +57,21 @@ db.once('open', function callback() {
     // from getContent.js
     mongoose.Promise = global.Promise;
 
-    getContentRouter.get("/books", (req, res) => {
+    mainRouter.get("/books", (req, res) => {
         Book.find((err, book) => {
             if (err) res.send(err)
             else res.status(200).json(book)
         })
     });
 
-    getContentRouter.get("/lessons", (req, res) => {
+    mainRouter.get("/lessons", (req, res) => {
         Lesson.find((err, lesson) => {
             if (err) res.send(err)
             else res.json(lesson)                      
         })
     })
 
-    getContentRouter.get('/exercises', (req,res) => {
+    mainRouter.get('/exercises', (req,res) => {
         Lesson.findOne({id:'lesson1'}, {exercises: true}, (err, lesson) => {
             if (err) res.send(err)
             else res.json(lesson)

@@ -11,10 +11,12 @@ const bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/viet-app";
 
-const addContentRouter = require("./addContent")
-const getContentRouter = require("./getContent")
-app.use('/addContent', addContentRouter)
-app.use('/api/getContent', getContentRouter)
+// const addContentRouter = require("./addContent")
+// const getContentRouter = require("./getContent")
+// app.use('/addContent', addContentRouter)
+// app.use('/api/getContent', getContentRouter)
+const mainRouter = require("./index")
+app.use('/api/mainRouter', mainRouter)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,7 +25,11 @@ app.use(express.json());
 app.use(express.urlencoded()); 
 
 var mongoose = require("mongoose");
-mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/viet-app");
+Schema = mongoose.Schema;
+// mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/viet-app");
+let uri = 'mongodb://heroku_3z5263pd:vjgmcq5q9j1s4mhvj6cjqgdoma@ds151753.mlab.com:51753/heroku_3z5263pd';
+mongoose.connect(uri);
+let db = mongoose.connection;
 
 /* We’re using express-jwt to create a middleware
 that looks for an incoming JSON Web Token and verifies
@@ -47,61 +53,62 @@ const authCheck = jwt({
     algorithms: ['RS256']
 });
 
-app.get('/api/books', authCheck, (req, res) => {
-  let Books = [
-      {
-          id: 'b01',
-          book: 'Sách Cấp 1'
-      },
-      {
-          id: 'b02',
-          book: 'Sách Cấp 2'
-      },
-  ];
-  res.json(Books);
-})
 
-app.get('/api/:book/lessons', (req, res) => {
-    let Lessons = [
-        {
-          id: 'l01',
-          lesson: 'Bài 1'
-        },
-        {
-          id: 'l02',
-          lesson: 'Bài 2'
-        },
-        {
-          id: 'l03',
-          lesson: 'Bài 3'                                        
-        },
-        {
-          id: 'l04',
-          lesson: 'Bài 4'
-        }
-    ];
-    res.json(Lessons);
-  })
+// app.get('/api/books', authCheck, (req, res) => {
+//   let Books = [
+//       {
+//           id: 'b01',
+//           book: 'Sách Cấp 1'
+//       },
+//       {
+//           id: 'b02',
+//           book: 'Sách Cấp 2'
+//       },
+//   ];
+//   res.json(Books);
+// })
 
-// Need to add to specific collection
-// Make post instead of get
-// Create controller
+// app.get('/api/:book/lessons', (req, res) => {
+//     let Lessons = [
+//         {
+//           id: 'l01',
+//           lesson: 'Bài 1'
+//         },
+//         {
+//           id: 'l02',
+//           lesson: 'Bài 2'
+//         },
+//         {
+//           id: 'l03',
+//           lesson: 'Bài 3'                                        
+//         },
+//         {
+//           id: 'l04',
+//           lesson: 'Bài 4'
+//         }
+//     ];
+//     res.json(Lessons);
+//   })
+
+// // Need to add to specific collection
+// // Make post instead of get
+// // Create controller
 
 
-app.put("/updateLesson", (req, res) => {
-  let idToChange = req.body._id;
-  Lesson.findByIdAndUpdate(idToChange, req.body, {new: true}, function(err, lesson) {
-    if (err) throw err;
-    else res.json(lesson)
-  })
-})
+// app.put("/updateLesson", (req, res) => {
+//   let idToChange = req.body._id;
+//   Lesson.findByIdAndUpdate(idToChange, req.body, {new: true}, function(err, lesson) {
+//     if (err) throw err;
+//     else res.json(lesson)
+//   })
+// })
 
-app.post("/addbook", (req, res) => {
-  Book.create(req.body, function(err, book) {
-    if (err) res.send(err)
-    else res.json(book)                      
-  })
-});
+// app.post("/addbook", (req, res) => {
+//   Book.create(req.body, function(err, book) {
+//     if (err) res.send(err)
+//     else res.json(book)                      
+//   })
+// });
 
 
 
