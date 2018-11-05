@@ -31,7 +31,12 @@ export default class LearnBookScreen extends Component {
   }
 
   componentWillMount() {
-    this.setState({booksToDisplay: api.getBookData()})
+    var wue = false
+    if (api.getBookData()) {
+      wue = true
+      this.setState({booksToDisplay: "lol"})
+    }
+    this.setState({booksToDisplay: wue})
     // api.getBookData().then((books) => {
     //   console.log(books)
     //   return books
