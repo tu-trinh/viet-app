@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3007';
+const BASE_URL = window.location.origin//'http://localhost:3007';
 
 export {getBookData, getLessonData, getExerciseData};
 
@@ -8,17 +8,17 @@ export {getBookData, getLessonData, getExerciseData};
 // ${BASE_URL}
 
 function getBookData() {
-  const url = `/api/mainRouter/getContent/books`;
+  const url = `${BASE_URL}/api/mainRouter/getContent/books`;
   return axios.get(url).then(response => response.data);
 }
 
-function getLessonData(book_num) {
+function getLessonData() {//book_num) {
     // will pass in a prop or something to make the :book dynamic
-  const url = `/api/mainRouter/getContent/lessons/`;//${book_num}`;
+  const url = `${BASE_URL}/api/mainRouter/getContent/lessons/`;//${book_num}`;
   return axios.get(url).then(response => response.data);
 }
 
-function getExerciseData(lesson_id) {
-  const url = `/api/mainRouter/getContent/exercises/`
+function getExerciseData() { //lesson_id) {
+  const url = `${BASE_URL}/api/mainRouter/getContent/exercises/`
   return axios.get(url).then(response => response.data)
 }
