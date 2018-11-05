@@ -8,9 +8,8 @@ export {getBookData, getLessonData, getExerciseData};
 // ${BASE_URL}
 
 function getBookData() {
-  return "hi"
-  // const url = `/api/mainRouter/getContent/books`;
-  // return axios.get(url).then(response => response.data);
+  const url = `/api/mainRouter/getContent/books`;
+  return axios.get(url).then(response => response.data);
 }
 
 function getLessonData(book_num) {
