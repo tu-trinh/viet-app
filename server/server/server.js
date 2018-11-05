@@ -15,7 +15,7 @@ var url = "mongodb://localhost:27017/viet-app";
 // const getContentRouter = require("./getContent")
 // app.use('/addContent', addContentRouter)
 // app.use('/api/getContent', getContentRouter)
-const mainRouter = require("./index")
+const mainRouter = require("../models/index")
 app.use('/api/mainRouter', mainRouter)
 
 app.use(bodyParser.json());
