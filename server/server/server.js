@@ -16,8 +16,8 @@ const PORT = process.env.PORT || 3007;
 // const getContentRouter = require("./getContent")
 // app.use('/addContent', addContentRouter)
 // app.use('/api/getContent', getContentRouter)
-// const mainRouter = require("../models/index")
-// app.use('/api/mainRouter', mainRouter)
+const mainRouter = require("./index")
+app.use('/api/mainRouter', mainRouter)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -52,62 +52,62 @@ const authCheck = jwt({
     algorithms: ['RS256']
 });
 
-var Book, Lesson, Response, TestContent;
+// var Book, Lesson, Response, TestContent;
 
-var BookSchema = new Schema({
-    id: String,
-    name: String,
-});
-Book = mongoose.model('Book', BookSchema, 'Books');
+// var BookSchema = new Schema({
+//     id: String,
+//     name: String,
+// });
+// Book = mongoose.model('Book', BookSchema, 'Books');
 
-var LessonSchema = new Schema({
-    id: String,
-    name: String,
-    exercises:[{id: String,
-                name: String,
-                content: String}]
-});
-Lesson = mongoose.model('Lesson', LessonSchema, 'Book1-Lessons');
+// var LessonSchema = new Schema({
+//     id: String,
+//     name: String,
+//     exercises:[{id: String,
+//                 name: String,
+//                 content: String}]
+// });
+// Lesson = mongoose.model('Lesson', LessonSchema, 'Book1-Lessons');
 
-var ResponseSchema = new Schema({
-    userId: String,
-    response: [{
-        bookId: String,
-        lessonId: String,
-        exerciseId: String,
-        answer: [String]
-    }]
-});
-Response = mongoose.model('Response', ResponseSchema);
+// var ResponseSchema = new Schema({
+//     userId: String,
+//     response: [{
+//         bookId: String,
+//         lessonId: String,
+//         exerciseId: String,
+//         answer: [String]
+//     }]
+// });
+// Response = mongoose.model('Response', ResponseSchema);
 
-var TestContentSchema = new Schema({
-    id: String,
-    name: String,
-    material: String,
-});
-TestContent = mongoose.model('TestContent', TestContentSchema);
+// var TestContentSchema = new Schema({
+//     id: String,
+//     name: String,
+//     material: String,
+// });
+// TestContent = mongoose.model('TestContent', TestContentSchema);
 
-app.get("/api/mainRouter/getContent/books", (req, res) => {
-    return [{id: '1', name: 'Book1'}, {id: '2', name: 'Book2'}]
-    // Book.find((err, book) => {
-    //     if (err) res.send(err)
-    //     else res.status(200).json(book)
-    // })
-});
+// app.get("/api/mainRouter/getContent/books", (req, res) => {
+//     return [{id: '1', name: 'Book1'}, {id: '2', name: 'Book2'}]
+//     // Book.find((err, book) => {
+//     //     if (err) res.send(err)
+//     //     else res.status(200).json(book)
+//     // })
+// });
 
-app.get("/api/mainRouter/getContent/lessons", (req, res) => {
-    Lesson.find((err, lesson) => {
-        if (err) res.send(err)
-        else res.json(lesson)                      
-    })
-})
+// app.get("/api/mainRouter/getContent/lessons", (req, res) => {
+//     Lesson.find((err, lesson) => {
+//         if (err) res.send(err)
+//         else res.json(lesson)                      
+//     })
+// })
 
-app.get('/api/mainRouter/getContent/exercises', (req,res) => {
-    Lesson.findOne({id:'lesson1'}, {exercises: true}, (err, lesson) => {
-        if (err) res.send(err)
-        else res.json(lesson)
-    })
-})
+// app.get('/api/mainRouter/getContent/exercises', (req,res) => {
+//     Lesson.findOne({id:'lesson1'}, {exercises: true}, (err, lesson) => {
+//         if (err) res.send(err)
+//         else res.json(lesson)
+//     })
+// })
 
 // app.get('/api/books', authCheck, (req, res) => {
 //   let Books = [
