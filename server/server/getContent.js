@@ -10,10 +10,10 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/viet-app";
-
 const getContentRouter = express.Router();
 
 module.exports = getContentRouter
+
 
 getContentRouter.use(bodyParser.json());
 getContentRouter.use(bodyParser.urlencoded({ extended: true }));
@@ -54,6 +54,3 @@ getContentRouter.get('/exercises', (req,res) => {
         else res.json(lesson)
     })
 })
-
-
-
