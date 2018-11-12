@@ -1,5 +1,14 @@
-const mongoose = require("mongoose");
+var mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost:27017/viet-app");
+
+module.exports.Book = require("./Book");
+module.exports.Lesson = require("./Lesson")
+module.exports.TestContent = require("./TestContent");
+
 Schema = mongoose.Schema;
+
+var mongoose = require("mongoose");
+// mongoose.connect("mongodb://localhost:27017/viet-app");
 
 let uri = 'mongodb://heroku_3z5263pd:vjgmcq5q9j1s4mhvj6cjqgdoma@ds151753.mlab.com:51753/heroku_3z5263pd';
 mongoose.connect(uri);
@@ -57,11 +66,11 @@ db.once('open', function callback() {
     // from getContent.js
     mongoose.Promise = global.Promise;
 
-
+    
 })
 
 mainRouter.get("/getContent/books", (req, res) => {
-    return [{id: '1', name: 'Book1'}, {id: '2', name: 'Book2'}]
+    return "hi"
     // Book.find((err, book) => {
     //     if (err) res.send(err)
     //     else res.status(200).json(book)
@@ -81,7 +90,3 @@ mainRouter.get('/getContent/exercises', (req,res) => {
         else res.json(lesson)
     })
 })
-
-// module.exports.Book = require("./Book");
-// module.exports.Lesson = require("./Lesson")
-// module.exports.TestContent = require("./TestContent");
