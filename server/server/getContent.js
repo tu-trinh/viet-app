@@ -26,10 +26,11 @@ var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/viet-app");
 
 getContentRouter.get("/books", (req, res) => {
-    Book.find((err, book) => {
-        if (err) res.send(err)
-        else res.status(200).json(book)
-    })
+    return [{name: 'lol'}]
+    // Book.find((err, book) => {
+    //     if (err) res.send(err)
+    //     else res.status(200).json(book)
+    // })
         
     // if (type === "exercise") {
     //     let idToChange = req.body._id;

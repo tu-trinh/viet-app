@@ -20,7 +20,7 @@ const addContentRouter = require("./addContent")
 const getContentRouter = require("./getContent")
 const mainRouter = require('../models/index')
 app.use('/addContent', addContentRouter)
-app.use('/api/getContent', mainRouter)
+app.use('/api/getContent', getContentRouter)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
