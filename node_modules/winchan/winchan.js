@@ -185,7 +185,7 @@ var WinChan = (function() {
             var d = JSON.parse(e.data);
           } catch(err) {
             if (cb) {
-              cb(err);
+              return cb(err);
             } else {
               throw err;
             }
