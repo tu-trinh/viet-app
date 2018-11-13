@@ -6,7 +6,9 @@ const ID_TOKEN_KEY = 'id_token';
 const ACCESS_TOKEN_KEY = 'access_token';
 const CLIENT_ID = 'zZPp1OHnb392igO9QoGxBnJJ2Ct57tGx';
 const CLIENT_DOMAIN = 'mt-at.auth0.com';
-const REDIRECT = 'http://www.vietclass.org/callback';
+// const REDIRECT = 'http://www.vietclass.org/callback';
+var fullURL = window.location.protocol+'//'+window.location.hostname+(window.location.port ? ':'+ window.location.port: '');
+const REDIRECT = `${fullURL}/callback`;
 const SCOPE = 'Access:app';
 const AUDIENCE = 'https://hoctiengviet.com';
 

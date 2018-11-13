@@ -36,9 +36,6 @@ that looks for an incoming JSON Web Token and verifies
 it against a secret key that we provide.
 */
 // JSON Web Token - Token with a special format
-
-
-
 const authCheck = jwt({
   secret: jwks.expressJwtSecret({
         cache: true,
@@ -53,41 +50,41 @@ const authCheck = jwt({
     algorithms: ['RS256']
 });
 
-app.get('/api/books', authCheck, (req, res) => {
-  let Books = [
-      {
-          id: 'b01',
-          book: 'Sách Cấp 1'
-      },
-      {
-          id: 'b02',
-          book: 'Sách Cấp 2'
-      },
-  ];
-  res.json(Books);
-})
+// app.get('/api/books', (req, res) => {
+//   let Books = [
+//       {
+//           id: 'b01',
+//           book: 'Sách Cấp 1'
+//       },
+//       {
+//           id: 'b02',
+//           book: 'Sách Cấp 2'
+//       },
+//   ];
+//   res.json(Books);
+// })
 
-app.get('/api/:book/lessons', (req, res) => {
-    let Lessons = [
-        {
-          id: 'l01',
-          lesson: 'Bài 1'
-        },
-        {
-          id: 'l02',
-          lesson: 'Bài 2'
-        },
-        {
-          id: 'l03',
-          lesson: 'Bài 3'                                        
-        },
-        {
-          id: 'l04',
-          lesson: 'Bài 4'
-        }
-    ];
-    res.json(Lessons);
-  })
+// app.get('/api/:book/lessons', (req, res) => {
+//     let Lessons = [
+//         {
+//           id: 'l01',
+//           lesson: 'Bài 1'
+//         },
+//         {
+//           id: 'l02',
+//           lesson: 'Bài 2'
+//         },
+//         {
+//           id: 'l03',
+//           lesson: 'Bài 3'                                        
+//         },
+//         {
+//           id: 'l04',
+//           lesson: 'Bài 4'
+//         }
+//     ];
+//     res.json(Lessons);
+//   })
 
 // Need to add to specific collection
 // Make post instead of get
