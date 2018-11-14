@@ -21,7 +21,7 @@
     "webpack": "^3.11.0"
   },
   "scripts": {
-    "heroku-postbuild": "cd client && npm install && npm run build",
+    "heroku-postbuild": "concurrently\"cd client\" \"npm install\" \"npm run build\"",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
