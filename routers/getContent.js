@@ -21,17 +21,20 @@ getContentRouter.use(cors());
 getContentRouter.use(express.json());
 getContentRouter.use(express.urlencoded()); 
 
-getContentRouter.use(function timeLog (req, res, next) {
-    console.log('Time: ', Date.now())
-    next()
-  })
+// getContentRouter.use(function timeLog (req, res, next) {
+//     console.log('Time: ', Date.now())
+//     next()
+//   })
 
 var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/viet-app");
 
 getContentRouter.get("/books", (req, res) => {
-    let Books = [{id: 'idlol', name: 'lol'}, {id: 'idlmao', name: 'lmao'}];
-    res.json(Books);
+    Book.find((err, book) => {
+        if (err) res.send(err)
+        else res.json(book)                      
+    })
+    // let Books = [{id: 'idlol', name: 'lol'}, {id: 'idlmao', name: 'lmao'}];
 });
 
 getContentRouter.get("/lessons", (req, res) => {

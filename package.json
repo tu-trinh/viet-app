@@ -22,12 +22,13 @@
   },
   "scripts": {
     "heroku-postbuild": "concurrently\"cd client\" \"npm install\" \"npm run build\"",
-    "start": "node server.js",
+    "start": "concurrently \"node server.js\" \"cd client && npm start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "engines": {
-    "node": "10.6.0"
+    "node": "10.6.0",
+    "npm": "6.1.0"
   }
 }
