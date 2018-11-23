@@ -9,7 +9,6 @@ const jwks = require('jwks-rsa');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/viet-app";
 const getContentRouter = express.Router();
 
 module.exports = getContentRouter
@@ -25,9 +24,9 @@ getContentRouter.use(express.urlencoded());
 //     console.log('Time: ', Date.now())
 //     next()
 //   })
-
+const mongo_URI = "mongodb://heroku_3z5263pd:vjgmcq5q9j1s4mhvj6cjqgdoma@ds151753.mlab.com:51753/heroku_3z5263pd"//"mongodb://localhost:27017/viet-app"
 var mongoose = require("mongoose");
-mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/viet-app");
+mongoose.Promise = global.Promise;mongoose.connect(mongo_URI);
 
 getContentRouter.get("/books", (req, res) => {
     Book.find((err, book) => {

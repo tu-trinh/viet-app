@@ -31,7 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded()); 
 
 var mongoose = require("mongoose");
-mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/viet-app");
+mongoose.Promise = global.Promise;mongoose.connect("mongodb://heroku_3z5263pd:vjgmcq5q9j1s4mhvj6cjqgdoma@ds151753.mlab.com:51753/heroku_3z5263pd");
 
 /* We’re using express-jwt to create a middleware
 that looks for an incoming JSON Web Token and verifies
