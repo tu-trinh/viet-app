@@ -1,3 +1,5 @@
+// 11/22 reset to when our database stuff wasn't screwed up
+
 const models = require('./models')
 const Book = models.Book;
 const Lesson = models.Lesson;
