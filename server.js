@@ -12,7 +12,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 // var url = "mongodb://localhost:27017/viet-app";
-const PORT = process.env.PORT || 3007;
+const PORT = 3007;
 
 // const host = request.headers.host;
 // console.log("test");
@@ -133,6 +133,10 @@ app.post("/addbook", (req, res) => {
     if (err) res.send(err)
     else res.json(book)                      
   })
+});
+
+app.get("/test", (req, res) => {
+  res.send("Hello");
 });
 
 
