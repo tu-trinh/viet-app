@@ -89,10 +89,10 @@ getContentRouter.get('/exercises', (req,res) => {
     a number to specify the index in allLessons, tho we will have to subtract 1 from it to account
     for 0-indexing. We can also send in other info thru the request to help make this responder more
     dynamic.*/
-    Lesson.findOne({id:'lesson1'}, {exercises: true}, (err, lesson) => {
-        if (err) res.send(err)
-        else res.json(lesson)
-    })
+    // Lesson.findOne({id:'lesson1'}, {exercises: true}, (err, lesson) => {
+    //     if (err) res.send(err)
+    //     else res.json(lesson)
+    // })
 })
 
 // STATUS: CANNOT PROPERLY CONNECT, HOW DO YOU CONNECT NOT TO A SPECIFIC MLAB DB?
