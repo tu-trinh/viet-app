@@ -11,7 +11,7 @@ const jwks = require('jwks-rsa');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/viet-app";
+// var url = "mongodb://localhost:27017/viet-app";
 const PORT = 3007;
 
 // const host = request.headers.host;
@@ -30,9 +30,35 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded()); 
 
-var mongoose = require("mongoose");
-mongoose.Promise = global.Promise;mongoose.connect("mongodb://heroku_3z5263pd:vjgmcq5q9j1s4mhvj6cjqgdoma@ds151753.mlab.com:51753/heroku_3z5263pd");
+// var mongoose = require("mongoose");
+// // const MongoClient = require('mongodb').MongoClient;
+// const url = "mongodb://heroku_3z5263pd:vjgmcq5q9j1s4mhvj6cjqgdoma@ds151753.mlab.com:51753/heroku_3z5263pd"
+// const assert = require('assert');
 
+// MongoClient.connect(url, function(err, client) {
+//   assert.equal(null, err); // checks to see if err == null, otherwise it will throw an error
+//   console.log("Connected successfully to server");
+ 
+//   const db = client.db('viet-app');
+ 
+//   client.close();
+// });
+
+// function connect(url) {
+//   return MongoClient.connect(url).then(client => client.db())
+// }
+
+// db = async function() {
+//   let databases = await Promise.all(connect("mongodb://heroku_3z5263pd:vjgmcq5q9j1s4mhvj6cjqgdoma@ds151753.mlab.com:51753/heroku_3z5263pd"))}
+
+
+// mongoose.Promise = global.Promise;
+// mongoose.connect("mongodb://heroku_3z5263pd:vjgmcq5q9j1s4mhvj6cjqgdoma@ds151753.mlab.com:51753/heroku_3z5263pd")
+// .then(function () {
+//     console.log('Connected to MONGOD !!');
+//   }).catch(function (err) {
+//     console.log('Failed to establish connection with MONGOD !!');
+//     console.log(err.message)});
 /* We’re using express-jwt to create a middleware
 that looks for an incoming JSON Web Token and verifies
 it against a secret key that we provide.
@@ -51,6 +77,7 @@ const authCheck = jwt({
     issuer: 'mt-at.auth0.com',
     algorithms: ['RS256']
 });
+
 
 // app.get('/api/books', (req, res) => {
 //   let Books = [
