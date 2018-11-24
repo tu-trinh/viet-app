@@ -23,7 +23,7 @@ addContentRouter.use(express.urlencoded());
 
 
 var mongoose = require("mongoose");
-mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/viet-app");
+// mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/viet-app");
 
 addContentRouter.post("/:type", (req, res) => {
     var type = req.params.type
