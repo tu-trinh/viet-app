@@ -140,5 +140,6 @@ app.get("/test", (req, res) => {
 });
 
 
-
+console.log('Hello Hello')
+console.log(process.env.PORT)
 app.listen(PORT, () => {console.log('Listening on port ' + PORT)});
