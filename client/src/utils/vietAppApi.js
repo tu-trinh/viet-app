@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3007';
+var PORT = 3007;
+const BASE_URL = window.location.protocol+'//'+window.location.hostname + ':' + PORT
+// WAS: (window.location.port ? ':'+ window.location.port: '');
+// WAS: 'http://localhost:' + PORT;
 
 export {getBookData, getLessonData, getExerciseData};
 
