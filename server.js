@@ -136,6 +136,7 @@ app.post("/addbook", (req, res) => {
 });
 
 app.get("/test", (req, res) => {
+  console.log('TEST RESPONDER REACHED')
   res.send([{id: "bruh1", name:"bruh"},{id: "ree2", name: "ree"},{id: 'k3', name: "k"}]);
 });
 

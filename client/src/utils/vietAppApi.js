@@ -1,8 +1,15 @@
 import axios from 'axios';
 
 var PORT = process.env.PORT || 3007;
-const BASE_URL = ''; //window.location.protocol+'//'+window.location.hostname + ':' + PORT
-// WAS: (window.location.port ? ':'+ window.location.port: '');
+const BASE_URL = process.env.PORT ? '' : 'http://localhost:' + PORT
+
+// if (process.env.PORT) {
+//   BASE_URL = ''
+// }
+// else {
+//   BASE_URL = 'http://localhost:' + PORT;
+// }
+
 // WAS: 'http://localhost:' + PORT;
 
 export {getBookData, getLessonData, getExerciseData};
