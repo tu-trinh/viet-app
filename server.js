@@ -145,7 +145,7 @@ app.get("/test", (req, res) => {
   res.send([{id: "bruh1", name:"bruh"},{id: "ree2", name: "ree"},{id: 'k3', name: "k"}]);
 });
 
-app.get('*', (request, response) => {
+app.get('/', (request, response) => {
 	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
