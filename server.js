@@ -64,10 +64,9 @@ that looks for an incoming JSON Web Token and verifies
 it against a secret key that we provide.
 */
 // JSON Web Token - Token with a special format
-
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/build'));
-}
+var path = require("path");
+app.use(express.static(path.join(__dirname, 'client/build')));
+console.log(__dirname)
 
 const authCheck = jwt({
   secret: jwks.expressJwtSecret({
@@ -145,8 +144,8 @@ app.get("/test", (req, res) => {
   res.send([{id: "bruh1", name:"bruh"},{id: "ree2", name: "ree"},{id: 'k3', name: "k"}]);
 });
 
-app.get('/', (request, response) => {
-	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'client/build/index.html'));
 });
 
 
