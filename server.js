@@ -65,7 +65,7 @@ it against a secret key that we provide.
 */
 // JSON Web Token - Token with a special format
 var path = require("path");
-// app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 console.log(__dirname)
 
 const authCheck = jwt({
