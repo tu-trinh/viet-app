@@ -1,7 +1,15 @@
 import axios from 'axios';
 
 var PORT = process.env.PORT || 3007;
-const BASE_URL = process.env.PORT ? '' : 'http://localhost:' + PORT
+var chooseBase = function () {
+  if (process.env.PORT) {
+    return ''
+  }
+  else {
+    return 'http://localhost:' + PORT
+  }
+}
+const BASE_URL = chooseBase()
 
 // if (process.env.PORT) {
 //   BASE_URL = ''
