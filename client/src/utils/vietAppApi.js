@@ -25,7 +25,7 @@ export {getBookData, getLessonData, getExerciseData};
 // removed ${BASE_URL}
 
 function getBookData() {
-  const url = `${BASE_URL}/test`//api/getContent/books`;
+  const url = `${BASE_URL}/api/getContent/books`;
   return axios.get(url).then(response => response.data);
 }
 
