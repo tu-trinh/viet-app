@@ -9,7 +9,7 @@ var chooseBase = function () {
     return 'http://localhost:' + PORT
   }
 }
-const BASE_URL = chooseBase()
+const BASE_URL = ''
 
 // if (process.env.PORT) {
 //   BASE_URL = ''
