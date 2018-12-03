@@ -15,7 +15,7 @@ var chooseBase = function () {
   // }
 }
 console.log(process.env.PORT)
-const BASE_URL = chooseBase()
+const BASE_URL = ''
 
 // if (process.env.PORT) {
 //   BASE_URL = ''
