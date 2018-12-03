@@ -2,12 +2,17 @@ import axios from 'axios';
 
 var PORT = process.env.PORT || 3007;
 var chooseBase = function () {
-  if (process.env.PORT) {
-    return ''
-  }
+  if (process.env.NODE && ~process.env.NODE.indexOf("heroku"))
+   return ''
   else {
     return 'http://localhost:' + PORT
   }
+  // if (process.env.PORT) {
+  //   return ''
+  // }
+  // else {
+  //   return 'http://localhost:' + PORT
+  // }
 }
 console.log(process.env.PORT)
 const BASE_URL = chooseBase()
