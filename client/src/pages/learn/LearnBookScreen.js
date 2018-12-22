@@ -4,6 +4,7 @@ import LearnButton from './LearnButton';
 import * as api from '../../utils/vietAppApi';
 import {Switch, Route} from 'react-router-dom';
 import LearnLessonScreen from './LearnLessonScreen';
+import { ListGroup, ListGroupItem } from 'reactstrap';
 
 class BookDisplayer extends Component {
   constructor(props) {
@@ -37,9 +38,8 @@ export default class LearnBookScreen extends Component {
     }).then((books) => {
       let names = books.map((book) => {
         return (
-          <div key = {book.id}>
-            <LearnButton newLink = {"/Learn/" + this.adjustLink(book.name)} text = {book.name}/>
-          </div>
+          <ListGroupItem key = {book.id}><LearnButton newLink = {"/Learn/" + this.adjustLink(book.name)} text = {book.name}/></ListGroupItem>
+            // {/* <LearnButton newLink = {"/Learn/" + this.adjustLink(book.name)} text = {book.name}/> */}
         )
       })
       
@@ -52,8 +52,11 @@ export default class LearnBookScreen extends Component {
       <div className="App">
         <TitleBar title = {this.state.screenStatus} color = "purple" backbuttonPath = "no" appear = {false}/>
         <h2 style={{margin: '0px'}}>Your Books</h2>
-        <br/>
-        <div style={{paddingTop: '50px'}}>{this.state.booksToDisplay}</div>
+        <ListGroup style={{paddingTop: '50px'}}>
+        {this.state.booksToDisplay}
+        </ListGroup>
+        {/* {this.state.booksToDisplay} */}
+        {/* <div style={{paddingTop: '50px'}}>{this.state.booksToDisplay}</div> */}
           {/* <Route exact path='/Learn' component={LearnBookScreen}/> */}
       </div>
     );

@@ -3,6 +3,7 @@ import TitleBar from '../TitleBar';
 import LearnButton from './LearnButton';
 import * as api from '../../utils/vietAppApi';
 import { browserHistory } from 'react-router'
+import { ListGroup, ListGroupItem } from 'reactstrap';
 
 export default class LearnLessonScreen extends Component {
   constructor(props) {
@@ -34,7 +35,8 @@ export default class LearnLessonScreen extends Component {
       let names = lessons.map((lessons) => {
         return (
           <div key = {lessons.id}>
-            <LearnButton key = {lessons.id} newLink = {"/Learn/"+ bookToSearch + "/" + this.adjustLink(lessons.name)} text = {lessons.name}/>
+            <ListGroupItem><LearnButton key = {lessons.id} newLink = {"/Learn/"+ bookToSearch + "/" + this.adjustLink(lessons.name) + "/" + this.adjustLink(lessons.exercises[0].name)} text = {lessons.name}/></ListGroupItem>
+          
           </div>
         )
       })
@@ -48,8 +50,7 @@ export default class LearnLessonScreen extends Component {
       <div className="App">
         <TitleBar title = {this.state.screenStatus} color = "purple" backbuttonPath = "/Learn"/>
         <h2 style={{margin: '0px'}}>Your Lessons</h2>
-        <br/>
-        <div style={{paddingTop: '50px'}}>{this.state.lessonsToDisplay}</div>
+        <ListGroup style={{paddingTop: '50px'}}>{this.state.lessonsToDisplay}</ListGroup>
         {/* <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[0] + "/Video"} text = {this.state.lessons[0]}/>
         <br/>
         <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[1] + "/Video"} text = {this.state.lessons[1]}/>

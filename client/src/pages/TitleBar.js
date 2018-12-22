@@ -37,7 +37,7 @@ export default class TitleBar extends Component {
   render() {
     return (
       // Style will be changed later to be dynamic
-        <div className="TitleBar" style = {{height: '12.5%', width:'100%', position: 'fixed', backgroundColor: this.props.color, textAlign: 'center', color: 'white', alignItems: 'center'}}>
+        <div className="TitleBar" style = {{zIndex: '100000', height: '12.5%', width:'100%', position: 'fixed', backgroundColor: this.props.color, textAlign: 'center', color: 'white', alignItems: 'center'}}>
           {
           (isLoggedIn()) ? 
             ( <TitleBarButton

@@ -18,7 +18,7 @@ export default class LearnLessonScreenHandler extends Component {
       return (
         <div>
         <Switch>
-          <Route path='/Learn/:book/:lesson' component={LearnExerciseScreenHandler}/>
+          <Route path='/Learn/:book/:lesson/:exercise' component={LearnExerciseScreenHandler}/>
           <Route path='/Learn/:book' component={LearnLessonScreen}/>
         </Switch>
         </div>

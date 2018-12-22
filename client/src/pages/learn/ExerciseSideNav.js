@@ -17,6 +17,7 @@ import {
 } from 'react-router-dom';
 import VietKey from '../../keyboard/VietKey';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import {ListGroup, ListGroupItem} from 'reactstrap';
 
 // var styles = {
 // }
@@ -78,7 +79,7 @@ export default class ExerciseSideNav extends Component {
       let sideNav = exercises.map((exercise) => {
         return(
           <div key = {exercise.id}>
-            <SideLink key = {exercise.id} newLink = {`/Learn/${this.props.params.book}/${this.props.params.lesson}/${this.adjustLink(exercise.name)}`} text = {exercise.name}/><br/>
+            <ListGroupItem><SideLink key = {exercise.id} newLink = {`/Learn/${this.props.params.book}/${this.props.params.lesson}/${this.adjustLink(exercise.name)}`} text = {exercise.name}/></ListGroupItem>
           </div>
         )
       })
@@ -89,16 +90,15 @@ export default class ExerciseSideNav extends Component {
   render() {
     return (
       <div className="App">
-        <br/>
-        <div>{this.state.sideNavToDisplay}</div>        
+        <ListGroup style = {{zIndex: 8000, width: '17.5%'}}>{this.state.sideNavToDisplay}</ListGroup> 
         {/* <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[0] + "/Video"} text = {this.state.lessons[0]}/>
-        <br/>
+        />
         <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[1] + "/Video"} text = {this.state.lessons[1]}/>
-        <br/>
+        />
         <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[2] + "/Video"} text = {this.state.lessons[2]}/>
-        <br/>
+        />
         <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[3] + "/Video"} text = {this.state.lessons[3]}/> */}
-        <br/>
+        />
       </div>
     );
   }
@@ -131,7 +131,7 @@ export default class ExerciseSideNav extends Component {
 // let sideNav = exercises.map((exercise) => {
 //   return(
 //     <div>
-//       <SideLink newLink = {`/${exercise.name}`} text = {`${exercise.name}`}/><br/>
+//       <SideLink newLink = {`/${exercise.name}`} text = {`${exercise.name}`}/>/>
 //     </div>
 //   )
 // })

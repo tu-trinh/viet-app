@@ -47,9 +47,8 @@ export default class Exercise extends Component {
                 var content = exercise.content
                 return(
                     <Route key = {exercise.id} exact path = {`/Learn/${currentBookAndLesson.book}/${currentBookAndLesson.lesson}/${this.adjustLink(exercise.name)}`}
-                    component = {(exercise) => <div>{ReactHtmlParser(content)} </div>}
+                    component = {(exercise) => <div>{ReactHtmlParser(content)} </div>}/>
                     // {(exercise) => ReactHtmlParser(exercise.content)}
-                    />
                 ) 
             })
             this.setState({exerciseToDisplay: workspace})
@@ -61,7 +60,7 @@ export default class Exercise extends Component {
                 <TitleBar title = {this.adjustName(this.state.currentBookAndLesson.lesson)}
                 color = "purple" backbuttonPath = {"/Learn/" + (this.state.currentBookAndLesson.book)}/>
                 <h2 style={{margin: '0px', paddingTop: '50px'}}>Exercises</h2>
-                <Switch>{this.state.exerciseToDisplay}</Switch>
+                <Switch style = {{zIndex: 1000}}>{this.state.exerciseToDisplay}</Switch>
                 <ExerciseSideNav params = {this.state.currentBookAndLesson}/>
             </div>
         )

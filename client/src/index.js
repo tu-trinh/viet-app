@@ -19,7 +19,7 @@ import {Callback} from './Callback';
 // Test File Imports
 import VietKeyForm from './keyboard/VietKey.js';
 import ExerciseTest from './pages/learn/ExerciseTest'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 ReactDOM.render(
     <Router>
           <Switch>
