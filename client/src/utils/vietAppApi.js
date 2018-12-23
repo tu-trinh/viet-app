@@ -15,7 +15,7 @@ var chooseBase = function () {
   // }
 }
 console.log(process.env.PORT)
-const BASE_URL = '' // 'http://localhost:' + PORT//''
+const BASE_URL = 'http://localhost:' + PORT//''
 
 // if (process.env.PORT) {
 //   BASE_URL = ''
@@ -42,7 +42,7 @@ function getLessonData(book_num) {
   return axios.get(url).then(response => response.data);
 }
  
-function getExerciseData(lesson_id) {
-  const url = `${BASE_URL}/api/getContent/exercises/`
+function getExerciseData(lesson_num) {
+  const url = `${BASE_URL}/api/getContent/exercises/${lesson_num}`
   return axios.get(url).then(response => response.data)
 }

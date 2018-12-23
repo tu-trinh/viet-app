@@ -34,10 +34,15 @@ export default class LearnLessonScreen extends Component {
     }).then((lessons) => {
       let names = lessons.map((lessons) => {
         return (
-          <div key = {lessons.id}>
-            <ListGroupItem><LearnButton key = {lessons.id} newLink = {"/Learn/"+ bookToSearch + "/" + this.adjustLink(lessons.name) + "/" + this.adjustLink(lessons.exercises[0].name)} text = {lessons.name}/></ListGroupItem>
-          
-          </div>
+          <LearnButton key = {lessons.id} style = {{alignItems:'center'}}newLink = {"/Learn/"+ bookToSearch + "/" + this.adjustLink(lessons.name) + "/" + this.adjustLink(lessons.exercises[0].name)} text = {
+
+            
+            <ListGroupItem style ={{width: '500px'}} key = {lessons.id}>
+            <center>{lessons.name}</center>
+            </ListGroupItem>
+
+          }> 
+          </LearnButton>
         )
       })
       
@@ -50,7 +55,9 @@ export default class LearnLessonScreen extends Component {
       <div className="App">
         <TitleBar title = {this.state.screenStatus} color = "purple" backbuttonPath = "/Learn"/>
         <h2 style={{margin: '0px'}}>Your Lessons</h2>
-        <ListGroup style={{paddingTop: '50px'}}>{this.state.lessonsToDisplay}</ListGroup>
+        <ListGroup style={{paddingTop: '50px', alignItems: 'center'}}>
+        {this.state.lessonsToDisplay}
+        </ListGroup>
         {/* <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[0] + "/Video"} text = {this.state.lessons[0]}/>
         <br/>
         <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[1] + "/Video"} text = {this.state.lessons[1]}/>

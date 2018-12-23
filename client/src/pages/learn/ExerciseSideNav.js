@@ -71,16 +71,27 @@ export default class ExerciseSideNav extends Component {
     return link.replace(/ /g, "_");
   }
 
+  getLesson(lesson) {
+    return lesson[lesson.length-1]
+  }
+
   componentWillMount() {
-    api.getExerciseData().then((exercises) => {
+    api.getExerciseData(this.getLesson(this.props.params.lesson)).then((exercises) => {
       console.log(exercises)
       return exercises.exercises
     }).then((exercises) => {
       let sideNav = exercises.map((exercise) => {
         return(
-          <div key = {exercise.id}>
-            <ListGroupItem><SideLink key = {exercise.id} newLink = {`/Learn/${this.props.params.book}/${this.props.params.lesson}/${this.adjustLink(exercise.name)}`} text = {exercise.name}/></ListGroupItem>
-          </div>
+
+          <LearnButton key = {exercise.id} style = {{alignItems:'center'}}newLink = {`/Learn/${this.props.params.book}/${this.props.params.lesson}/${this.adjustLink(exercise.name)}`} text = {
+
+            
+            <ListGroupItem style ={{width: '100%'}} key = {exercise.id}>
+            <center>{exercise.name}</center>
+            </ListGroupItem>
+
+          }> 
+          </LearnButton>
         )
       })
       this.setState({sideNavToDisplay: sideNav})
@@ -90,7 +101,7 @@ export default class ExerciseSideNav extends Component {
   render() {
     return (
       <div className="App">
-        <ListGroup style = {{zIndex: 8000, width: '17.5%'}}>{this.state.sideNavToDisplay}</ListGroup> 
+        <ListGroup style = {{zIndex: 8000, width: '18%'}}>{this.state.sideNavToDisplay}</ListGroup> 
         {/* <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[0] + "/Video"} text = {this.state.lessons[0]}/>
         />
         <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[1] + "/Video"} text = {this.state.lessons[1]}/>
@@ -98,7 +109,6 @@ export default class ExerciseSideNav extends Component {
         <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[2] + "/Video"} text = {this.state.lessons[2]}/>
         />
         <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[3] + "/Video"} text = {this.state.lessons[3]}/> */}
-        />
       </div>
     );
   }

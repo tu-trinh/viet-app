@@ -38,7 +38,15 @@ export default class LearnBookScreen extends Component {
     }).then((books) => {
       let names = books.map((book) => {
         return (
-          <ListGroupItem key = {book.id}><LearnButton newLink = {"/Learn/" + this.adjustLink(book.name)} text = {book.name}/></ListGroupItem>
+          <LearnButton key = {book.id} style = {{alignItems:'center'}}newLink = {"/Learn/" + this.adjustLink(book.name)} text = {
+
+            
+            <ListGroupItem style ={{width: '500px'}} key = {book.id}>
+            <center>{book.name}</center>
+            </ListGroupItem>
+
+          }> 
+          </LearnButton>
             // {/* <LearnButton newLink = {"/Learn/" + this.adjustLink(book.name)} text = {book.name}/> */}
         )
       })
@@ -52,7 +60,7 @@ export default class LearnBookScreen extends Component {
       <div className="App">
         <TitleBar title = {this.state.screenStatus} color = "purple" backbuttonPath = "no" appear = {false}/>
         <h2 style={{margin: '0px'}}>Your Books</h2>
-        <ListGroup style={{paddingTop: '50px'}}>
+        <ListGroup style={{paddingTop: '50px', alignItems: 'center'}}>
         {this.state.booksToDisplay}
         </ListGroup>
         {/* {this.state.booksToDisplay} */}

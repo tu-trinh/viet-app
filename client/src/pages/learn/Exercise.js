@@ -35,10 +35,14 @@ export default class Exercise extends Component {
         return name.replace(/_/g, " ");
     }
 
+    getLesson(lesson) {
+        return lesson[lesson.length-1]
+    }
+
     componentWillMount() {
         var currentBookAndLesson = this.props.match.params
         this.setState({ currentBookAndLesson: currentBookAndLesson})
-        api.getExerciseData().then((exercises) => {
+        api.getExerciseData(this.getLesson(currentBookAndLesson.lesson)).then((exercises) => {
           console.log(exercises)
           return exercises.exercises
         }).then((exercises) => {

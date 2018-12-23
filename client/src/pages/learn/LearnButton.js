@@ -15,7 +15,7 @@ export default class LearnButton extends Component {
 
   render() {
     return (
-      <NavLink to = {this.props.newLink}> {this.props.text} </NavLink>
+      <NavLink to = {this.props.newLink} style = {{alignItems: 'center'}}> {this.props.text} </NavLink>
     );
   }
 }

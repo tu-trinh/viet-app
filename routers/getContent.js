@@ -83,8 +83,9 @@ getContentRouter.get("/lessons", (req, res) => {
     res.send(allLessons)
 });
 
-getContentRouter.get('/exercises', (req,res) => {
-    res.send(allLessons[0])
+getContentRouter.get('/exercises/:lesson_num', (req,res) => {
+    num = req.params.lesson_num
+    res.send(allLessons[num-1])
     /*In the future we can make this dynamic by having the exercise screen send in the request
     a number to specify the index in allLessons, tho we will have to subtract 1 from it to account
     for 0-indexing. We can also send in other info thru the request to help make this responder more
