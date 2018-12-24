@@ -42,7 +42,7 @@ export default class Exercise extends Component {
     componentWillMount() {
         var currentBookAndLesson = this.props.match.params
         this.setState({ currentBookAndLesson: currentBookAndLesson})
-        api.getExerciseData(this.getLesson(currentBookAndLesson.lesson)).then((exercises) => {
+        api.getExerciseData(this.getLesson(currentBookAndLesson.book),this.getLesson(currentBookAndLesson.lesson)).then((exercises) => {
           console.log(exercises)
           return exercises.exercises
         }).then((exercises) => {

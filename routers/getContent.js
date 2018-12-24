@@ -38,7 +38,8 @@ const url = "mongodb://heroku_3z5263pd:vjgmcq5q9j1s4mhvj6cjqgdoma@ds151753.mlab.
 const assert = require('assert');
 
 var allBooks;
-var allLessons;
+var Book1Lessons;
+var Book2Lessons;
 
 const findBooks = function(db, callback) {
     // Get the documents collection
@@ -53,16 +54,29 @@ const findBooks = function(db, callback) {
     });
   }
 
-const findLessons = function(db, callback) {
+const findBook1Lessons = function(db, callback) {
     // Get the documents collection
     const collection = db.collection('Book1-Lessons');
     // Find some documents
     collection.find({}).toArray(function(err, docs) {
         assert.equal(err, null);
-        console.log("Found the following records");
+        console.log("Found the following records - 1st Book");
         console.log(docs)
-        allLessons = docs;
+        Book1Lessons = docs;
     //   callback(docs);
+    });
+}
+
+const findBook2Lessons = function(db, callback) {
+    // Get the documents collection
+    const collection = db.collection('Book2-Lessons');
+    // Find some documents
+    collection.find({}).toArray(function(err, docs) {
+        assert.equal(err, null);
+        console.log("Found the following records - 2nd Book");
+        console.log(docs)
+        Book2Lessons = docs;
+    //callback(docs);
     });
 }
 
@@ -72,20 +86,35 @@ MongoClient.connect(url, function(err, client) {
     
     const db = client.db('heroku_3z5263pd');
     findBooks(db, () => {client.close()})
-    findLessons(db, () => {client.close()})
+    findBook1Lessons(db, () => {client.close()})
+    findBook2Lessons(db, () => {client.close()})
 });
 
 getContentRouter.get("/books", (req, res) => {
     res.send(allBooks)
 });
 
-getContentRouter.get("/lessons", (req, res) => {
-    res.send(allLessons)
+getContentRouter.get("/lessons/:book_num", (req, res) => {
+    var num = req.params.book_num
+    if (num == 1) {
+        res.send(Book1Lessons)
+    }
+    if (num == 2) {
+        res.send(Book2Lessons)
+    }
 });
+// implement dynamic searching for lessons and books
+// pass in to function like u did and then access the database object
 
-getContentRouter.get('/exercises/:lesson_num', (req,res) => {
-    num = req.params.lesson_num
-    res.send(allLessons[num-1])
+getContentRouter.get('/exercises/:book_num/:lesson_num', (req,res) => {
+    book_num = req.params.book_num
+    lesson_num = req.params.lesson_num 
+    if (book_num == 1) {
+        res.send(Book1Lessons[lesson_num-1])
+    }
+    if (book_num == 2) {
+        res.send(Book2Lessons[lesson_num-1])
+    }
     /*In the future we can make this dynamic by having the exercise screen send in the request
     a number to specify the index in allLessons, tho we will have to subtract 1 from it to account
     for 0-indexing. We can also send in other info thru the request to help make this responder more

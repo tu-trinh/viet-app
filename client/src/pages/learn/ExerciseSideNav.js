@@ -76,7 +76,8 @@ export default class ExerciseSideNav extends Component {
   }
 
   componentWillMount() {
-    api.getExerciseData(this.getLesson(this.props.params.lesson)).then((exercises) => {
+    // 
+    api.getExerciseData(this.getLesson(this.props.params.book),this.getLesson(this.props.params.lesson)).then((exercises) => {
       console.log(exercises)
       return exercises.exercises
     }).then((exercises) => {
