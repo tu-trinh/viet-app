@@ -62,7 +62,7 @@ export default class Exercise extends Component {
         return (
             <div>
                 <TitleBar title = {this.adjustName(this.state.currentBookAndLesson.lesson)}
-                color = "purple" backbuttonPath = {"/Learn/" + (this.state.currentBookAndLesson.book)}/>
+                color = "light" backbuttonPath = {"/Learn/" + (this.state.currentBookAndLesson.book)}/>
                 <h2 style={{margin: '0px', paddingTop: '50px'}}>Exercises</h2>
                 <Switch style = {{zIndex: 1000}}>{this.state.exerciseToDisplay}</Switch>
                 <ExerciseSideNav params = {this.state.currentBookAndLesson}/>

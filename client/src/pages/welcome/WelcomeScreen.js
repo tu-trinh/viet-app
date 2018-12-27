@@ -66,7 +66,7 @@ export default class WelcomeScreen extends Component {
   render() {
     return (
       <div className="App">
-        <TitleBar title = {this.state.screenStatus} color = "purple" backbuttonPath = "no" />
+        <TitleBar title = {this.state.screenStatus} color = "light" backbuttonPath = "no" />
         {/* {
           (isLoggedIn()) ? 
             ( <TitleBarButton
@@ -92,7 +92,7 @@ export default class WelcomeScreen extends Component {
             {/* { 
             ( isLoggedIn() ) ? <div><Link to="/Learn">Learn</Link><br/><Link to="/AdminEditor">Admin Editor</Link></div> :  ''
             } */}  
-            <div style={{'top': '91px', 'position': 'relative'}}>
+            <div style={{'top': '0px', 'position': 'relative'}}>
               <video id = "Video" style = {{"width":"100%", '-webkit-filter': 'brightness(.5)', 'filter': 'brightness(.5)'}} loop="true" autoplay="" muted="true" playsinline="">
                 <source src = "https://s3-us-west-1.amazonaws.com/viet-app/Intro+Video+Export.mp4" type = "video/mp4"/>          
               </video>

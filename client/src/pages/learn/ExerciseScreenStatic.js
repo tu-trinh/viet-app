@@ -220,7 +220,7 @@ export default class ExerciseScreen extends Component {
   render() {
     return (    
        <div>
-         <TitleBar title='Lesson 1' color='purple' backbuttonPath = '/Learn/:Book'/>
+         <TitleBar title='Lesson 1' color='light' backbuttonPath = '/Learn/:Book'/>
          <Router>
            <Switch>
              <Route path = "/:learn/:book/:lesson/Video" component={Video}/>
