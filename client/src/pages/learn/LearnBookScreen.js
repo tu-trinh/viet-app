@@ -59,7 +59,7 @@ export default class LearnBookScreen extends Component {
     return (
       <div className="App">
         <TitleBar title = {this.state.screenStatus} color = "light" backbuttonPath = "no" appear = {false}/>
-        <h2 style={{margin: '0px'}}>Your Books</h2>
+        <center><h2 style={{margin: '0px'}}>Your Books</h2></center>
         <ListGroup style={{paddingTop: '50px', alignItems: 'center'}}>
         {this.state.booksToDisplay}
         </ListGroup>

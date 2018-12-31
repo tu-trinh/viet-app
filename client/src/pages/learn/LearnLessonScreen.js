@@ -59,7 +59,7 @@ export default class LearnLessonScreen extends Component {
     return (
       <div className="App">
         <TitleBar title = {this.state.screenStatus} color = "light" backbuttonPath = "/Learn"/>
-        <h2 style={{margin: '0px'}}>Your Lessons</h2>
+        <center><h2 style={{margin: '0px'}}>Your Lessons</h2></center>
         <ListGroup style={{paddingTop: '50px', alignItems: 'center'}}>
         {this.state.lessonsToDisplay}
         </ListGroup>
