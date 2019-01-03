@@ -39,9 +39,9 @@ export default class LearnLessonScreen extends Component {
     }).then((lessons) => {
       let names = lessons.map((lessons) => {
         return (
-          <LearnButton key = {lessons.id} style = {{alignItems:'center'}}newLink = {"/Learn/"+ bookToSearch + "/" + this.adjustLink(lessons.name) + "/" + this.adjustLink(lessons.exercises[0].name)} text = {
+          <LearnButton key = {lessons.id} style = {{alignItems:'center'}}newLink = {"/Learn/"+ bookToSearch + "/" + this.adjustLink(lessons.name) + "/" + lessons.exercises[0].name} text = {
 
-            
+            // this.adjustLink(lessons.name)
             <ListGroupItem style ={{width: '500px'}} key = {lessons.id}>
             <center>{lessons.name}</center>
             </ListGroupItem>
@@ -63,7 +63,7 @@ export default class LearnLessonScreen extends Component {
         <ListGroup style={{paddingTop: '50px', alignItems: 'center'}}>
         {this.state.lessonsToDisplay}
         </ListGroup>
-        {/* <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[0] + "/Video"} text = {this.state.lessons[0]}/>
+        {/* <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[0] + "/Video"} text = {t  his.state.lessons[0]}/>
         <br/>
         <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[1] + "/Video"} text = {this.state.lessons[1]}/>
         <br/>

@@ -84,7 +84,7 @@ export default class ExerciseSideNav extends Component {
       let sideNav = exercises.map((exercise) => {
         return(
 
-          <LearnButton key = {exercise.id} style = {{alignItems:'center'}}newLink = {`/Learn/${this.props.params.book}/${this.props.params.lesson}/${this.adjustLink(exercise.name)}`} text = {
+          <LearnButton key = {exercise.id} style = {{alignItems:'center', zIndex:5000}}newLink = {`/Learn/${this.props.params.book}/${this.props.params.lesson}/${this.adjustLink(exercise.name)}`} text = {
 
             
             <ListGroupItem style ={{width: '100%'}} key = {exercise.id}>

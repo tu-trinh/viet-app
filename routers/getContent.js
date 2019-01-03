@@ -40,6 +40,18 @@ const assert = require('assert');
 var allBooks;
 var Book1Lessons;
 var Book2Lessons;
+var orderer = []
+var newDocs = []
+var order = (docs) => {
+    for (i = 0; i < docs.length; i++) {
+        orderer.push(docs[i].lesson_num)
+        //orderer[docs[i].lesson_num] = docs[i]
+    }
+    orderer.sort()
+    for(i = 0; i < orderer.length; i++) {
+
+    }
+}
 
 const findBooks = function(db, callback) {
     // Get the documents collection
@@ -61,8 +73,10 @@ const findBook1Lessons = function(db, callback) {
     collection.find({}).toArray(function(err, docs) {
         assert.equal(err, null);
         console.log("Found the following records - 1st Book");
-        console.log(docs)
-        Book1Lessons = docs;
+        Book1Lessons = docs.sort(function(a, b){
+            return parseInt(a.lesson_num,10)-parseInt(b.lesson_num,10)
+        })
+        console.log(Book1Lessons)
     //   callback(docs);
     });
 }
@@ -74,8 +88,8 @@ const findBook2Lessons = function(db, callback) {
     collection.find({}).toArray(function(err, docs) {
         assert.equal(err, null);
         console.log("Found the following records - 2nd Book");
-        console.log(docs)
         Book2Lessons = docs;
+        console.log(docs)
     //callback(docs);
     });
 }
