@@ -51,7 +51,7 @@ export default class Exercise extends Component {
                 var content = exercise.content
                 return(
                     <Route key = {exercise.id} exact path = {`/Learn/${currentBookAndLesson.book}/${currentBookAndLesson.lesson}/${this.adjustLink(exercise.name)}`}
-                    component = {(exercise) => <div style = {{float:'right'}}>{ReactHtmlParser(content)} </div>}/>
+                    component = {(exercise) => <div style = {{}}><center>{ReactHtmlParser(content)}</center> </div>}/>
                     // {(exercise) => ReactHtmlParser(exercise.content)}
                 ) 
             })
