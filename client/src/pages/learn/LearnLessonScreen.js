@@ -28,7 +28,7 @@ export default class LearnLessonScreen extends Component {
   }
 
   componentWillMount() {
-    var bookToSearch = this.props.match.params.book
+    var bookToSearch = 'Book_1'//this.props.match.params.book
     console.log(bookToSearch) // Capturing the :book parameter value
     // when you get all the params it will return an object with the key as the param and the value as value.
     // when you name a specific param it will just return the value, maybe as a string I think

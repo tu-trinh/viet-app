@@ -71,17 +71,17 @@ export default class ExerciseSideNav extends Component {
     return link.replace(/ /g, "_");
   }
 
-  getLesson(lesson) {
-    return lesson[lesson.length-1]
+  getNum(text) {
+    return (text.match('[0-9]{2}') ? text.match('[0-9]{2}')[0] : text.match('[0-9]{1}')[0])
   }
 
   componentWillMount() {
-    // 
-    api.getExerciseData(this.getLesson(this.props.params.book),this.getLesson(this.props.params.lesson)).then((exercises) => {
-      console.log(exercises)
+    var sideNav = []
+    var recycleExercises = []
+    api.getExerciseData(this.getNum(this.props.params.book),this.getNum(this.props.params.lesson)).then((exercises) => {
       return exercises.exercises
     }).then((exercises) => {
-      let sideNav = exercises.map((exercise) => {
+      sideNav = exercises.map((exercise) => {
         return(
 
           <LearnButton key = {exercise.id} style = {{alignItems:'center', zIndex:5000}}newLink = {`/Learn/${this.props.params.book}/${this.props.params.lesson}/${this.adjustLink(exercise.name)}`} text = {
@@ -95,8 +95,33 @@ export default class ExerciseSideNav extends Component {
           </LearnButton>
         )
       })
-      this.setState({sideNavToDisplay: sideNav})
+      
+    
     })
+    if (this.getNum(this.props.params.lesson) != 1) {
+      console.log('HEREHERE Side Nav')
+      api.getExerciseData(1,1).then((exercises) => {
+          return exercises.exercises.slice(1)
+      }).then((exercises) => {
+          recycleExercises = exercises.map((exercise) => {
+              // console.log(exercise.content)
+              var content = exercise.content
+              return(
+                <LearnButton key = {exercise.id} style = {{alignItems:'center', zIndex:5000}}newLink = {`/Learn/${this.props.params.book}/${this.props.params.lesson}/${this.adjustLink(exercise.name)}`} text = {
+
+            
+                  <ListGroupItem style ={{width: '100%'}} key = {exercise.id}>
+                  <center>{exercise.name}</center>
+                  </ListGroupItem>
+      
+                }> 
+                </LearnButton>
+              ) 
+          })
+          console.log(sideNav.concat(recycleExercises))
+          this.setState({sideNavToDisplay: sideNav.concat(recycleExercises)})
+      })
+  }
   }
 
   render() {

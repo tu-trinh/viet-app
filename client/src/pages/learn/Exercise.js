@@ -23,7 +23,8 @@ export default class Exercise extends Component {
         super(props);
         this.state = {
             exerciseToDisplay: [],
-            currentBookAndLesson: {}
+            currentBookAndLesson: {},
+            rawExercises: []
         }
     }
 
@@ -35,29 +36,56 @@ export default class Exercise extends Component {
         return name.replace(/_/g, " ");
     }
 
-    getLesson(lesson) {
-        return lesson[lesson.length-1]
+    getNum(text) {
+        return (text.match('[0-9]{2}') ? text.match('[0-9]{2}')[0] : text.match('[0-9]{1}')[0])
     }
     
     componentWillMount() {
-        var currentBookAndLesson = this.props.match.params
+        var rawExercises = []
+        var currentBookAndLesson = {book: "Book_1", lesson: this.props.match.params.lesson}//this.props.match.params
+        console.log(currentBookAndLesson)
         this.setState({ currentBookAndLesson: currentBookAndLesson})
-        api.getExerciseData(this.getLesson(currentBookAndLesson.book),this.getLesson(currentBookAndLesson.lesson)).then((exercises) => {
+        api.getExerciseData(this.getNum(currentBookAndLesson.book),this.getNum(currentBookAndLesson.lesson)).then((exercises) => {
           console.log(exercises)
           return exercises.exercises
         }).then((exercises) => {
             let workspace = exercises.map((exercise) => {
-                console.log(exercise.content)
+                // console.log(exercise.content)
                 var content = exercise.content
+                rawExercises.push(exercise.name)
                 return(
                     <Route key = {exercise.id} exact path = {`/Learn/${currentBookAndLesson.book}/${currentBookAndLesson.lesson}/${this.adjustLink(exercise.name)}`}
                     component = {(exercise) => <div style = {{}}><center>{ReactHtmlParser(content)}</center> </div>}/>
                     // {(exercise) => ReactHtmlParser(exercise.content)}
+                    
                 ) 
             })
-            this.setState({exerciseToDisplay: workspace})
+            
+            var recycleExercises = []
+            if (this.getNum(this.state.currentBookAndLesson.lesson) != 1) {
+                console.log('Exercise.js Other than 1')
+                api.getExerciseData(1,1).then((exercises) => {
+                    return exercises.exercises.slice(1)
+                }).then((exercises) => {
+                    recycleExercises = exercises.map((exercise) => {
+                        // console.log(exercise.content)
+                        rawExercises.push(exercise.name)
+                        var content = exercise.content
+                        return(
+                            <Route key = {exercise.id} exact path = {`/Learn/${currentBookAndLesson.book}/${currentBookAndLesson.lesson}/${this.adjustLink(exercise.name)}`}
+                            component = {(exercise) => <div style = {{}}><center>{ReactHtmlParser(content)}</center> </div>}/>
+                            // {(exercise) => ReactHtmlParser(exercise.content)}
+                        ) 
+                    })
+                    console.log('Exercise.js duplicateRest - ')
+                    console.log(recycleExercises)
+                    
+                })
+            }
+            this.setState({exerciseToDisplay: workspace.concat(recycleExercises), rawExercises: rawExercises})
+            
         })
-    }
+    }   
     render() {
         return (
             <div>
@@ -65,7 +93,7 @@ export default class Exercise extends Component {
                 color = "light" backbuttonPath = {"/Learn/" + (this.state.currentBookAndLesson.book)}/>
                 <h2 style={{margin: '0px', paddingTop: '50px'}}>Exercises</h2>
                 <Switch style = {{zIndex: 1000}}>{this.state.exerciseToDisplay}</Switch>
-                <ExerciseSideNav params = {this.state.currentBookAndLesson}/>
+                <ExerciseSideNav params = {this.state.currentBookAndLesson} rawExercises = {this.state.rawExercises}/>
             </div>
         )
     }
