@@ -98,9 +98,9 @@ export default class ExerciseSideNav extends Component {
       
     
     })
-    if (this.getNum(this.props.params.lesson) != 1) {
+    if (this.getNum(this.props.params.lesson) != 1 ) { // RECYCLE5 Change != 1 to > 5
       console.log('HEREHERE Side Nav')
-      api.getExerciseData(1,1).then((exercises) => {
+      api.getExerciseData(1,1).then((exercises) => { // RECYCLE5 Change second 1 to this.getNum(this.props.params.lesson)%5
           return exercises.exercises.slice(1)
       }).then((exercises) => {
           recycleExercises = exercises.map((exercise) => {

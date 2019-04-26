@@ -62,9 +62,9 @@ export default class Exercise extends Component {
             })
             
             var recycleExercises = []
-            if (this.getNum(this.state.currentBookAndLesson.lesson) != 1) {
-                console.log('Exercise.js Other than 1')
-                api.getExerciseData(1,1).then((exercises) => {
+            if (this.getNum(this.state.currentBookAndLesson.lesson) != 1) { //RECYCLE5 Switch != 1 to > 5
+                console.log('Exercise.js Other than 1-5')
+                api.getExerciseData(1,1).then((exercises) => { // RECYCLE5 Switch second 1 to this.getNum(this.state.currentBookAndLesson.lesson)%5
                     return exercises.exercises.slice(1)
                 }).then((exercises) => {
                     recycleExercises = exercises.map((exercise) => {

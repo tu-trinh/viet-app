@@ -15,7 +15,8 @@ var chooseBase = function () {
   // }
 }
 console.log(process.env.PORT)
-const BASE_URL = 'http://localhost:' + PORT //''
+const BASE_URL = ''//'http://localhost:' + PORT
+// Empty quotes when you are putting on heroku, localhost+Port on local
 
 // if (process.env.PORT) {
 //   BASE_URL = ''
