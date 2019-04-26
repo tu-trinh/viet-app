@@ -56,14 +56,19 @@ var order = (docs) => {
 const findBooks = function(db, callback) {
     // Get the documents collection
     const collection = db.collection('Books');
+    alldocs = []
     // Find some documents
     collection.find({}).toArray(function(err, docs) {
       assert.equal(err, null);
       console.log("Found the following records");
-      console.log(docs)
-      allBooks = docs;
+      alldocs = docs.sort(function(a, b){
+        return parseInt(a.name[5], 10)-parseInt(b.name[5],10)
+      })
+      console.log('A DOC', docs)
+      allBooks = alldocs
     //   callback(docs);
     });
+    console.log('ALLBOOKS', allBooks)
   }
 
 const findBook1Lessons = function(db, callback) {
