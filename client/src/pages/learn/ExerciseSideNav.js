@@ -95,8 +95,6 @@ export default class ExerciseSideNav extends Component {
           </LearnButton>
         )
       })
-      
-    
     })
     if (this.getNum(this.props.params.lesson) != 1 ) { // RECYCLE5 Change != 1 to > 5
       console.log('HEREHERE Side Nav')
