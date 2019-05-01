@@ -96,18 +96,22 @@ export default class ExerciseSideNav extends Component {
         )
       })
     })
-    if (this.getNum(this.props.params.lesson) != 1 ) { // RECYCLE5 Change != 1 to > 5
-      console.log('HEREHERE Side Nav')
+    
+    if (this.getNum(this.props.params.lesson)) { // RECYCLE5 Change != 1 to > 5
       api.getExerciseData(1,1).then((exercises) => { // RECYCLE5 Change second 1 to this.getNum(this.props.params.lesson)%5
-          return exercises.exercises.slice(1)
+          if (this.getNum(this.props.params.lesson) == 1) {
+            return exercises.exercises
+          }
+          else {
+            return exercises.exercises.slice(1)
+          }
       }).then((exercises) => {
           recycleExercises = exercises.map((exercise) => {
               // console.log(exercise.content)
               var content = exercise.content
               return(
-                <LearnButton key = {exercise.id} style = {{alignItems:'center', zIndex:5000}}newLink = {`/Learn/${this.props.params.book}/${this.props.params.lesson}/${this.adjustLink(exercise.name)}`} text = {
+                <LearnButton key = {exercise.id} style = {{alignItems:'center'}}newLink = {`/Learn/${this.props.params.book}/${this.props.params.lesson}/${this.adjustLink(exercise.name)}`} text = {
 
-            
                   <ListGroupItem style ={{width: '100%'}} key = {exercise.id}>
                   <center>{exercise.name}</center>
                   </ListGroupItem>
@@ -119,13 +123,14 @@ export default class ExerciseSideNav extends Component {
           console.log(sideNav.concat(recycleExercises))
           this.setState({sideNavToDisplay: sideNav.concat(recycleExercises)})
       })
-  }
+    }
+    this.setState({sideNavToDisplay: sideNav})
   }
 
   render() {
     return (
       <div className="App">
-        <ListGroup style = {{zIndex: 8000, width: '18%'}}>{this.state.sideNavToDisplay}</ListGroup> 
+        <ListGroup style = {{ width: '18%'}}>{this.state.sideNavToDisplay}</ListGroup> 
         {/* <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[0] + "/Video"} text = {this.state.lessons[0]}/>
         />
         <LearnButton newLink = {"/Learn/:book/" + this.state.lessons[1] + "/Video"} text = {this.state.lessons[1]}/>
