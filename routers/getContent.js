@@ -128,12 +128,16 @@ getContentRouter.get("/lessons/:book_num", (req, res) => {
 getContentRouter.get('/exercises/:book_num/:lesson_num', (req,res) => {
     book_num = req.params.book_num
     lesson_num = req.params.lesson_num 
+    if (book_num == 'rest') {
+        res.send(Book1Lessons[0].exercises.slice(1))
+    }
     if (book_num == 1) {
         res.send(Book1Lessons[lesson_num-1])
     }
     if (book_num == 2) {
         res.send(Book2Lessons[lesson_num-1])
     }
+    
     /*In the future we can make this dynamic by having the exercise screen send in the request
     a number to specify the index in allLessons, tho we will have to subtract 1 from it to account
     for 0-indexing. We can also send in other info thru the request to help make this responder more

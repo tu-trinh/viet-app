@@ -41,54 +41,22 @@ export default class Exercise extends Component {
     }
     
     componentWillMount() {
-        var rawExercises = []
-        var currentBookAndLesson = {book: "Book_1", lesson: this.props.match.params.lesson}//this.props.match.params
-        var workspace = []
-        console.log(currentBookAndLesson)
+        var currentBookAndLesson = this.props.match.params
+        this.setState({ currentBookAndLesson: currentBookAndLesson})
         api.getExerciseData(this.getNum(currentBookAndLesson.book),this.getNum(currentBookAndLesson.lesson)).then((exercises) => {
-            console.log(exercises.exercises)
-            return exercises.exercises
+          return exercises.exercises
         }).then((exercises) => {
-            workspace = exercises.map((exercise) => {
+            let workspace = exercises.map((exercise) => {
                 var content = exercise.content
-                rawExercises.push(exercise.name)
                 return(
                     <Route key = {exercise.id} exact path = {`/Learn/${currentBookAndLesson.book}/${currentBookAndLesson.lesson}/${this.adjustLink(exercise.name)}`}
-                    component = {(exercise) => <div><center>{ReactHtmlParser(content)}</center> </div>}/>
-                    
+                    component = {(exercise) => <div style = {{}}><center>{ReactHtmlParser(content)}</center> </div>}/>
+                    // {(exercise) => ReactHtmlParser(exercise.content)}
                 ) 
             })
+            this.setState({exerciseToDisplay: workspace})
         })
-            
-            
-        var recycleExercises = []
-        if (this.getNum(currentBookAndLesson.lesson)) { //RECYCLE5 Switch != 1 to > 5
-            api.getExerciseData(1,1).then((exercises) => { // RECYCLE5 Switch second 1 to this.getNum(this.state.currentBookAndLesson.lesson)%5
-                if (this.getNum(currentBookAndLesson.lesson) == 1) {
-                    return exercises.exercises
-                }
-                else {
-                    return exercises.exercises.slice(1)
-                }
-            }).then((exercises) => {
-                
-                let blah = exercises.map((exercise) => {
-                    // console.log(exercise.content)
-                    recycleExercises.push(
-                        <Route key = {exercise.id} exact path = {`/Learn/${currentBookAndLesson.book}/${currentBookAndLesson.lesson}/${this.adjustLink(exercise.name)}`}
-                        component = {(exercise) => <div>{ReactHtmlParser(exercise.content)} </div>}/>
-                        // {(exercise) => ReactDeviceOrientationEventHtmlParser(exercise.content)}
-                    ) 
-                    
-                })
-                this.setState({currentBookAndLesson: currentBookAndLesson, exerciseToDisplay: workspace.concat(recycleExercises)})
-                console.log(workspace.concat(recycleExercises))
-                                    
-            })
-        }
-        
-        
-    }   
+    }
     render() {
         return (
             <div>

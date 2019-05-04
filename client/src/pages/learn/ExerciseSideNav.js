@@ -76,17 +76,19 @@ export default class ExerciseSideNav extends Component {
   }
 
   componentWillMount() {
-    var sideNav = []
-    var recycleExercises = []
+    console.log('F AK   ')
     api.getExerciseData(this.getNum(this.props.params.book),this.getNum(this.props.params.lesson)).then((exercises) => {
+      
       return exercises.exercises
     }).then((exercises) => {
-      sideNav = exercises.map((exercise) => {
+      
+      let sideNav = exercises.map((exercise) => {
+        console.log(`/Learn/${this.props.params.book}/${this.props.params.lesson}/${this.adjustLink(exercise.name)}`)
         return(
 
           <LearnButton key = {exercise.id} style = {{alignItems:'center', zIndex:5000}}newLink = {`/Learn/${this.props.params.book}/${this.props.params.lesson}/${this.adjustLink(exercise.name)}`} text = {
-
             
+              
             <ListGroupItem style ={{width: '100%'}} key = {exercise.id}>
             <center>{exercise.name}</center>
             </ListGroupItem>
@@ -95,38 +97,9 @@ export default class ExerciseSideNav extends Component {
           </LearnButton>
         )
       })
+      this.setState({sideNavToDisplay: sideNav})
     })
-    
-    if (this.getNum(this.props.params.lesson)) { // RECYCLE5 Change != 1 to > 5
-      api.getExerciseData(1,1).then((exercises) => { // RECYCLE5 Change second 1 to this.getNum(this.props.params.lesson)%5
-          if (this.getNum(this.props.params.lesson) == 1) {
-            return exercises.exercises
-          }
-          else {
-            return exercises.exercises.slice(1)
-          }
-      }).then((exercises) => {
-          recycleExercises = exercises.map((exercise) => {
-              // console.log(exercise.content)
-              var content = exercise.content
-              return(
-                <LearnButton key = {exercise.id} style = {{alignItems:'center'}}newLink = {`/Learn/${this.props.params.book}/${this.props.params.lesson}/${this.adjustLink(exercise.name)}`} text = {
-
-                  <ListGroupItem style ={{width: '100%'}} key = {exercise.id}>
-                  <center>{exercise.name}</center>
-                  </ListGroupItem>
-      
-                }> 
-                </LearnButton>
-              ) 
-          })
-          console.log(sideNav.concat(recycleExercises))
-          this.setState({sideNavToDisplay: sideNav.concat(recycleExercises)})
-      })
-    }
-    this.setState({sideNavToDisplay: sideNav})
   }
-
   render() {
     return (
       <div className="App">
